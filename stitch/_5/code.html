@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#f7fafc",
+                    "surface-variant": "#e0e3e5",
+                    "primary": "#001629",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#eef1f3",
+                    "surface-container": "#ebeef0",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#5ad8ff",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#73777e",
+                    "on-secondary-fixed": "#001f28",
+                    "secondary-fixed-dim": "#57d5fc",
+                    "on-secondary-container": "#005c72",
+                    "on-primary-fixed": "#001d34",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#005143",
+                    "on-background": "#181c1e",
+                    "on-primary-container": "#7293b6",
+                    "tertiary-fixed-dim": "#50dcbf",
+                    "tertiary": "#001813",
+                    "secondary-fixed": "#b6ebff",
+                    "outline-variant": "#c3c7ce",
+                    "inverse-primary": "#a8caef",
+                    "surface-dim": "#d7dadc",
+                    "background": "#f7fafc",
+                    "surface-container-low": "#f1f4f6",
+                    "on-primary-fixed-variant": "#274969",
+                    "primary-fixed-dim": "#a8caef",
+                    "primary-fixed": "#cfe5ff",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e5e9eb",
+                    "on-tertiary-fixed": "#00201a",
+                    "on-surface-variant": "#42474d",
+                    "on-surface": "#181c1e",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#004e60",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface": "#f7fafc",
+                    "tertiary-fixed": "#71f9db",
+                    "on-error-container": "#93000a",
+                    "secondary": "#00677f",
+                    "primary-container": "#002b49",
+                    "on-tertiary-container": "#00a28a",
+                    "surface-tint": "#406182",
+                    "tertiary-container": "#002f27",
+                    "inverse-surface": "#2d3133"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "unit": "8px",
+                    "section-padding": "80px",
+                    "margin-mobile": "16px",
+                    "container-max": "1280px",
+                    "margin-desktop": "48px",
+                    "stack-sm": "8px",
+                    "stack-lg": "32px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["IBM Plex Sans"],
+                    "label-md": ["IBM Plex Sans"],
+                    "body-lg": ["IBM Plex Sans"],
+                    "label-sm": ["IBM Plex Sans"],
+                    "display-md": ["IBM Plex Sans"],
+                    "headline-lg": ["IBM Plex Sans"],
+                    "display-lg": ["IBM Plex Sans"],
+                    "headline-md": ["IBM Plex Sans"],
+                    "body-md": ["IBM Plex Sans"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display-md": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .technical-gradient {
+            background: linear-gradient(135deg, #00A9CE 0%, #00B398 100%);
+        }
+        .clean-border {
+            border: 1px solid #E2E8F0;
+        }
+    </style>
+</head>
+<body class="bg-surface-bright text-on-surface font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest fixed top-0 w-full z-50 border-b border-outline-variant">
+<nav class="flex flex-row-reverse justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
+<div class="font-headline-md text-headline-md font-bold text-primary">AwjaTech</div>
+<div class="hidden md:flex flex-row-reverse gap-stack-lg items-center">
+<a class="text-on-surface-variant font-body-md hover:text-secondary-container transition-colors duration-200" href="#">الرئيسية</a>
+<a class="text-secondary border-b-2 border-secondary font-bold pb-1 font-body-md" href="#">خدماتنا</a>
+<a class="text-on-surface-variant font-body-md hover:text-secondary-container transition-colors duration-200" href="#">مشاريعنا</a>
+<a class="text-on-surface-variant font-body-md hover:text-secondary-container transition-colors duration-200" href="#">من نحن</a>
+<a class="text-on-surface-variant font-body-md hover:text-secondary-container transition-colors duration-200" href="#">اتصل بنا</a>
+</div>
+<button class="bg-primary-container text-on-primary px-6 py-2 rounded-lg font-label-md hover:opacity-90 transition-all">
+                اطلب عرض سعر
+            </button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[600px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A professional high-angle photograph of a modern airport terminal ceiling featuring sleek, integrated white public address speakers and emergency sirens. The scene is bathed in bright, natural morning light filtering through glass panels, creating a clean, corporate atmosphere with a palette of soft grays and technical whites. The focus is sharp on the engineering details of the acoustic equipment, emphasizing high-end infrastructure and reliable communication technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG8lBerrQHDMMnnFhYJXrD0Kyy9e6wRFcTg7oJIA09MLMP_EtejlltHp65VSgeRHKsc5gjTm7SMLoIAZawjjTxPIx0L9Yuw7gKTqHNAXSekqeUUbfwfRIJ_FC9sTGBqbPXayUdRh65bfHZRtfcdOxyJAfpPs8pWQJVhKVbcvOEwqtG5JkKMqDq8Res3r3_f2mRmeWNecYV2964q5XEpgDTIKaP39SpZxTIYvyf_FnMn_WIVlRHI61zGdPw5mwOhCEDki3gb4yXXTY"/>
+<div class="absolute inset-0 bg-gradient-to-l from-primary/90 to-primary/40"></div>
+</div>
+<div class="relative z-10 w-full px-margin-desktop max-w-container-max mx-auto text-on-primary text-right">
+<div class="max-w-2xl">
+<h1 class="font-display-lg text-display-lg mb-stack-md leading-tight">أنظمة الصوت ومخاطبة الجمهور</h1>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-stack-lg">حلول صوتية نقية وذكية للإذاعة الداخلية والنداء العام، مصممة بأعلى معايير الدقة الهندسية لضمان وصول رسالتك بوضوح تام.</p>
+<div class="flex flex-row-reverse gap-gutter">
+<button class="bg-primary text-on-primary px-stack-lg py-3 font-label-md rounded-lg flex items-center gap-2">
+<span>استشارة مجانية</span>
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<button class="technical-gradient text-on-primary px-stack-lg py-3 font-label-md rounded-lg">شاهد مشاريعنا</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Solutions Bento Grid -->
+<section class="py-section-padding px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">خدماتنا المتكاملة</h2>
+<div class="h-1 w-20 bg-secondary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Card -->
+<div class="md:col-span-7 bg-white clean-border p-10 flex flex-col justify-between group hover:shadow-lg transition-shadow">
+<div>
+<span class="material-symbols-outlined text-4xl text-secondary mb-6" data-icon="record_voice_over">record_voice_over</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">أنظمة الإخلاء الصوتي (EVAC)</h3>
+<p class="text-on-surface-variant mb-6 font-body-md">حلول معتمدة للسلامة تضمن توجيه الجمهور بوضوح خلال حالات الطوارئ مع تكامل كامل مع أنظمة إنذار الحريق.</p>
+</div>
+<img class="rounded-lg h-48 object-cover w-full" data-alt="A detailed technical shot of a professional audio rack in a server room, displaying multiple amplifiers and signal processors with glowing status LEDs in blue and green. The lighting is low and focused, highlighting the metallic texture and precise wiring of the high-fidelity sound equipment. The aesthetic is extremely technical and reliable, emphasizing corporate engineering excellence in a clean-room environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRjqJJeGbtiBpmtvA51-U1Wf7wTsv0plXL79INBdqKDuObg2xoQi-E8xYi2wSaxb9ThIfPwaPlfpNg_QDtrEQo0LqsyGEI9piNgwymKX1xA5ruNbHTSSMGJjeb8VZxyU4UiC26lNJ32FVHhMMd0ZoDOzgtwPNyOwP2lQnwfK71qlttojzbxoxkJE44Tl5JmVZou1IyxO985aH17xTkAEwqhoeuZQhM4iSn3PzlEeoHVMoBvkv4fr1G-Ypgq0gWts1qEswzmzydja8"/>
+</div>
+<!-- Column Cards -->
+<div class="md:col-span-5 grid grid-rows-2 gap-gutter">
+<div class="bg-white clean-border p-8 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-3xl text-secondary mb-4" data-icon="mosque">mosque</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">المدارس والمساجد</h4>
+<p class="text-on-surface-variant font-body-md">أنظمة إذاعة داخلية عالية الأداء لتغطية المساحات الكبيرة وتوزيع الصوت المتوازن.</p>
+</div>
+<div class="bg-white clean-border p-8 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-3xl text-secondary mb-4" data-icon="groups">groups</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">أنظمة المؤتمرات</h4>
+<p class="text-on-surface-variant font-body-md">تجهيزات صوتية متطورة للقاعات والاجتماعات تضمن دقة التقاط وتوزيع الصوت.</p>
+</div>
+</div>
+<!-- Bottom Full Card -->
+<div class="md:col-span-12 bg-primary text-on-primary p-10 flex flex-col md:flex-row items-center gap-10">
+<div class="md:w-1/2">
+<h3 class="font-headline-lg text-headline-lg mb-4">الخلفية الموسيقية (BGM) للمولات</h3>
+<p class="opacity-80 font-body-md mb-6">خلق أجواء صوتية مريحة في المطاعم والمراكز التجارية مع تحكم مركزي وسهولة في إدارة المحتوى.</p>
+<ul class="grid grid-cols-2 gap-4">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span> سماعات مخفية</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span> تحكم بالمناطق</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span> جودة Hi-Fi</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span> تشغيل مستمر</li>
+</ul>
+</div>
+<div class="md:w-1/2">
+<img class="rounded-xl w-full h-64 object-cover" data-alt="A wide-angle lifestyle shot of a luxurious modern shopping mall atrium with minimalist architectural lines. Invisible high-end audio speakers are strategically placed in the clean white ceilings, projecting a sense of ambient background music. The lighting is soft and airy, with a cool-toned professional color palette that feels upscale and inviting, showcasing the seamless integration of technology in public spaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvp1T4_2HzC2E9WMOwIipoet2BTNRMSQ0hXCt9uVWzHT07GjG9MQJJCnUnNpt5DV-1_anILSpCXECCom3d44EBPodoSRboJO4Bv3a6kc1i-JrZkWJ6GC6f-7802jK1dHN1A530j9Q2IZpAg8JD6cfvzQyoQfBU0Wi0zQjUwz9Qfqk2-ElBB0gJF2-LtXb98WaWGcNPlXbCYKfEyvItBlMrBo23b8CjXG5PvEO2VUcS_VWKM6Xiaw6aGdG5Inp4KIMsESmPXonZyqM"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Components Showcase -->
+<section class="bg-surface-container py-section-padding">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row-reverse justify-between items-end mb-12 gap-6">
+<div class="text-right">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">مكونات النظام الاحترافي</h2>
+<p class="text-on-surface-variant">نعتمد على أجود الماركات العالمية لضمان استدامة الأنظمة.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-white p-6 text-center clean-border group">
+<div class="w-16 h-16 technical-gradient rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="settings_input_component">settings_input_component</span>
+</div>
+<h5 class="font-headline-md text-headline-md text-primary mb-2">مكبرات الصوت</h5>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Amplifiers</p>
+</div>
+<div class="bg-white p-6 text-center clean-border group">
+<div class="w-16 h-16 technical-gradient rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="speaker">speaker</span>
+</div>
+<h5 class="font-headline-md text-headline-md text-primary mb-2">السماعات</h5>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Speakers</p>
+</div>
+<div class="bg-white p-6 text-center clean-border group">
+<div class="w-16 h-16 technical-gradient rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="mic">mic</span>
+</div>
+<h5 class="font-headline-md text-headline-md text-primary mb-2">الميكروفونات</h5>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Microphones</p>
+</div>
+<div class="bg-white p-6 text-center clean-border group">
+<div class="w-16 h-16 technical-gradient rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="campaign">campaign</span>
+</div>
+<h5 class="font-headline-md text-headline-md text-primary mb-2">أنظمة النداء</h5>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Paging Systems</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Us Section -->
+<section class="py-section-padding px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row gap-16 items-center">
+<div class="md:w-1/2">
+<img class="rounded-2xl shadow-xl border-8 border-white" data-alt="A macro photograph of an engineer's hand adjusting a sleek control dial on a premium digital audio console. The environment is a modern, high-tech control room with soft ambient lighting and blurred data screens in the background. The image style is professional and precise, using a corporate blue and silver color palette to convey trust, technical expertise, and refined control over complex sound systems." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi_pBD-G_SHxnzU393HvdUKXeNMl8WoiGX77x9tXWO9Kd0RhdhN4ovCspasWJv84JQ7ITTpqA6i3MWOhXmcZEbLY92Xs-k7gKxL0_gDpMN6as1HSxLUug4yObEzW9pA4K_mZLdLThDWd4HgJddEHng9kTRkARzlIK82zCfMlGN3LVPNOeiyZ_UZL1UoOFJPelNEEsdckEMX2x0WdkR5sBxn1VbvKY5r7weO0QgDPFL-RwAO7J3-qed9gx5RlbMoMkqDeuAo-yc_as"/>
+</div>
+<div class="md:w-1/2 text-right">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">لماذا حلول أوجاتيك؟</h2>
+<div class="space-y-8">
+<div class="flex flex-row-reverse gap-4">
+<div class="bg-secondary-container p-3 rounded-lg h-fit">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="graphic_eq">graphic_eq</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary mb-1">وضوح الصوت</h4>
+<p class="text-on-surface-variant font-body-md">تقنيات متقدمة لإلغاء الضوضاء وضمان نقاء الصوت حتى في البيئات المزدحمة.</p>
+</div>
+</div>
+<div class="flex flex-row-reverse gap-4">
+<div class="bg-secondary-container p-3 rounded-lg h-fit">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="tune">tune</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary mb-1">سهولة التحكم</h4>
+<p class="text-on-surface-variant font-body-md">واجهات برمجية بسيطة تتيح للمشغل التحكم في كافة المناطق الصوتية بضغطة زر.</p>
+</div>
+</div>
+<div class="flex flex-row-reverse gap-4">
+<div class="bg-secondary-container p-3 rounded-lg h-fit">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="integration_instructions">integration_instructions</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary mb-1">التكامل الذكي</h4>
+<p class="text-on-surface-variant font-body-md">ربط مباشر مع أنظمة الحريق والأتمتة المنزلية لضمان الاستجابة التلقائية.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+<section class="py-section-padding bg-surface-bright">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">من أعمالنا المنفذة</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="group relative overflow-hidden rounded-xl aspect-square bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A sharp, clear photo of professional audio speakers mounted on the concrete pillars of a large parking garage or warehouse. The lighting is industrial yet clean, highlighting the rugged durability of the sound system. The perspective shows a series of speakers receding into the distance, suggesting a large-scale infrastructure project with precision engineering and uniform sound distribution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAet6bUI2ySIGGpvYMhZ9_8WpnLWqFimhIMdDjkd503FT3QKDcMLQiEi42VjEpvgCK3HAku2AhVPIQHDB7Luss9ME_eTZXrevsAStWxb5SLz0d4Ip6dZIZiSQjHSMFWKRbPYUz3HBAaC4vuS_tS52ZUnasBoLw-oVkfAWts4DA-9epiq9zPaT_q2lhyfr0OH5K_5bHuG96h0D3z7jwQ6ZWudwSjFV5cwzOGZA7b1ezBV9jtZjDs9_shqMHlcVJkuTMLsM29iS1DWgo"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-on-primary font-label-md">مشروع المواقف الذكية</span>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl aspect-square bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A wide, bright view of a high-tech corporate conference room with white tables and ergonomic chairs. A sophisticated array of ceiling-mounted microphones and speakers is visible, integrated into the minimalist aesthetic. The lighting is high-key and professional, reinforcing a sense of innovation and high-clarity communication excellence in a modern business environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvwNhHYQP92BwN5387Xu51L17UkvztkQ7XSGAs6UXAvXC7FfzFaRqTSSUgzq81bjpK6RA6Uwa3JG7q1ayCo4FjJuMq8cQ5VqimEMrHm2r6IJurfEYup9pyKNMhPB2yrYmHj9iURNq4Nl3nM7Xkx0BNkmQoizWqgKkQy2oiT4rnCaM_8tkYC9g0GumLRW3MepxhTud3UFfrwKLMdIj7Tp3ISZscwoHb3dL7383D1J1hrWYGoI4f2sKjQJ__4zjL87EAC_vox8sfmWA"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-on-primary font-label-md">قاعة مؤتمرات كبرى</span>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl aspect-square bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="An interior shot of a grand hotel lobby with high ceilings and warm lighting. Subtly designed speaker grilles are seen blended into the ornate architectural details of the ceiling. The atmosphere is sophisticated and calm, with a palette of beige and gold, showing how professional audio technology can be seamlessly integrated into luxury spaces without disturbing the design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArKr-MjKuCIbHcEMdmU4iUPrvzDzAqaabgOftsdxdVep1WSCuNKjGzVAWG020uV4BevKYUBLQJMpATFE5HmNrq3kTm0jM5M42MC9Rl1EOtf97AM_f0sorp_MnAQiiB8ynNabC13GHuQzvAHlc3tvSCwCuxNW2y0aE4v4DdVhqxQYf8BIPpzVjnwYM5qFw6K3slX8Z7deY3y-PQ2WDl5rdkRjbBstoJn8on-z9DylJol9yeMXDluTfXNZ-zVtsTbDfkZGtF_tBXzrA"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-on-primary font-label-md">فندق ريجنسي</span>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl aspect-square bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A photograph showing the internal PA system console of a modern educational campus or school. The console has multiple zone buttons and a gooseneck microphone, positioned on a clean workstation. The lighting is natural and clear, symbolizing efficient communication and management within a learning environment, with a professional and organized aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf_krQf1_WQEU5iFeeo_IelD9FRoId-EnQXxfvIORshSWVysQCgB3DSczF4yU8AHhCYM2nV8Rm-1h-v9o51CeLMvN0ccfzFLskZlUAHCFGvcgdTChO1DquFkW4SiwEkRFKMKk0ZrSwxhcDgRsuAaloWlJMFyO0D_Yr724SL5oDnCYUYDNeG40CebREsejtqMCprJwCtbm_w0m7rOjDovxkcSsqhij9wJW6S1xLNRdzDbbGLLmtWacj8eZgJqutSQi2jDWkeE8Oez0"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-on-primary font-label-md">مجمع تعليمي متكامل</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-primary-container">
+<div class="flex flex-col md:flex-row-reverse justify-between items-start w-full px-margin-desktop py-stack-lg max-w-container-max mx-auto gap-gutter">
+<div class="flex flex-col gap-4">
+<div class="font-headline-sm text-headline-sm text-on-primary">AwjaTech</div>
+<p class="text-surface-variant opacity-80 max-w-sm">الشركة الرائدة في حلول الهندسة والأنظمة الذكية، نقدم الابتكار بأعلى معايير الجودة العالمية.</p>
+</div>
+<div class="flex flex-wrap gap-stack-lg flex-row-reverse">
+<a class="text-surface-variant opacity-80 hover:text-white transition-opacity font-body-sm" href="#">الخدمات الهندسية</a>
+<a class="text-surface-variant opacity-80 hover:text-white transition-opacity font-body-sm" href="#">أنظمة التيار المنخفض</a>
+<a class="text-surface-variant opacity-80 hover:text-white transition-opacity font-body-sm" href="#">سياسة الخصوصية</a>
+<a class="text-surface-variant opacity-80 hover:text-white transition-opacity font-body-sm" href="#">الشروط والأحكام</a>
+</div>
+<div class="text-surface-variant opacity-80 font-body-sm text-right">
+                © 2024 AwjaTech. جميع الحقوق محفوظة لشركة أوجا تيك للهندسة.
+            </div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for gallery hover or scroll reveal
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+                observer.observe(section);
+            });
+        });
+    </script>
+</body></html>

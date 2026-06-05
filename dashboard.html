@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لوحة تحكم العميل | AwjaTech أوجاتيك</title>
+  <meta name="description" content="بوابة عملاء أوجاتيك لإدارة الخدمات التقنية وتذاكر الدعم والصيانة والمشروعات الفنية." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- CSS Custom Files -->
+  <link rel="stylesheet" href="css/design-tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  
+  <style>
+    /* Custom inline styles for dashboard interactivity */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: var(--font-label-sm-size);
+      font-weight: 600;
+    }
+    .status-badge.success {
+      background-color: rgba(0, 179, 152, 0.1);
+      color: var(--color-success);
+    }
+    .status-badge.warning {
+      background-color: rgba(251, 188, 5, 0.1);
+      color: #b08200;
+    }
+    .status-badge.danger {
+      background-color: rgba(186, 26, 26, 0.1);
+      color: var(--color-error);
+    }
+    
+    .ticket-list-item {
+      padding: var(--space-4);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-3);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      background-color: #ffffff;
+    }
+    .ticket-list-item:hover {
+      border-color: var(--color-secondary);
+      box-shadow: var(--shadow-level2);
+    }
+    .ticket-list-item.active {
+      border-color: var(--brand-corporate-blue);
+      background-color: var(--color-surface-container-lowest);
+      box-shadow: var(--shadow-level2);
+    }
+    
+    .ticket-chat-window {
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-xl);
+      background: #ffffff;
+      height: 480px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .ticket-chat-header {
+      padding: var(--space-4) var(--space-6);
+      border-bottom: 1px solid var(--color-border-light);
+      background-color: var(--color-surface-container-low);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .ticket-chat-messages {
+      flex: 1;
+      padding: var(--space-6);
+      overflow-y: auto;
+      background-color: var(--color-surface-container-lowest);
+    }
+    .chat-msg {
+      max-width: 75%;
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-4);
+      line-height: 1.4;
+    }
+    .chat-msg.client {
+      background-color: var(--brand-corporate-blue);
+      color: #ffffff;
+      margin-right: auto;
+      border-bottom-left-radius: 2px;
+    }
+    .chat-msg.support {
+      background-color: var(--color-surface-container);
+      color: var(--color-on-surface);
+      margin-left: auto;
+      border-bottom-right-radius: 2px;
+    }
+    .ticket-chat-footer {
+      padding: var(--space-4);
+      border-top: 1px solid var(--color-border-light);
+      display: flex;
+      gap: var(--space-3);
+      background: #ffffff;
+    }
+    
+    /* Modal styles */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: var(--z-modal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all var(--transition-base);
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-container {
+      background-color: #ffffff;
+      border-radius: var(--radius-xl);
+      width: min(540px, 95%);
+      box-shadow: var(--shadow-level3);
+      overflow: hidden;
+      transform: translateY(-20px);
+      transition: transform var(--transition-base);
+    }
+    .modal-overlay.open .modal-container {
+      transform: translateY(0);
+    }
+    .modal-header {
+      padding: var(--space-4) var(--space-6);
+      background-color: var(--color-surface-container-low);
+      border-bottom: 1px solid var(--color-border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-body {
+      padding: var(--space-6);
+    }
+    
+    /* New Client Dashboard Interactivity Styles */
+    .unread-notification {
+      border-right: 3px solid var(--brand-cyan);
+    }
+    
+    /* Mobile Responsive Sidebar */
+    .hamburger-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--color-on-surface);
+      cursor: pointer;
+      padding: var(--space-2);
+      border-radius: var(--radius-md);
+      transition: background-color var(--transition-fast);
+      align-items: center;
+      justify-content: center;
+    }
+    .hamburger-btn:hover {
+      background-color: var(--color-surface-container);
+    }
+    
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .spin {
+      display: inline-block;
+    }
+    
+    @media (max-width: 991px) {
+      .hamburger-btn {
+        display: flex !important;
+      }
+      .dashboard-sidebar {
+        display: none !important;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 280px;
+        z-index: 1001;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
+        animation: slideInRight 0.3s ease-out;
+      }
+      .dashboard-sidebar.open {
+        display: flex !important;
+      }
+    }
+    
+    @keyframes slideInRight {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div class="dashboard-logo" style="justify-content: space-between; width: 100%;">
+        <div class="flex items-center gap-3">
+          <img src="assets/images/logo-white.svg" alt="AwjaTech Logo White" />
+          <span class="logo-text" style="color: #ffffff; font-size: 22px;">AwjaTech</span>
+        </div>
+        <button id="btn-sidebar-close" style="display: none; background: none; border: none; color: white; cursor: pointer;">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <nav class="dashboard-menu">
+        <div class="dashboard-menu-item active" data-target="section-overview">
+          <span class="material-symbols-outlined">dashboard</span>
+          نظرة عامة
+        </div>
+        <div class="dashboard-menu-item" data-target="section-services">
+          <span class="material-symbols-outlined">hub</span>
+          خدماتي النشطة
+        </div>
+        <div class="dashboard-menu-item" data-target="section-tickets">
+          <span class="material-symbols-outlined">support_agent</span>
+          تذاكر الدعم والصيانة
+        </div>
+        <div class="dashboard-menu-item" data-target="section-invoices">
+          <span class="material-symbols-outlined">receipt_long</span>
+          الفواتير والمدفوعات
+        </div>
+        <div class="dashboard-menu-item" data-target="section-notifications" style="justify-content: space-between;">
+          <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined">notifications</span>
+            <span>الإشعارات</span>
+          </div>
+          <span class="nav-badge" id="notifications-badge" style="background: var(--color-error); color: white; border-radius: 50%; padding: 2px 8px; font-size: 11px; font-weight: 700; display: none;">0</span>
+        </div>
+        <div class="dashboard-menu-item" data-target="section-documents">
+          <span class="material-symbols-outlined">folder_open</span>
+          الوثائق والعقود
+        </div>
+        <div class="dashboard-menu-item" data-target="section-settings">
+          <span class="material-symbols-outlined">settings</span>
+          الإعدادات الشخصية
+        </div>
+      </nav>
+
+      <!-- User Card -->
+      <div class="dashboard-user-card">
+        <div class="dashboard-user-avatar" id="user-avatar">ع</div>
+        <div>
+          <h4 class="body-md text-white" id="user-name-display" style="font-weight: 700; margin-bottom: 2px;">عميل أوجاتيك</h4>
+          <p class="label-sm" id="user-email-display" style="opacity: 0.7;">client@company.com</p>
+        </div>
+        <button id="btn-logout" style="background: none; border: none; color: #ff8b8b; cursor: pointer; margin-right: auto; display: flex; align-items: center;" title="تسجيل الخروج">
+          <span class="material-symbols-outlined">logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="dashboard-main">
+      
+      <!-- Top Header -->
+      <header class="dashboard-header">
+        <div class="flex items-center gap-3">
+          <button class="hamburger-btn" id="btn-hamburger">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+          <h2 class="headline-md" id="dashboard-title">لوحة التحكم</h2>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="material-symbols-outlined" style="cursor: pointer; color: var(--color-on-surface-variant);" title="التنبيهات">notifications</span>
+          <button class="btn btn-primary" id="btn-open-ticket-modal">
+            <span class="material-symbols-outlined">add</span>
+            فتح تذكرة صيانة جديدة
+          </button>
+        </div>
+      </header>
+
+      <!-- Content Area -->
+      <div class="dashboard-content-area">
+        
+        <!-- SECTION 1: OVERVIEW -->
+        <section class="dashboard-section active" id="section-overview">
+          
+          <!-- Stats Grid -->
+          <div class="grid-3 mb-6">
+            <div class="dashboard-card dashboard-stat-card">
+              <div>
+                <p class="label-md text-on-surface-variant">الخدمات النشطة</p>
+                <h3 class="display-md" style="margin-top: 4px; color: var(--color-primary);">4</h3>
+              </div>
+              <div class="dashboard-stat-icon" style="background-color: rgba(0, 169, 206, 0.1); color: var(--brand-cyan);">
+                <span class="material-symbols-outlined">layers</span>
+              </div>
+            </div>
+            
+            <div class="dashboard-card dashboard-stat-card">
+              <div>
+                <p class="label-md text-on-surface-variant">تذاكر صيانة معلقة</p>
+                <h3 class="display-md" id="overview-pending-tickets" style="margin-top: 4px; color: var(--color-primary);">1</h3>
+              </div>
+              <div class="dashboard-stat-icon" style="background-color: rgba(251, 188, 5, 0.1); color: #b08200;">
+                <span class="material-symbols-outlined">pending_actions</span>
+              </div>
+            </div>
+
+            <div class="dashboard-card dashboard-stat-card">
+              <div>
+                <p class="label-md text-on-surface-variant">تذاكر تمت تسويتها</p>
+                <h3 class="display-md" id="overview-resolved-tickets" style="margin-top: 4px; color: var(--color-primary);">3</h3>
+              </div>
+              <div class="dashboard-stat-icon" style="background-color: rgba(0, 179, 152, 0.1); color: var(--color-success);">
+                <span class="material-symbols-outlined">task_alt</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Columns: Graphic Chart + Recent Activity -->
+          <div class="grid-2">
+            <div class="dashboard-card">
+              <h3 class="headline-md mb-4" style="color: var(--color-primary);">معدل استهلاك الشبكة والدعم</h3>
+              <!-- Simple Responsive SVG Chart placeholder -->
+              <svg viewBox="0 0 400 180" style="width: 100%; height: auto;">
+                <rect width="400" height="180" fill="var(--color-surface-container-low)" rx="8"></rect>
+                <path d="M 30 140 Q 90 90 150 110 T 270 50 T 370 70" fill="none" stroke="var(--brand-cyan)" stroke-width="4" stroke-linecap="round"></path>
+                <path d="M 30 140 Q 90 120 150 130 T 270 90 T 370 120" fill="none" stroke="var(--brand-green)" stroke-width="3" stroke-linecap="round" opacity="0.6"></path>
+                <line x1="30" y1="20" x2="30" y2="150" stroke="var(--color-outline-variant)"></line>
+                <line x1="30" y1="150" x2="380" y2="150" stroke="var(--color-outline-variant)"></line>
+                <text x="380" y="165" font-size="10" fill="var(--color-outline)" text-anchor="middle">الآن</text>
+                <text x="270" y="165" font-size="10" fill="var(--color-outline)" text-anchor="middle">الأسبوع الماضي</text>
+                <text x="150" y="165" font-size="10" fill="var(--color-outline)" text-anchor="middle">قبل أسبوعين</text>
+                <text x="30" y="165" font-size="10" fill="var(--color-outline)" text-anchor="middle">الشهر الماضي</text>
+              </svg>
+              <div class="flex gap-4 justify-center mt-4">
+                <span class="flex items-center gap-2 label-md"><span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:var(--brand-cyan);"></span>تغطية الكاميرات والشبكات</span>
+                <span class="flex items-center gap-2 label-md"><span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:var(--brand-green);"></span>تذاكر الصيانة المستقرة</span>
+              </div>
+            </div>
+
+            <div class="dashboard-card">
+              <h3 class="headline-md mb-4" style="color: var(--color-primary);">أحدث النشاطات</h3>
+              <div class="space-y-4">
+                <div class="flex gap-4 items-center" style="border-bottom: 1px solid var(--color-border-light); padding-bottom: var(--space-3);">
+                  <span class="material-symbols-outlined" style="color: var(--color-success);">check_circle</span>
+                  <div>
+                    <h4 class="body-md" style="font-weight: 600;">تمت تسوية تذكرة الصيانة رقم TKT-3342</h4>
+                    <p class="label-md text-on-surface-variant">المهندس زياد أحمد أتم صيانة كاميرا المراقبة رقم 4 بالفرع.</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-4 items-center" style="border-bottom: 1px solid var(--color-border-light); padding-bottom: var(--space-3);">
+                  <span class="material-symbols-outlined" style="color: var(--brand-cyan);">info</span>
+                  <div>
+                    <h4 class="body-md" style="font-weight: 600;">طلب صيانة مجدول لأنظمة الصوت</h4>
+                    <p class="label-md text-on-surface-variant">تم تحديد موعد الفحص الوقائي لأنظمة الصوت يوم الأحد القادم.</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-4 items-center">
+                  <span class="material-symbols-outlined" style="color: var(--color-success);">receipt_long</span>
+                  <div>
+                    <h4 class="body-md" style="font-weight: 600;">فاتورة تجديد عقد صيانة كاميرات المراقبة</h4>
+                    <p class="label-md text-on-surface-variant">عقد الصيانة السنوي ساري الصلاحية حتى نهاية عام 2026.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 2: SERVICES -->
+        <section class="dashboard-section" id="section-services">
+          <div class="dashboard-card">
+            <h3 class="headline-md mb-6" style="color: var(--color-primary);">قائمة الأنظمة والخدمات المفعلة</h3>
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>اسم الخدمة / النظام</th>
+                  <th>المكونات والتجهيزات</th>
+                  <th>الحالة الفنية</th>
+                  <th>تاريخ انتهاء الضمان</th>
+                  <th>الإجراءات</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-weight: 600;">نظام كاميرات المراقبة IP</td>
+                  <td>12 كاميرا 4K ذكية، جهاز NVR 32CH، تخرين 8TB</td>
+                  <td><span class="status-badge success"><span class="material-symbols-outlined" style="font-size: 14px; font-variation-settings: 'FILL' 1;">check_circle</span>نشط</span></td>
+                  <td>2028-05-10</td>
+                  <td><button class="btn btn-ghost" style="padding: 4px 12px; font-size:12px;">طلب صيانة</button></td>
+                </tr>
+                <tr>
+                  <td style="font-weight: 600;">حلول الشبكات والـ Wi-Fi</td>
+                  <td>3 نقاط اتصال Aruba، Switch PoE 24Port، Firewall Fortinet</td>
+                  <td><span class="status-badge success"><span class="material-symbols-outlined" style="font-size: 14px; font-variation-settings: 'FILL' 1;">check_circle</span>نشط</span></td>
+                  <td>2028-05-10</td>
+                  <td><button class="btn btn-ghost" style="padding: 4px 12px; font-size:12px;">طلب صيانة</button></td>
+                </tr>
+                <tr>
+                  <td style="font-weight: 600;">نظام التحكم بالوصول للبوابة</td>
+                  <td>بوابة دخول دوارة، جهاز بصمة وجه Suprema، قفل مغناطيسي</td>
+                  <td><span class="status-badge success"><span class="material-symbols-outlined" style="font-size: 14px; font-variation-settings: 'FILL' 1;">check_circle</span>نشط</span></td>
+                  <td>2028-05-10</td>
+                  <td><button class="btn btn-ghost" style="padding: 4px 12px; font-size:12px;">طلب صيانة</button></td>
+                </tr>
+                <tr>
+                  <td style="font-weight: 600;">النداء الصوتي الذكي</td>
+                  <td>مكبر صوت Bosch 240W، 8 سماعات سقف، ميكروفون نداء</td>
+                  <td><span class="status-badge warning"><span class="material-symbols-outlined" style="font-size: 14px; font-variation-settings: 'FILL' 1;">pending</span>صيانة مجدولة</span></td>
+                  <td>2028-05-10</td>
+                  <td><button class="btn btn-primary" style="padding: 4px 12px; font-size:12px;">تفاصيل الموعد</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- SECTION 3: TICKETS -->
+        <section class="dashboard-section" id="section-tickets">
+          <div class="grid-12">
+            
+            <!-- Left Side: Tickets List (4 columns) -->
+            <div class="col-4 space-y-3" id="tickets-list-container">
+              <!-- Rendered via JS from localStorage -->
+            </div>
+
+            <!-- Right Side: Chat Window (8 columns) -->
+            <div class="col-8">
+              <div class="ticket-chat-window" id="ticket-chat-box">
+                <div class="ticket-chat-header" id="chat-header-info">
+                  <div>
+                    <h4 class="headline-md" style="font-size: 18px;">اختر تذكرة لمشاهدة التفاصيل والمتابعة</h4>
+                    <p class="label-md text-on-surface-variant">حدد تذكرة صيانة من القائمة الجانبية للتحدث مع المهندسين.</p>
+                  </div>
+                </div>
+                <div class="ticket-chat-messages" id="chat-messages-container">
+                  <div class="flex justify-center items-center" style="height: 100%; color: var(--color-outline);">
+                    <div style="text-align: center;">
+                      <span class="material-symbols-outlined" style="font-size: 48px;">chat</span>
+                      <p class="body-md mt-2">لا توجد محادثة نشطة حالياً</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="ticket-chat-footer hidden" id="chat-input-bar">
+                  <input class="form-input" style="flex:1;" type="text" id="chat-message-input" placeholder="اكتب ردك هنا للمهندس المختص..." />
+                  <button class="btn btn-primary" id="btn-send-chat-msg">إرسال الرد</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SECTION 4: INVOICES -->
+        <section class="dashboard-section" id="section-invoices">
+          <!-- Billing Stats Grid -->
+          <div class="grid-3 mb-6">
+            <div class="dashboard-card dashboard-stat-card">
+              <div>
+                <p class="label-md text-on-surface-variant">إجمالي المبالغ المدفوعة</p>
+                <h3 class="display-md" id="client-total-paid" style="margin-top: 4px; color: var(--color-success);">0 ر.س</h3>
+              </div>
+              <div class="dashboard-stat-icon" style="background-color: rgba(0, 179, 152, 0.1); color: var(--color-success);">
+                <span class="material-symbols-outlined">check_circle</span>
+              </div>
+            </div>
+            
+            <div class="dashboard-card dashboard-stat-card">
+              <div>
+                <p class="label-md text-on-surface-variant">الفواتير المستحقة (المعلقة)</p>
+                <h3 class="display-md" id="client-total-pending" style="margin-top: 4px; color: #b08200;">0 ر.س</h3>
+              </div>
+              <div class="dashboard-stat-icon" style="background-color: rgba(251, 188, 5, 0.1); color: #b08200;">
+                <span class="material-symbols-outlined">pending_actions</span>
+              </div>
+            </div>
+
+            <div class="dashboard-card dashboard-stat-card">
+              <div>
+                <p class="label-md text-on-surface-variant">الفواتير المتأخرة</p>
+                <h3 class="display-md" id="client-total-overdue" style="margin-top: 4px; color: var(--color-error);">0 ر.س</h3>
+              </div>
+              <div class="dashboard-stat-icon" style="background-color: rgba(186, 26, 26, 0.1); color: var(--color-error);">
+                <span class="material-symbols-outlined">warning</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-card">
+            <h3 class="headline-md mb-6" style="color: var(--color-primary);">تفاصيل الفواتير والمدفوعات</h3>
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>رقم الفاتورة</th>
+                  <th>البيان / الخدمة</th>
+                  <th>المبلغ (ر.س)</th>
+                  <th>تاريخ الإصدار</th>
+                  <th>الحالة</th>
+                  <th>الإجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="client-invoices-tbody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- SECTION 5: NOTIFICATIONS -->
+        <section class="dashboard-section" id="section-notifications">
+          <div class="dashboard-card">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="headline-md" style="color: var(--color-primary); margin: 0;">مركز الإشعارات</h3>
+              <button class="btn btn-ghost" id="btn-clear-notifications" style="font-size: 13px; padding: 6px 14px;">
+                <span class="material-symbols-outlined" style="font-size: 18px;">done_all</span>
+                تحديد الكل كمقروء
+              </button>
+            </div>
+            <div class="space-y-4" id="notifications-list-container">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 6: DOCUMENTS -->
+        <section class="dashboard-section" id="section-documents">
+          <div class="dashboard-card">
+            <h3 class="headline-md mb-6" style="color: var(--color-primary);">الوثائق الهندسية والعقود</h3>
+            <p class="body-md text-on-surface-variant mb-6">يمكنك هنا تحميل المخططات الفنية، وعقود الخدمة والصيانة، وكتيبات التشغيل الخاصة بالأنظمة المفعلة في منشأتك.</p>
+            
+            <div class="grid-2" id="documents-grid">
+              <!-- Document 1 -->
+              <div class="dashboard-card" style="padding: var(--space-4); display: flex; align-items: center; gap: var(--space-4); margin-bottom: 0; border-color: var(--color-border-light);">
+                <div style="background-color: rgba(186, 26, 26, 0.1); color: var(--color-error); padding: 12px; border-radius: var(--radius-lg); display: flex; align-items: center;">
+                  <span class="material-symbols-outlined" style="font-size: 32px;">picture_as_pdf</span>
+                </div>
+                <div style="flex: 1;">
+                  <h4 class="body-md" style="font-weight: 700; color: var(--color-primary);">عقد الصيانة السنوي الموحد</h4>
+                  <p class="label-md text-on-surface-variant">الحجم: 2.4 ميجابايت • صيغة: PDF • تاريخ الرفع: 2026-05-10</p>
+                </div>
+                <button class="btn btn-ghost btn-download" data-filename="عقد_الصيانة_السنوي.pdf" style="padding: var(--space-2) var(--space-4);">
+                  <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+                  تحميل
+                </button>
+              </div>
+
+              <!-- Document 2 -->
+              <div class="dashboard-card" style="padding: var(--space-4); display: flex; align-items: center; gap: var(--space-4); margin-bottom: 0; border-color: var(--color-border-light);">
+                <div style="background-color: rgba(0, 169, 206, 0.1); color: var(--brand-cyan); padding: 12px; border-radius: var(--radius-lg); display: flex; align-items: center;">
+                  <span class="material-symbols-outlined" style="font-size: 32px;">schema</span>
+                </div>
+                <div style="flex: 1;">
+                  <h4 class="body-md" style="font-weight: 700; color: var(--color-primary);">المخططات الفنية وتجهيزات الكاميرات</h4>
+                  <p class="label-md text-on-surface-variant">الحجم: 5.8 ميجابايت • صيغة: PDF • تاريخ الرفع: 2026-05-11</p>
+                </div>
+                <button class="btn btn-ghost btn-download" data-filename="المخططات_الفنية.pdf" style="padding: var(--space-2) var(--space-4);">
+                  <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+                  تحميل
+                </button>
+              </div>
+
+              <!-- Document 3 -->
+              <div class="dashboard-card" style="padding: var(--space-4); display: flex; align-items: center; gap: var(--space-4); margin-bottom: 0; border-color: var(--color-border-light);">
+                <div style="background-color: rgba(251, 188, 5, 0.1); color: #b08200; padding: 12px; border-radius: var(--radius-lg); display: flex; align-items: center;">
+                  <span class="material-symbols-outlined" style="font-size: 32px;">menu_book</span>
+                </div>
+                <div style="flex: 1;">
+                  <h4 class="body-md" style="font-weight: 700; color: var(--color-primary);">كتيب تشغيل نظام النداء الصوتي Bosch</h4>
+                  <p class="label-md text-on-surface-variant">الحجم: 1.2 ميجابايت • صيغة: PDF • تاريخ الرفع: 2026-05-12</p>
+                </div>
+                <button class="btn btn-ghost btn-download" data-filename="كتيب_نظام_الصوت.pdf" style="padding: var(--space-2) var(--space-4);">
+                  <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+                  تحميل
+                </button>
+              </div>
+
+              <!-- Document 4 -->
+              <div class="dashboard-card" style="padding: var(--space-4); display: flex; align-items: center; gap: var(--space-4); margin-bottom: 0; border-color: var(--color-border-light);">
+                <div style="background-color: rgba(0, 179, 152, 0.1); color: var(--color-success); padding: 12px; border-radius: var(--radius-lg); display: flex; align-items: center;">
+                  <span class="material-symbols-outlined" style="font-size: 32px;">verified_user</span>
+                </div>
+                <div style="flex: 1;">
+                  <h4 class="body-md" style="font-weight: 700; color: var(--color-primary);">شهادة إنجاز واجتياز الفحص الهندسي</h4>
+                  <p class="label-md text-on-surface-variant">الحجم: 980 كيلوبايت • صيغة: PDF • تاريخ الرفع: 2026-05-15</p>
+                </div>
+                <button class="btn btn-ghost btn-download" data-filename="شهادة_إنجاز_الأعمال.pdf" style="padding: var(--space-2) var(--space-4);">
+                  <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+                  تحميل
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 7: SETTINGS -->
+        <section class="dashboard-section" id="section-settings">
+          <div class="dashboard-card" style="max-width: 600px;">
+            <h3 class="headline-md mb-6" style="color: var(--color-primary);">تعديل البيانات الشخصية</h3>
+            <form id="form-settings" class="space-y-4">
+              <div class="form-group">
+                <label class="form-label" for="settings-name">الاسم الكريم</label>
+                <input class="form-input" type="text" id="settings-name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="settings-email">البريد الإلكتروني للعمل</label>
+                <input class="form-input" type="email" id="settings-email" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="settings-phone">رقم الجوال</label>
+                <input class="form-input" type="tel" id="settings-phone" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="settings-password">كلمة المرور الجديدة</label>
+                <input class="form-input" type="password" id="settings-password" placeholder="أدخل كلمة مرور جديدة للتعديل" />
+              </div>
+              <button class="btn btn-primary btn-lg" type="submit">حفظ التغييرات</button>
+            </form>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- ─── Modal Open Ticket ─── -->
+  <div class="modal-overlay" id="ticket-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="headline-md" style="font-size: 18px;">فتح تذكرة صيانة جديدة</h3>
+        <span class="material-symbols-outlined" style="cursor:pointer;" id="btn-close-ticket-modal">close</span>
+      </div>
+      <form id="form-new-ticket">
+        <div class="modal-body space-y-4">
+          <div class="form-group">
+            <label class="form-label" for="new-ticket-subject">عنوان المشكلة / نوع الصيانة</label>
+            <input class="form-input" type="text" id="new-ticket-subject" placeholder="مثال: عطل في كاميرا المدخل الخارجي" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="new-ticket-service">النظام المعني</label>
+            <select class="form-select" id="new-ticket-service" required>
+              <option value="CCTV">كاميرات المراقبة الأمنية</option>
+              <option value="Networking">حلول الشبكات والإنترنت</option>
+              <option value="Access Control">التحكم بالوصول والبوابات</option>
+              <option value="Sound System">أنظمة النداء الصوتي</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="new-ticket-desc">تفاصيل العطل أو الطلب الهندي</label>
+            <textarea class="form-textarea" id="new-ticket-desc" rows="4" placeholder="الرجاء وصف العطل أو طلب الصيانة بدقة لمساعدة المهندسين..." required></textarea>
+          </div>
+          <button class="btn btn-primary btn-full" type="submit">تأكيد وفتح التذكرة</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ─── Simulated Payment Modal ─── -->
+  <div class="modal-overlay" id="payment-modal">
+    <div class="modal-container" style="max-width: 460px;">
+      <div class="modal-header">
+        <h3 class="headline-md" style="font-size: 18px;">بوابة الدفع الآمنة | أوجاتيك</h3>
+        <span class="material-symbols-outlined" style="cursor:pointer;" id="btn-close-payment-modal">close</span>
+      </div>
+      <form id="form-payment">
+        <input type="hidden" id="payment-invoice-id" />
+        <div class="modal-body space-y-4">
+          <div style="text-align: center; margin-bottom: var(--space-4);">
+            <p class="label-md text-on-surface-variant">مبلغ الفاتورة المراد سدادها</p>
+            <h2 class="display-sm" id="payment-amount-display" style="color: var(--brand-corporate-blue); font-weight: 800; margin-top: 4px;">0 ر.س</h2>
+            <p class="label-sm text-outline" id="payment-desc-display" style="margin-top: 2px;">وصف الفاتورة</p>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="card-holder">اسم صاحب البطاقة</label>
+            <input class="form-input" type="text" id="card-holder" placeholder="الاسم كما هو مكتوب على البطاقة" required />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="card-number">رقم البطاقة الائتمانية</label>
+            <div style="position: relative; display: flex; align-items: center;">
+              <input class="form-input" type="text" id="card-number" maxlength="19" placeholder="4000 1234 5678 9010" style="padding-left: 50px; font-family: monospace; letter-spacing: 1.5px;" required />
+              <span class="material-symbols-outlined" style="position: absolute; left: 12px; color: var(--color-outline);">credit_card</span>
+            </div>
+          </div>
+          
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label" for="card-expiry">تاريخ الانتهاء</label>
+              <input class="form-input" type="text" id="card-expiry" maxlength="5" placeholder="MM/YY" style="font-family: monospace; text-align: center;" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="card-cvv">الرمز السري (CVV)</label>
+              <input class="form-input" type="password" id="card-cvv" maxlength="3" placeholder="•••" style="font-family: monospace; text-align: center;" required />
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 mb-4" style="background-color: var(--color-surface-container-low); padding: var(--space-3); border-radius: var(--radius-lg);">
+            <span class="material-symbols-outlined" style="color: var(--color-success);">lock</span>
+            <p class="label-md text-on-surface-variant" style="line-height: 1.4;">عملية الدفع مشفرة آمنة تماماً وتتوافق مع معايير PCI-DSS.</p>
+          </div>
+
+          <button class="btn btn-primary btn-full btn-lg" type="submit" id="btn-confirm-payment">
+            <span class="material-symbols-outlined">shield_with_heart</span>
+            تأكيد الدفع والسداد
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

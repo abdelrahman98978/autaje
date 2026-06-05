@@ -1,0 +1,187 @@
+/* =============================================
+   AwjaTech Design Tokens
+   Extracted from DESIGN.md
+   ============================================= */
+
+:root {
+  /* ─── Brand Colors ─── */
+  --brand-corporate-blue: #002B49;
+  --brand-cyan: #00A9CE;
+  --brand-green: #00B398;
+  --brand-gradient: linear-gradient(135deg, #00A9CE 0%, #00B398 100%);
+  --brand-gradient-hover: linear-gradient(135deg, #009ABD 0%, #00A287 100%);
+
+  /* ─── Material Design 3 — Surface Colors ─── */
+  --color-surface: #f7fafc;
+  --color-surface-dim: #d7dadc;
+  --color-surface-bright: #f7fafc;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f1f4f6;
+  --color-surface-container: #ebeef0;
+  --color-surface-container-high: #e5e9eb;
+  --color-surface-container-highest: #e0e3e5;
+  --color-on-surface: #181c1e;
+  --color-on-surface-variant: #42474d;
+  --color-inverse-surface: #2d3133;
+  --color-inverse-on-surface: #eef1f3;
+  --color-surface-tint: #406182;
+  --color-surface-variant: #e0e3e5;
+
+  /* ─── Outline ─── */
+  --color-outline: #73777e;
+  --color-outline-variant: #c3c7ce;
+
+  /* ─── Primary ─── */
+  --color-primary: #001629;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #002b49;
+  --color-on-primary-container: #7293b6;
+  --color-inverse-primary: #a8caef;
+  --color-primary-fixed: #cfe5ff;
+  --color-primary-fixed-dim: #a8caef;
+  --color-on-primary-fixed: #001d34;
+  --color-on-primary-fixed-variant: #274969;
+
+  /* ─── Secondary ─── */
+  --color-secondary: #00677f;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #5ad8ff;
+  --color-on-secondary-container: #005c72;
+  --color-secondary-fixed: #b6ebff;
+  --color-secondary-fixed-dim: #57d5fc;
+  --color-on-secondary-fixed: #001f28;
+  --color-on-secondary-fixed-variant: #004e60;
+
+  /* ─── Tertiary ─── */
+  --color-tertiary: #001813;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #002f27;
+  --color-on-tertiary-container: #00a28a;
+  --color-tertiary-fixed: #71f9db;
+  --color-tertiary-fixed-dim: #50dcbf;
+  --color-on-tertiary-fixed: #00201a;
+  --color-on-tertiary-fixed-variant: #005143;
+
+  /* ─── Error ─── */
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* ─── Background ─── */
+  --color-background: #f7fafc;
+  --color-on-background: #181c1e;
+
+  /* ─── Functional / Semantic Colors ─── */
+  --color-success: #00B398;
+  --color-border-light: #E2E8F0;
+  --color-section-bg-alt: #F4F7F9;
+
+  /* ─── Typography ─── */
+  --font-family-primary: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
+
+  /* Display */
+  --font-display-lg-size: 48px;
+  --font-display-lg-weight: 700;
+  --font-display-lg-line-height: 56px;
+  --font-display-lg-letter-spacing: -0.02em;
+
+  --font-display-md-size: 36px;
+  --font-display-md-weight: 700;
+  --font-display-md-line-height: 44px;
+  --font-display-md-letter-spacing: -0.01em;
+
+  /* Headline */
+  --font-headline-lg-size: 32px;
+  --font-headline-lg-weight: 600;
+  --font-headline-lg-line-height: 40px;
+
+  --font-headline-lg-mobile-size: 28px;
+  --font-headline-lg-mobile-weight: 600;
+  --font-headline-lg-mobile-line-height: 36px;
+
+  --font-headline-md-size: 24px;
+  --font-headline-md-weight: 600;
+  --font-headline-md-line-height: 32px;
+
+  /* Body */
+  --font-body-lg-size: 18px;
+  --font-body-lg-weight: 400;
+  --font-body-lg-line-height: 28px;
+
+  --font-body-md-size: 16px;
+  --font-body-md-weight: 400;
+  --font-body-md-line-height: 24px;
+
+  /* Label */
+  --font-label-md-size: 14px;
+  --font-label-md-weight: 500;
+  --font-label-md-line-height: 20px;
+  --font-label-md-letter-spacing: 0.02em;
+
+  --font-label-sm-size: 12px;
+  --font-label-sm-weight: 600;
+  --font-label-sm-line-height: 16px;
+
+  /* ─── Border Radius ─── */
+  --radius-sm: 0.125rem;   /* 2px */
+  --radius-default: 0.25rem; /* 4px — Standard elements */
+  --radius-md: 0.375rem;   /* 6px */
+  --radius-lg: 0.5rem;     /* 8px — Large containers */
+  --radius-xl: 0.75rem;    /* 12px — Status tags */
+  --radius-2xl: 1rem;      /* 16px */
+  --radius-3xl: 1.5rem;    /* 24px */
+  --radius-full: 9999px;   /* Pill */
+
+  /* ─── Spacing (8px base unit) ─── */
+  --space-unit: 8px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  --space-stack-sm: 8px;
+  --space-stack-md: 16px;
+  --space-stack-lg: 32px;
+  --space-section: 80px;
+  --space-gutter: 24px;
+  --space-container-max: 1280px;
+  --space-margin-mobile: 16px;
+  --space-margin-desktop: 48px;
+
+  /* ─── Elevation / Shadows ─── */
+  /* Level 0: No shadow (Floor — background) */
+  --shadow-none: none;
+  /* Level 1: Cards/Containers — 1px border, no shadow */
+  --shadow-level1: 0 0 0 1px var(--color-border-light);
+  /* Level 2: Interactive/Floating — subtle diffused shadow */
+  --shadow-level2: 0px 4px 20px rgba(0, 43, 73, 0.05);
+  /* Elevated interactive */
+  --shadow-level3: 0px 8px 32px rgba(0, 43, 73, 0.08);
+  /* Hero/CTA emphasis */
+  --shadow-brand: 0px 8px 24px rgba(0, 103, 127, 0.2);
+
+  /* ─── Transitions ─── */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-smooth: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* ─── Z-Index Scale ─── */
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-overlay: 30;
+  --z-modal: 40;
+  --z-toast: 50;
+
+  /* ─── Header ─── */
+  --header-height: 80px;
+}

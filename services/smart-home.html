@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أنظمة المنزل الذكي | AwjaTech أوجاتيك</title>
+  <meta name="description" content="أوجاتيك - أنظمة المنزل الذكي: أتمتة كاملة للإضاءة والستائر والتكييف، تحكم صوتي وتطبيقات سحابية لتجربة معيشية فريدة." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/design-tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+</head>
+<body class="antialiased overflow-x-hidden">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="flex items-center gap-4">
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <a class="logo" href="../index.html">
+          <img src="../assets/images/logo.svg" alt="AwjaTech Logo" />
+          <span class="logo-text">AwjaTech</span>
+        </a>
+      </div>
+      
+      <nav class="main-nav">
+        <a class="nav-link" href="../index.html">الرئيسية</a>
+        <a class="nav-link" href="../about.html">من نحن</a>
+        <div class="nav-dropdown">
+          <a class="nav-link active" href="#">
+            خدماتنا
+            <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle;">expand_more</span>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a class="nav-dropdown-item" href="cctv.html">
+              <span class="material-symbols-outlined">videocam</span>
+              كاميرات المراقبة
+            </a>
+            <a class="nav-dropdown-item" href="networking.html">
+              <span class="material-symbols-outlined">hub</span>
+              حلول الشبكات
+            </a>
+            <a class="nav-dropdown-item" href="access-control.html">
+              <span class="material-symbols-outlined">fingerprint</span>
+              التحكم بالوصول
+            </a>
+            <a class="nav-dropdown-item" href="voip.html">
+              <span class="material-symbols-outlined">contact_phone</span>
+              الهاتف المركزي (IP PBX)
+            </a>
+            <a class="nav-dropdown-item" href="sound-systems.html">
+              <span class="material-symbols-outlined">campaign</span>
+              أنظمة الصوت
+            </a>
+            <a class="nav-dropdown-item active" href="smart-home.html">
+              <span class="material-symbols-outlined">home_iot_device</span>
+              المنزل الذكي
+            </a>
+            <a class="nav-dropdown-item" href="fire-alarm.html">
+              <span class="material-symbols-outlined">fire_extinguisher</span>
+              إنذار الحرائق
+            </a>
+            <a class="nav-dropdown-item" href="bms.html">
+              <span class="material-symbols-outlined">apartment</span>
+              إدارة المباني (BMS)
+            </a>
+          </div>
+        </div>
+        <a class="nav-link" href="../index.html#projects">مشاريعنا</a>
+        <a class="nav-link" href="../contact.html">اتصل بنا</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="header-icons hide-mobile">
+          <a href="tel:+966500000000"><span class="material-symbols-outlined">call</span></a>
+          <a href="mailto:info@awjatech.com.sa"><span class="material-symbols-outlined">mail</span></a>
+        </div>
+        <a href="../login.html" class="btn btn-ghost hide-mobile">دخول العميل</a>
+        <a class="btn btn-primary" href="../contact.html">اطلب عرض سعر</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-inner">
+      <a class="mobile-nav-link" href="../index.html">الرئيسية</a>
+      <a class="mobile-nav-link" href="../about.html">من نحن</a>
+      
+      <div class="mobile-nav-link" style="font-weight: 700; border-bottom: none; padding-bottom: 0;">خدماتنا</div>
+      <div class="mobile-nav-sub">
+        <a href="cctv.html"><span class="material-symbols-outlined">videocam</span> كاميرات المراقبة</a>
+        <a href="networking.html"><span class="material-symbols-outlined">hub</span> حلول الشبكات</a>
+        <a href="access-control.html"><span class="material-symbols-outlined">fingerprint</span> التحكم بالوصول</a>
+        <a href="voip.html"><span class="material-symbols-outlined">contact_phone</span> الهاتف المركزي (IP PBX)</a>
+        <a href="sound-systems.html"><span class="material-symbols-outlined">campaign</span> أنظمة الصوت</a>
+        <a href="smart-home.html"><span class="material-symbols-outlined">home_iot_device</span> المنزل الذكي</a>
+        <a href="fire-alarm.html"><span class="material-symbols-outlined">fire_extinguisher</span> إنذار الحرائق</a>
+        <a href="bms.html"><span class="material-symbols-outlined">apartment</span> إدارة المباني (BMS)</a>
+      </div>
+
+      <a class="mobile-nav-link" href="../index.html#projects">مشاريعنا</a>
+      <a class="mobile-nav-link" href="../contact.html">اتصل بنا</a>
+      <a class="mobile-nav-link" href="../login.html">دخول العميل</a>
+      <div style="margin-top: var(--space-8);">
+        <a class="btn btn-primary btn-full" href="../contact.html">اطلب عرض سعر</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero service-hero">
+      <div class="hero-overlay"></div>
+      <img class="hero-bg-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCxl701AtsTxUB5heRy1py2spNIHx5oZSCjLMwzdN0jt-OP8GLSfENCmxHZIM5ogtkpnCwdU9_5wIHae0Ti6wg7Y5dZbNGd8LoJIglS_Gfg-UIC84QinQyMFc3qTsNVjq76FsCNlxfTm0QsWmi28-4OceYT4XCazymNXyj45pn6JK_mMCv_D8-70tYQkHyxEIAPJsLIQU5tNDFnRxiY4QrhwUnUAl_IdjzW6lUX9_fOUQ2c_oX0_DMxQ1YezPDquChX9ZQxGMt_1s" alt="Smart Home Automation" />
+      <div class="container relative z-10 w-full" style="height: 100%;">
+        <div class="hero-content animate-on-scroll" style="max-width: 640px;">
+          <div class="badge badge-primary">
+            <span class="material-symbols-outlined" style="font-size: 16px; font-variation-settings: 'FILL' 1;">home_iot_device</span>
+            حياة ذكية متكاملة
+          </div>
+          <h1 class="display-lg text-primary-container">أنظمة المنزل الذكي</h1>
+          <p class="body-lg text-on-surface-variant max-w-xl">
+            حول منزلك إلى بيئة ذكية بالكامل - تحكم في الإضاءة، التكييف، الستائر، والأجهزة المنزلية من هاتفك أو بصوتك.
+          </p>
+          <div class="flex flex-wrap gap-4" style="margin-top: var(--space-6);">
+            <a class="btn btn-secondary btn-lg" href="../contact.html">طلب عرض سعر</a>
+            <a class="btn btn-ghost btn-lg" href="#overview">استكشف خدماتنا</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="overview">
+      <div class="section-header">
+        <h2 class="headline-lg">حلول الأتمتة المنزلية</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="container grid-auto-4">
+        <div class="service-card animate-on-scroll">
+          <span class="material-symbols-outlined">lightbulb</span>
+          <h3 class="headline-md">الإضاءة الذكية</h3>
+          <p>تحكم في إضاءة منزلك بالكامل - جداول زمنية، حساسات حركة، وأجواء مخصصة لكل غرفة.</p>
+        </div>
+        <div class="service-card animate-on-scroll">
+          <span class="material-symbols-outlined">ac_unit</span>
+          <h3 class="headline-md">التحكم بالتكييف</h3>
+          <p>ضبط درجة الحرارة عن بعد، تشغيل وإيقاف التكييف حسب جدول زمني ذكي لتوفير الطاقة.</p>
+        </div>
+        <div class="service-card animate-on-scroll">
+          <span class="material-symbols-outlined">blinds</span>
+          <h3 class="headline-md">الستائر الآلية</h3>
+          <p>ستائر كهربائية تفتح وتغلق تلقائياً وفقاً لوقت اليوم أو الأوامر الصوتية.</p>
+        </div>
+        <div class="service-card animate-on-scroll">
+          <span class="material-symbols-outlined">mic</span>
+          <h3 class="headline-md">التحكم الصوتي</h3>
+          <p>تكامل مع Alexa وGoogle Home للتحكم بكل شيء بأوامر صوتية بسيطة.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: #ffffff;">
+      <div class="container split items-center" style="gap: var(--space-12);">
+        <div class="relative animate-on-scroll" style="flex: 1;">
+          <div style="position: absolute; top: -16px; right: -16px; width: 100%; height: 100%; border: 2px solid var(--secondary); border-radius: var(--radius-lg); z-index: 0;"></div>
+          <img style="position: relative; z-index: 1; width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl);" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI35znv6VocpxmL_BPTnDB-VVzouNRshGUZy2C9QzFBlhOUCZ6KltFeFPfIt140_HL0atNb3e9IgpjDzyY6gADBQwngEur71-CvxFPUkLtKqfeYf8iufmXAdlCWefY4O-ddESdlSfcgG_f3gH5PGRm1lFu2psRdePlX_6k7jfb6BDa0NjDYxyyT2dc45InwI757nW7rtdSBBOseTSaEnI6RLPfrH8B2dkr6b-gahSPTHnIx6_rrQxQo6MgFKXb5vZ8giLGQg2gkXU" alt="Smart Home Control" />
+        </div>
+        <div class="space-y-8 animate-on-scroll" style="flex: 1;">
+          <h2 class="headline-lg">مميزات المنزل الذكي</h2>
+          <div class="space-y-6">
+            <div class="flex gap-4" style="align-items: flex-start;">
+              <div style="background: var(--primary); padding: var(--space-2); border-radius: var(--radius-default);">
+                <span class="material-symbols-outlined" style="color: #ffffff;">energy_savings_leaf</span>
+              </div>
+              <div>
+                <h4 class="headline-md">توفير الطاقة</h4>
+                <p class="body-md text-on-surface-variant">خفض فاتورة الكهرباء بنسبة تصل إلى 40% عبر الإدارة الذكية للإضاءة والتكييف.</p>
+              </div>
+            </div>
+            <div class="flex gap-4" style="align-items: flex-start;">
+              <div style="background: var(--primary); padding: var(--space-2); border-radius: var(--radius-default);">
+                <span class="material-symbols-outlined" style="color: #ffffff;">security</span>
+              </div>
+              <div>
+                <h4 class="headline-md">الأمن والسلامة</h4>
+                <p class="body-md text-on-surface-variant">محاكاة التواجد بإضاءة وستائر تلقائية أثناء السفر، وكشف تسرب الغاز والمياه.</p>
+              </div>
+            </div>
+            <div class="flex gap-4" style="align-items: flex-start;">
+              <div style="background: var(--primary); padding: var(--space-2); border-radius: var(--radius-default);">
+                <span class="material-symbols-outlined" style="color: #ffffff;">phone_iphone</span>
+              </div>
+              <div>
+                <h4 class="headline-md">تطبيق موحد</h4>
+                <p class="body-md text-on-surface-variant">إدارة كل أجهزة المنزل الذكي من تطبيق واحد على هاتفك الذكي.</p>
+              </div>
+            </div>
+            <div class="flex gap-4" style="align-items: flex-start;">
+              <div style="background: var(--primary); padding: var(--space-2); border-radius: var(--radius-default);">
+                <span class="material-symbols-outlined" style="color: #ffffff;">schedule</span>
+              </div>
+              <div>
+                <h4 class="headline-md">السيناريوهات الذكية</h4>
+                <p class="body-md text-on-surface-variant">سيناريوهات مخصصة - صباحي، مسائي، سينما، سفرة - يتم تفعيلها بضغطة زر.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--surface-container-low);">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="headline-lg">القطاعات المستفيدة</h2>
+          <div class="section-divider"></div>
+          <p class="body-md text-on-surface-variant" style="margin-top: var(--space-2);">حلول ذكية تناسب جميع المساحات</p>
+        </div>
+        <div class="grid-auto-4">
+          <div class="project-card animate-on-scroll">
+            <div class="project-card-image">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOvkMBw0onUqEsMKWNFr7JILOXST_iRlVckbEYJt6KRR3ODCjHrTq2LrabKEXJ0nw2nSLt9Ch-rCgonyDRzgZFftS4dssiqnok28a4n3wfGXg7UuzuO_nJcTJ0wvZD5VWhYUGEAEW4XpvexE3CfWL42IXP0fg_l_AswS9xY22n5Ir4l9ddVppkeVzrCzQoTnovG49-76U0Q6Dw14oX-IO07oY7eGE2-W9me8QlSHvpzfJS8-L1WFkzWW9yLMTFJhQqi0ShIwk7xyY" alt="Villas" />
+              <div class="project-card-badge">الفلل السكنية</div>
+            </div>
+          </div>
+          <div class="project-card animate-on-scroll">
+            <div class="project-card-image">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmEfIKQpwrhi9P6G2SW7K5025rsHP3PNepJeUIR73TDsHkequdVZelTTh2TUTvuFHHBM20aQfjrQJ3ObzGYdBJ-Ecr_lgLxlpxCatbekKN-oySvPISjMdRpwccBrgaxilBkujViCI_ikO7Wc7z5HpIEQfCp2hANzlbtjAmSoDYhvbow5BczznTxXCEYYufL2B8Brwsjuas-wp5wkWZClWutaFzvCs4FtT1LmV33NVcHyBXCUx4BzVCKXoWX8Yn68UUr45oc-7jt2o" alt="Apartments" />
+              <div class="project-card-badge">الشقق السكنية</div>
+            </div>
+          </div>
+          <div class="project-card animate-on-scroll">
+            <div class="project-card-image">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY2Y5xDb16g4xiUkYe6rxavhKOMVGrs4EBAJ3Ajucbu4_iscDIujcEPab60l7h-kz7ij9g5izaLtTZ4cVgnTbFFXn0AxlbIav6imyVqA7Q0BX0kUoIgNw-F4hkC10AI1VfExIi92mBCwuvx2gQiX5JpPN38zxrLX_B_KeOuXd--KLS90jNQ1JUorfIOFmI7QVz93yNDgqDbDrIy8ZDRaiu88Ggi7N8h6gQc7oqUwbxT9ZjubQOhXtRJwj857c0T-pAN6-6rG7Jqw4" alt="Hotel Suites" />
+              <div class="project-card-badge">الأجنحة الفندقية</div>
+            </div>
+          </div>
+          <div class="project-card animate-on-scroll">
+            <div class="project-card-image">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHdI2BS-dm3t8OjxSuc7wxoxh-CJMylKN54GO75udFkXzz_t4MAvzAK_cVGM2sTM_O9Cno2-GdOIzXJoQG0VKrZEtjahwr4tw6V2GrRRfZajheTUWuBKEs4S6WvxLPHGenTn01WBu_kWNmXcauY7HXwrWtE2FI0b1aZznYd3fuHnjeNA63f_TSUuUWSG9OWBrTx6uDd_waK82T9HQZsuZEFzs2Vlk-eTUWKHaHLfG1OCol54CJE7I1DHnnYe0sfFCxEqcXjEcNzPs" alt="Smart Offices" />
+              <div class="project-card-badge">المكاتب الذكية</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section why-us-section">
+      <div class="why-us-bg-grid">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+      <div class="container relative z-10">
+        <div class="section-header">
+          <h2 class="headline-lg text-white" style="color: #ffffff;">لماذا تختار أوجاتيك لمنزلك الذكي؟</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="grid-auto-4">
+          <div class="why-us-item animate-on-scroll" style="text-align: center;">
+            <div class="why-us-icon">
+              <span class="material-symbols-outlined">design_services</span>
+            </div>
+            <h3 class="headline-md text-white">تصميم شخصي</h3>
+            <p>حلول مصممة حسب نمط حياتك واحتياجات أسرتك.</p>
+          </div>
+          <div class="why-us-item animate-on-scroll" style="text-align: center;">
+            <div class="why-us-icon">
+              <span class="material-symbols-outlined">engineering</span>
+            </div>
+            <h3 class="headline-md text-white">تنفيذ احترافي</h3>
+            <p>تركيب وبرمجة أنظمة المنزل الذكي بأعلى معايير الجودة.</p>
+          </div>
+          <div class="why-us-item animate-on-scroll" style="text-align: center;">
+            <div class="why-us-icon">
+              <span class="material-symbols-outlined">support_agent</span>
+            </div>
+            <h3 class="headline-md text-white">دعم فني</h3>
+            <p>فريق متخصص لصيانة وتحديث أنظمة المنزل الذكي.</p>
+          </div>
+          <div class="why-us-item animate-on-scroll" style="text-align: center;">
+            <div class="why-us-icon">
+              <span class="material-symbols-outlined">verified</span>
+            </div>
+            <h3 class="headline-md text-white">ضمان معتمد</h3>
+            <p>نستخدم أجهزة من علامات عالمية مثل Control4 وCrestron.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-banner animate-on-scroll" style="background: var(--secondary-container); color: var(--on-secondary-container); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-8);">
+          <div>
+            <h2 class="display-md" style="color: var(--on-secondary-container); margin-bottom: var(--space-2);;">حوّل منزلك إلى منزل ذكي</h2>
+            <p class="body-lg" style="opacity: 0.85;">احصل على استشارة مجانية لأتمتة منزلك.</p>
+          </div>
+          <a class="btn btn-primary btn-lg" href="../contact.html">تواصل معنا الآن</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="flex items-center gap-3 mb-6">
+          <img src="../assets/images/logo-white.svg" alt="AwjaTech Logo White" style="height: 40px; width: auto;" />
+          <span class="logo-text" style="color: #ffffff; font-weight: 900;">AwjaTech</span>
+        </div>
+        <p>
+          نحن في أوجاتيك نضع التميز الهندسي نصب أعيننا، موفرين لعملائنا راحة البال من خلال أنظمة تقنية يعتمد عليها وفق أحدث المعايير العالمية.
+        </p>
+        <div class="footer-social">
+          <a href="#"><span class="material-symbols-outlined">public</span></a>
+          <a href="https://wa.me/966500000000" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.62.962 3.238 1.468 4.858 1.469 5.485-.001 9.948-4.409 9.952-9.83.002-2.628-1.017-5.097-2.871-6.953C16.88 1.986 14.412.966 11.785.966c-5.486 0-9.949 4.41-9.953 9.831-.001 1.722.455 3.4 1.32 4.887l-.994 3.63 3.731-.969c1.4.761 2.878 1.157 4.168 1.157zm11.238-7.669c-.302-.151-1.788-.882-2.064-1.017-.277-.134-.479-.201-.68.101-.201.302-.78.982-.956 1.184-.177.201-.353.227-.655.076-1.241-.624-2.029-1.1-2.827-2.48-.201-.346.201-.321.575-1.071.063-.126.031-.239-.015-.34-.047-.1-.42-1.01-.575-1.385-.151-.365-.302-.315-.42-.315-.1-.005-.226-.005-.353-.005-.126 0-.327.047-.49.226-.164.18-1.12.983-1.12 2.399 0 1.416 1.031 2.784 1.176 2.977.145.193 2.033 3.102 4.925 4.35.688.297 1.226.474 1.644.607.691.22 1.32.19 1.817.115.553-.084 1.788-.731 2.039-1.437.252-.706.252-1.31.177-1.437-.076-.127-.277-.202-.579-.353z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="../about.html">عن الشركة</a></li>
+          <li><a href="../index.html#services">الخدمات التقنية</a></li>
+          <li><a href="../index.html#projects">المشاريع المنفذة</a></li>
+          <li><a href="../contact.html">تواصل معنا</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>الدعم</h4>
+        <ul>
+          <li><a href="../privacy.html">سياسة الخصوصية</a></li>
+          <li><a href="../terms.html">الشروط والأحكام</a></li>
+          <li><a href="../faqs.html">الأسئلة الشائعة</a></li>
+          <li><a href="../contact.html">الدعم الفني</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>النشرة الإخبارية</h4>
+        <p style="margin-bottom: var(--space-4);">اشترك ليصلك جديد تقنيات الأنظمة الأمنية والذكية.</p>
+        <form class="footer-newsletter">
+          <input type="email" placeholder="بريدك الإلكتروني" required />
+          <button type="submit" style="border:none; cursor:pointer;">اشترك</button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 AwjaTech Engineering Excellence. جميع الحقوق محفوظة لشركة أوجاتيك للهندسة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/intersection-observer.js"></script>
+  <script src="../js/form-handler.js"></script>
+  <script src="../js/chatbot.js"></script>
+  <script src="../js/popup.js"></script>
+</body>
+</html>

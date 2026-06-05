@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .gradient-technical {
+            background: linear-gradient(135deg, #00A9CE 0%, #00B398 100%);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-bright": "#f7fafc",
+                      "surface-variant": "#e0e3e5",
+                      "primary": "#001629",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#eef1f3",
+                      "surface-container": "#ebeef0",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#5ad8ff",
+                      "surface-container-lowest": "#ffffff",
+                      "outline": "#73777e",
+                      "on-secondary-fixed": "#001f28",
+                      "secondary-fixed-dim": "#57d5fc",
+                      "on-secondary-container": "#005c72",
+                      "on-primary-fixed": "#001d34",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed-variant": "#005143",
+                      "on-background": "#181c1e",
+                      "on-primary-container": "#7293b6",
+                      "tertiary-fixed-dim": "#50dcbf",
+                      "tertiary": "#001813",
+                      "secondary-fixed": "#b6ebff",
+                      "outline-variant": "#c3c7ce",
+                      "inverse-primary": "#a8caef",
+                      "surface-dim": "#d7dadc",
+                      "background": "#f7fafc",
+                      "surface-container-low": "#f1f4f6",
+                      "on-primary-fixed-variant": "#274969",
+                      "primary-fixed-dim": "#a8caef",
+                      "primary-fixed": "#cfe5ff",
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#e5e9eb",
+                      "on-tertiary-fixed": "#00201a",
+                      "on-surface-variant": "#42474d",
+                      "on-surface": "#181c1e",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed-variant": "#004e60",
+                      "surface-container-highest": "#e0e3e5",
+                      "surface": "#f7fafc",
+                      "tertiary-fixed": "#71f9db",
+                      "on-error-container": "#93000a",
+                      "secondary": "#00677f",
+                      "primary-container": "#002b49",
+                      "on-tertiary-container": "#00a28a",
+                      "surface-tint": "#406182",
+                      "tertiary-container": "#002f27",
+                      "inverse-surface": "#2d3133"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "unit": "8px",
+                      "section-padding": "80px",
+                      "margin-mobile": "16px",
+                      "container-max": "1280px",
+                      "margin-desktop": "48px",
+                      "stack-sm": "8px",
+                      "stack-lg": "32px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["IBM Plex Sans"],
+                      "label-md": ["IBM Plex Sans"],
+                      "body-lg": ["IBM Plex Sans"],
+                      "label-sm": ["IBM Plex Sans"],
+                      "display-md": ["IBM Plex Sans"],
+                      "headline-lg": ["IBM Plex Sans"],
+                      "display-lg": ["IBM Plex Sans"],
+                      "headline-md": ["IBM Plex Sans"],
+                      "body-md": ["IBM Plex Sans"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "display-md": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface-bright text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="bg-surface-container-lowest fixed full-width top-0 z-50 border-b border-outline-variant">
+<nav class="flex flex-row-reverse justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
+<div class="font-headline-md text-headline-md font-bold text-primary">AwjaTech</div>
+<div class="hidden md:flex flex-row-reverse gap-gutter items-center">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-container transition-colors duration-200 cursor-pointer active:opacity-80" href="#">الرئيسية</a>
+<a class="font-body-md text-body-md text-secondary border-b-2 border-secondary font-bold pb-1 cursor-pointer active:opacity-80" href="#">خدماتنا</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-container transition-colors duration-200 cursor-pointer active:opacity-80" href="#">مشاريعنا</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-container transition-colors duration-200 cursor-pointer active:opacity-80" href="#">من نحن</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-container transition-colors duration-200 cursor-pointer active:opacity-80" href="#">اتصل بنا</a>
+</div>
+<button class="bg-primary-container text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md hover:bg-primary transition-all">
+                اطلب عرض سعر
+            </button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[819px] flex items-center overflow-hidden bg-primary">
+<div class="absolute inset-0 opacity-40">
+<img alt="Network Infrastructure" class="w-full h-full object-cover" data-alt="A high-tech server room with glowing blue and cyan LED lights illuminating rows of server racks and organized networking cables. The atmosphere is professional and technical, suggesting high-performance data processing and secure connectivity. Cinematic lighting creates a sense of depth and advanced engineering excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2vHb_HXwGVOc5LO3Tg4aYkX9tGc0Y-XPw_h5ZHDc220bwuClp09qIseD9Gl9u3qA_SdfFL_JulRj0JN4Uwxd7RN7YyIMNWNXHpBSM7RUORXHfd0qPuSbWniqFbjC5wYRLnycfA0yLYCySVFX67n3rCyx7XMlvmSGe7PITWtF7ndz2KXM5Bo60FeSRJ4SelEcMmcBx7a3aiMVn4yemVGfyD2mcLuMizWF4klKuZlyz8Sxjr4EYSEgTh1fAnFouWdm5dvMfNoX0mY8"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-l from-primary via-primary/60 to-transparent"></div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full text-right">
+<div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-secondary/20 border border-secondary/30 backdrop-blur-md">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="text-secondary-fixed-dim font-label-sm text-label-sm">حلول متكاملة للمنشآت الذكية</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-white mb-6 max-w-2xl leading-tight">حلول الشبكات المتقدمة</h1>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-10 max-w-xl">
+                    بناء بنية تحتية قوية ومستقرة تدعم التحول الرقمي لمنشأتك، مع ضمان أعلى مستويات الأمان والكفاءة التشغيلية.
+                </p>
+<div class="flex flex-row-reverse gap-4">
+<button class="gradient-technical text-white px-8 py-4 rounded-lg font-headline-md text-headline-md flex items-center gap-2 hover:scale-105 transition-transform">
+<span>ابدأ مشروعك الآن</span>
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="border border-outline text-white px-8 py-4 rounded-lg font-headline-md text-headline-md hover:bg-white/10 transition-colors">
+                        استكشف خدماتنا
+                    </button>
+</div>
+</div>
+</section>
+<!-- Services Section (Bento Grid Style) -->
+<section class="py-section-padding bg-surface-bright">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">خدماتنا المتخصصة</h2>
+<div class="w-24 h-1 gradient-technical mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Design -->
+<div class="md:col-span-8 bg-white border border-outline-variant p-8 rounded-xl group hover:border-secondary transition-all">
+<div class="flex flex-col md:flex-row-reverse justify-between items-start md:items-center mb-6">
+<span class="material-symbols-outlined text-secondary text-5xl mb-4 md:mb-0">architecture</span>
+<h3 class="font-headline-md text-headline-md text-primary">تصميم وهندسة الشبكات</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">نقوم بتحليل احتياجات عملك لتصميم بنية تحتية قابلة للتوسع، تضمن تدفق البيانات بسلاسة وتدعم تطبيقات المستقبل.</p>
+<img alt="Network Design" class="w-full h-48 object-cover rounded-lg grayscale hover:grayscale-0 transition-all duration-500" data-alt="A technical blueprint overlay on a professional networking diagram with lines of connectivity flowing between digital icons. The aesthetic is clean-room technical, using cool gray and vibrant cyan highlights to represent data paths. The visual style is modern, architectural, and mathematically precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHLUAetjw8q7peMoYV10gDkduRMM7lHGJkZcGvP4anjy2_mPBiJgeCnJ7fnNnhjtKxF0V39rWOwQYX8CPONcPRYYh5iz8DWv4NZxX4PUvjRaAibCffSHNzoJlnSGNwQ6mD9NUNxwEqVbdwdQCJuMzIUxBMx38zc21LHQguozE1DJgBh1pbekoMyAKhmnz2MaS88wp3BIhlL2-qD2sBbW686Kgq5CLzSdgB2nKzhn1UDTyKfBuXWZMpsRMKJYvYwHHfiAM41Mg83OI"/>
+</div>
+<!-- Wi-Fi -->
+<div class="md:col-span-4 bg-white border border-outline-variant p-8 rounded-xl hover:shadow-lg transition-all text-center">
+<div class="w-16 h-16 bg-secondary-fixed rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-secondary text-3xl">wifi</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">الشبكات اللاسلكية Wi-Fi</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">تغطية شاملة للمساحات الكبيرة مع سرعات فائقة تدعم مئات المستخدمين المتزامنين دون انقطاع.</p>
+</div>
+<!-- Fiber Optic -->
+<div class="md:col-span-4 bg-primary text-white p-8 rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md mb-4">الألياف البصرية Fiber Optic</h3>
+<p class="font-body-sm text-body-sm opacity-80 mb-6">حلول الربط عالي السرعة للمسافات البعيدة باستخدام أحدث تقنيات الفايبر.</p>
+<span class="material-symbols-outlined text-secondary-container text-6xl opacity-20 absolute -bottom-4 -left-4">settings_input_svideo</span>
+</div>
+</div>
+<!-- Data Centers -->
+<div class="md:col-span-8 bg-white border border-outline-variant p-8 rounded-xl group overflow-hidden">
+<div class="flex flex-col h-full justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">غرف السيرفرات ومراكز البيانات</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">تجهيز غرف السيرفرات بالكامل من أنظمة التبريد، توزيع الطاقة، والكبائن المنظمة وفق المعايير العالمية.</p>
+</div>
+<div class="mt-8 grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container-low rounded-lg border-r-4 border-secondary">
+<span class="font-label-sm text-label-sm text-secondary">تنظيم الكابلات</span>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg border-r-4 border-secondary">
+<span class="font-label-sm text-label-sm text-secondary">أنظمة التبريد</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Features Section -->
+<section class="py-section-padding bg-primary text-white">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="text-center p-6 border border-white/10 rounded-lg hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">speed</span>
+<h4 class="font-headline-md text-headline-md mb-2">سرعة نقل البيانات</h4>
+<p class="font-label-md text-label-md text-on-primary-container">أداء فائق للتعامل مع أضخم قواعد البيانات.</p>
+</div>
+<div class="text-center p-6 border border-white/10 rounded-lg hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">shield_lock</span>
+<h4 class="font-headline-md text-headline-md mb-2">أمان عالي</h4>
+<p class="font-label-md text-label-md text-on-primary-container">حماية متطورة ضد التهديدات السيبرانية والاختراق.</p>
+</div>
+<div class="text-center p-6 border border-white/10 rounded-lg hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">cell_tower</span>
+<h4 class="font-headline-md text-headline-md mb-2">تغطية شاملة</h4>
+<p class="font-label-md text-label-md text-on-primary-container">تغطية ذكية لكل زوايا المنشأة دون مناطق ميتة.</p>
+</div>
+<div class="text-center p-6 border border-white/10 rounded-lg hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+<h4 class="font-headline-md text-headline-md mb-2">دعم فني مستمر</h4>
+<p class="font-label-md text-label-md text-on-primary-container">فريق هندسي متخصص متاح على مدار الساعة.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Partners / Brands -->
+<section class="py-16 bg-white border-y border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<p class="text-center font-label-sm text-label-sm text-outline mb-10 uppercase tracking-widest">شركاء النجاح في الحلول التقنية</p>
+<div class="flex flex-wrap justify-center items-center gap-16 grayscale opacity-60 hover:grayscale-0 transition-all">
+<span class="font-display-md text-display-md font-bold text-primary">Cisco</span>
+<span class="font-display-md text-display-md font-bold text-primary">Ubiquiti</span>
+<span class="font-display-md text-display-md font-bold text-primary">HPE</span>
+<span class="font-display-md text-display-md font-bold text-primary">Aruba</span>
+<span class="font-display-md text-display-md font-bold text-primary">Fortinet</span>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-padding bg-surface-container-low">
+<div class="max-w-4xl mx-auto px-margin-desktop text-center">
+<div class="bg-white p-12 rounded-2xl shadow-sm border border-outline-variant relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 gradient-technical opacity-10 rounded-bl-full"></div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">هل أنت جاهز لتطوير بنيتك التحتية؟</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">تواصل مع خبرائنا اليوم للحصول على استشارة مجانية وعرض سعر مخصص لمنشأتك.</p>
+<button class="bg-primary text-white px-12 py-5 rounded-lg font-headline-md text-headline-md hover:shadow-xl transition-all active:scale-95">
+                        اطلب عرض سعر الآن
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary text-on-primary border-t border-white/10">
+<div class="flex flex-col md:flex-row-reverse justify-between items-start w-full px-margin-desktop py-stack-lg max-w-container-max mx-auto gap-gutter">
+<div class="flex flex-col gap-4">
+<div class="font-headline-sm text-headline-sm text-on-primary">AwjaTech</div>
+<p class="font-body-sm text-body-sm max-w-xs opacity-70">
+                    الشركة الرائدة في حلول الهندسة والتقنيات المتقدمة في المنطقة.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-12">
+<div class="flex flex-col gap-4">
+<span class="font-label-sm text-label-sm font-bold border-b border-white/20 pb-2">الخدمات</span>
+<a class="font-body-sm text-body-sm text-surface-variant opacity-80 hover:text-white transition-opacity" href="#">الخدمات الهندسية</a>
+<a class="font-body-sm text-body-sm text-surface-variant opacity-80 hover:text-white transition-opacity" href="#">أنظمة التيار المنخفض</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-sm text-label-sm font-bold border-b border-white/20 pb-2">قانوني</span>
+<a class="font-body-sm text-body-sm text-surface-variant opacity-80 hover:text-white transition-opacity" href="#">سياسة الخصوصية</a>
+<a class="font-body-sm text-body-sm text-surface-variant opacity-80 hover:text-white transition-opacity" href="#">الشروط والأحكام</a>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop py-6 border-t border-white/5 text-center md:text-right">
+<p class="font-body-sm text-body-sm opacity-60">© 2024 AwjaTech. جميع الحقوق محفوظة لشركة أوجا تيك للهندسة.</p>
+</div>
+</footer>
+<script>
+        // Simple parallax effect for hero image
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImg = document.querySelector('section img');
+            if (heroImg) {
+                heroImg.style.transform = `translateY(${scrolled * 0.4}px)`;
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

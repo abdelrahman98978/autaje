@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>أنظمة كاميرات المراقبة الأمنية | AwjaTech</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'IBM+Plex+Sans+Arabic', sans-serif;
+            background-color: #f7fafc;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .gradient-primary {
+            background: linear-gradient(135deg, #00A9CE 0%, #00B398 100%);
+        }
+        .tech-grid-pattern {
+            background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#001813",
+                    "primary-fixed-dim": "#a8caef",
+                    "primary-container": "#002b49",
+                    "on-primary-fixed": "#001d34",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#d7dadc",
+                    "on-primary": "#ffffff",
+                    "secondary": "#00677f",
+                    "primary": "#001629",
+                    "secondary-fixed-dim": "#57d5fc",
+                    "secondary-fixed": "#b6ebff",
+                    "on-surface-variant": "#42474d",
+                    "background": "#f7fafc",
+                    "tertiary-fixed-dim": "#50dcbf",
+                    "tertiary-fixed": "#71f9db",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-secondary-fixed-variant": "#004e60",
+                    "inverse-on-surface": "#eef1f3",
+                    "on-primary-fixed-variant": "#274969",
+                    "outline-variant": "#c3c7ce",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#406182",
+                    "surface-container": "#ebeef0",
+                    "on-primary-container": "#7293b6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#005c72",
+                    "tertiary-container": "#002f27",
+                    "on-tertiary-fixed-variant": "#005143",
+                    "on-tertiary-container": "#00a28a",
+                    "surface-bright": "#f7fafc",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-high": "#e5e9eb",
+                    "on-tertiary-fixed": "#00201a",
+                    "on-background": "#181c1e",
+                    "surface-container-low": "#f1f4f6",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#181c1e",
+                    "secondary-container": "#5ad8ff",
+                    "on-error": "#ffffff",
+                    "surface": "#f7fafc",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2d3133",
+                    "on-secondary-fixed": "#001f28",
+                    "outline": "#73777e",
+                    "primary-fixed": "#cfe5ff",
+                    "inverse-primary": "#a8caef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "margin-desktop": "48px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "stack-lg": "32px",
+                    "section-padding": "80px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "label-sm": ["IBM Plex Sans Arabic"],
+                    "display-md": ["IBM Plex Sans Arabic"],
+                    "display-lg": ["IBM Plex Sans Arabic"],
+                    "body-lg": ["IBM Plex Sans Arabic"],
+                    "headline-md": ["IBM Plex Sans Arabic"],
+                    "label-md": ["IBM Plex Sans Arabic"],
+                    "headline-lg": ["IBM Plex Sans Arabic"],
+                    "headline-lg-mobile": ["IBM Plex Sans Arabic"],
+                    "body-md": ["IBM Plex Sans Arabic"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display-md": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="bg-surface border-b border-outline-variant fixed top-0 w-full h-20 z-50 flex flex-row-reverse justify-between items-center px-margin-desktop max-w-full">
+<div class="flex items-center gap-4">
+<img alt="AwjaTech Logo" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpkgDKNN4yyO-iOlTJIv0CZ2Nn9-VC-wiBpoXkWAl57ZYUtEnkU84VBYYfFpoVE4tWhgYC9rxeL_JEHy7cPWEXmFrlBkiGw57szk4lH2oYvJwFDMDrAzNsXGBFMDGx4glECofaWkVNbkwKyKG4GXH6cYNghqJN20hgNUh8Z8J8rPaVml7s39lK8ycac3b11kiByG6UfT1VQ5Y0-Dob7dgNstcz4yVMcjiF-qorbwOtB51Bz1zAe4Q-qsobgPcy8YMXncKh0NVE2Bc"/>
+<span class="font-headline-md text-headline-md font-bold text-primary">AwjaTech</span>
+</div>
+<div class="hidden md:flex flex-row-reverse items-center gap-stack-lg">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">الرئيسية</a>
+<a class="font-label-md text-label-md text-secondary border-b-2 border-secondary pb-1" href="#">خدماتنا</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">المشاريع</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">من نحن</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">اتصل بنا</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">
+            طلب اقتباس
+        </button>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[600px] flex items-center overflow-hidden bg-primary">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40" data-alt="A wide shot of a futuristic command and control center for security monitoring. The room features multiple high-resolution wall-mounted screens displaying live thermal and 4K digital security feeds of an industrial facility. Two professional security engineers in smart corporate attire are observing the monitors. The lighting is low-key with cool blue and cyan accents, highlighting the high-tech engineering atmosphere of AwjaTech's solutions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvURzbfDZK1EWxRnXIRmxpbfKhgx57h1t5RT9WLdvL3BBqf4hbdakqjvW6Op_xvDKckYuDChgj_SJhoowW8fll7dRhU130tJ9lFwIMGjNbuh34WmtN_kG5MlRujjrlH1vDgln2_MPXwes8h6K57EwRpqvbowrftfsf7nS4qKpPgYfqL6wW5HAmdcghTPOv-JM7kz-m_1keZff-oAn3ztJgbwFxAJ6U4Kh08jCRMkl_QiPM2VpWApKN9tp2vORj2cYbFn7yjQ_X5X0"/>
+<div class="absolute inset-0 bg-gradient-to-l from-primary via-primary/80 to-transparent"></div>
+</div>
+<div class="container mx-auto px-margin-desktop relative z-10 grid md:grid-cols-2 gap-stack-lg items-center">
+<div class="text-right">
+<span class="inline-block py-1 px-3 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm rounded-full mb-stack-md">حلول هندسية متطورة</span>
+<h1 class="font-display-lg text-display-lg text-white mb-stack-md">أنظمة كاميرات المراقبة الأمنية</h1>
+<p class="font-body-lg text-body-lg text-outline-variant max-w-xl mb-stack-lg">
+                        حلول مراقبة ذكية متكاملة تمنحك رؤية واضحة وتحكماً كاملاً على مدار الساعة، مصممة بأعلى المعايير الهندسية لضمان أمان منشأتك.
+                    </p>
+<div class="flex flex-row-reverse gap-4">
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-lg font-label-md text-label-md font-bold hover:scale-105 transition-transform">
+                            طلب عرض سعر
+                        </button>
+<button class="border border-white text-white px-8 py-4 rounded-lg font-label-md text-label-md hover:bg-white/10 transition-colors">
+                            استكشف خدماتنا
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Overview (Bento Grid) -->
+<section class="py-section-padding bg-surface">
+<div class="container mx-auto px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">نظرة تقنية شاملة</h2>
+<div class="w-20 h-1 gradient-primary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- IP Cameras -->
+<div class="bg-white p-stack-lg border border-outline-variant rounded-lg group hover:shadow-lg transition-all duration-300">
+<div class="w-12 h-12 bg-secondary-fixed mb-6 flex items-center justify-center rounded-lg group-hover:rotate-12 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="videocam">videocam</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">IP Cameras</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">كاميرات شبكية فائقة الدقة توفر جودة صورة 4K وسهولة في الإدارة عبر الشبكة.</p>
+</div>
+<!-- Analog Cameras -->
+<div class="bg-white p-stack-lg border border-outline-variant rounded-lg group hover:shadow-lg transition-all duration-300">
+<div class="w-12 h-12 bg-secondary-fixed mb-6 flex items-center justify-center rounded-lg group-hover:rotate-12 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="settings_input_hdmi">settings_input_hdmi</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Analog HD</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">حلول اقتصادية بجودة عالية تصل إلى 5 ميجا بكسل، مثالية لترقية الأنظمة القديمة.</p>
+</div>
+<!-- PTZ Cameras -->
+<div class="bg-white p-stack-lg border border-outline-variant rounded-lg group hover:shadow-lg transition-all duration-300">
+<div class="w-12 h-12 bg-secondary-fixed mb-6 flex items-center justify-center rounded-lg group-hover:rotate-12 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="360">360</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">PTZ Cameras</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">كاميرات متحركة تمنح تغطية كاملة بزاوية 360 درجة مع زووم بصري قوي.</p>
+</div>
+<!-- Thermal Cameras -->
+<div class="bg-white p-stack-lg border border-outline-variant rounded-lg group hover:shadow-lg transition-all duration-300">
+<div class="w-12 h-12 bg-secondary-fixed mb-6 flex items-center justify-center rounded-lg group-hover:rotate-12 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="thermostat">thermostat</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Thermal</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">كاميرات حرارية للمناطق الحساسة، تعمل بكفاءة في الظلام التام والظروف الجوية الصعبة.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Features -->
+<section class="py-section-padding tech-grid-pattern bg-white">
+<div class="container mx-auto px-margin-desktop">
+<div class="grid md:grid-cols-2 gap-stack-lg items-center">
+<div class="relative">
+<div class="absolute -top-4 -right-4 w-full h-full border-2 border-secondary rounded-lg z-0"></div>
+<img class="rounded-lg relative z-10 w-full h-auto shadow-xl" data-alt="A macro close-up of a high-end, 4K digital security camera lens reflecting a clean, modern corporate office interior. The camera is sleek, white, and features a minimalist design consistent with the technical engineering aesthetic. In the background, a tablet screen is visible, showing a split-screen dashboard of live security footage and data analytics charts. The atmosphere is professional, secure, and focused on advanced technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7I_yWBb9wJb0t8NxtObnsXOICLlP8owyEt7Lm9vnman5ROPbGmU77mik-t833l3fsPRov9km3NYkBsXgDVUtF3JhJwJTfzTN5ZPXhNZPCNexUo2kHpJGnErYtH7gEZ3DRx4JVw2seEEgCvmf1mX0VGeMFwt79KX03BCs14Wi2QTWXKrnlCoXkEIPX7CDDgZuYAMxqfEcqNpyFLcCdRPJ4l3vo6KpC0B87x7-U5mEK1mNTjM9AsjPKRqdC9DyNBD3TO30A_HgYMm4"/>
+<div class="absolute bottom-6 right-6 bg-white p-4 rounded shadow-lg z-20 flex items-center gap-3">
+<div class="w-3 h-3 bg-on-tertiary-container rounded-full animate-pulse"></div>
+<span class="font-label-md text-label-md text-primary">نظام نشط ومؤمن</span>
+</div>
+</div>
+<div class="space-y-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-primary">مميزاتنا الجوهرية</h2>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="bg-primary p-2 rounded">
+<span class="material-symbols-outlined text-white" data-icon="smartphone">smartphone</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary">المراقبة عن بعد</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">تابع منشأتك من أي مكان في العالم عبر تطبيقات الجوال والكمبيوتر المتطورة.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary p-2 rounded">
+<span class="material-symbols-outlined text-white" data-icon="psychology">psychology</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary">التحليلات الذكية</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">كشف الحركة، التعرف على الوجوه، وتنبيهات فورية عند حدوث أي خرق أمني.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary p-2 rounded">
+<span class="material-symbols-outlined text-white" data-icon="storage">storage</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary">سعة تخزين ضخمة</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">أنظمة NVR/DVR ذات موثوقية عالية تضمن حفظ التسجيلات لفترات طويلة وبأعلى جودة.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary p-2 rounded">
+<span class="material-symbols-outlined text-white" data-icon="notification_important">notification_important</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary">التكامل مع أنظمة الإنذار</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">ربط ذكي مع حساسات السرقة والحرائق لتقديم استجابة أمنية متكاملة.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sectors -->
+<section class="py-section-padding bg-surface-container-low">
+<div class="container mx-auto px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary">القطاعات المستفيدة</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">حلول مخصصة تناسب كافة المتطلبات</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-white overflow-hidden rounded-lg border border-outline-variant hover:-translate-y-2 transition-transform shadow-sm">
+<img class="w-full h-48 object-cover" data-alt="A sleek and modern minimalist corporate office lobby at night. The lighting is elegant, showcasing clean architectural lines and high-quality glass finishes. Subtle security cameras are integrated into the ceiling corners, looking unobtrusive yet professional. The scene is illuminated by soft, cool white LED strips, reflecting the corporate blue and cyan brand identity of AwjaTech. The overall mood is peaceful and highly secure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmEfIKQpwrhi9P6G2SW7K5025rsHP3PNepJeUIR73TDsHkequdVZelTTh2TUTvuFHHBM20aQfjrQJ3ObzGYdBJ-Ecr_lgLxlpxCatbekKN-oySvPISjMdRpwccBrgaxilBkujViCI_ikO7Wc7z5HpIEQfCp2hANzlbtjAmSoDYhvbow5BczznTxXCEYYufL2B8Brwsjuas-wp5wkWZClWutaFzvCs4FtT1LmV33NVcHyBXCUx4BzVCKXoWX8Yn68UUr45oc-7jt2o"/>
+<div class="p-stack-md text-center">
+<h5 class="font-headline-md text-headline-md text-primary">المكاتب والشركات</h5>
+</div>
+</div>
+<div class="bg-white overflow-hidden rounded-lg border border-outline-variant hover:-translate-y-2 transition-transform shadow-sm">
+<img class="w-full h-48 object-cover" data-alt="An expansive industrial warehouse with towering storage racks filled with goods. High-performance PTZ cameras are mounted strategically on steel beams, providing wide-angle coverage of the facility. The lighting is bright and industrial, with a slight bluish tint. The image emphasizes large-scale security management and logistical engineering excellence, showcasing the robustness of the monitoring equipment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHdI2BS-dm3t8OjxSuc7wxoxh-CJMylKN54GO75udFkXzz_t4MAvzAK_cVGM2sTM_O9Cno2-GdOIzXJoQG0VKrZEtjahwr4tw6V2GrRRfZajheTUWuBKEs4S6WvxLPHGenTn01WBu_kWNmXcauY7HXwrWtE2FI0b1aZznYd3fuHnjeNA63f_TSUuUWSG9OWBrTx6uDd_waK82T9HQZsuZEFzs2Vlk-eTUWKHaHLfG1OCol54CJE7I1DHnnYe0sfFCxEqcXjEcNzPs"/>
+<div class="p-stack-md text-center">
+<h5 class="font-headline-md text-headline-md text-primary">المستودعات والمخازن</h5>
+</div>
+</div>
+<div class="bg-white overflow-hidden rounded-lg border border-outline-variant hover:-translate-y-2 transition-transform shadow-sm">
+<img class="w-full h-48 object-cover" data-alt="A modern educational campus building with clean architectural lines and green spaces. Security cameras are clearly visible but tastefully installed on the exterior walls, providing surveillance over the entrance and playground. The lighting is warm daylight, conveying a sense of safety and community. The scene is crisp and high-definition, reflecting the technical clarity and engineering precision of a secure school environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY2Y5xDb16g4xiUkYe6rxavhKOMVGrs4EBAJ3Ajucbu4_iscDIujcEPab60l7h-kz7ij9g5izaLtTZ4cVgnTbFFXn0AxlbIav6imyVqA7Q0BX0kUoIgNw-F4hkC10AI1VfExIi92mBCwuvx2gQiX5JpPN38zxrLX_B_KeOuXd--KLS90jNQ1JUorfIOFmI7QVz93yNDgqDbDrIy8ZDRaiu88Ggi7N8h6gQc7oqUwbxT9ZjubQOhXtRJwj857c0T-pAN6-6rG7Jqw4"/>
+<div class="p-stack-md text-center">
+<h5 class="font-headline-md text-headline-md text-primary">المدارس والجامعات</h5>
+</div>
+</div>
+<div class="bg-white overflow-hidden rounded-lg border border-outline-variant hover:-translate-y-2 transition-transform shadow-sm">
+<img class="w-full h-48 object-cover" data-alt="An ultra-modern residential luxury villa at twilight. The architecture features large glass panels and sleek concrete surfaces. Discrete, high-tech security cameras are integrated into the smart home system, overlooking the driveway and garden. The scene is illuminated by warm indoor lights and cool outdoor accent lighting, creating a high-contrast, premium aesthetic that emphasizes privacy, safety, and modern living." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOvkMBw0onUqEsMKWNFr7JILOXST_iRlVckbEYJt6KRR3ODCjHrTq2LrabKEXJ0nw2nSLt9Ch-rCgonyDRzgZFftS4dssiqnok28a4n3wfGXg7UuzuO_nJcTJ0wvZD5VWhYUGEAEW4XpvexE3CfWL42IXP0fg_l_AswS9xY22n5Ir4l9ddVppkeVzrCzQoTnovG49-76U0Q6Dw14oX-IO07oY7eGE2-W9me8QlSHvpzfJS8-L1WFkzWW9yLMTFJhQqi0ShIwk7xyY"/>
+<div class="p-stack-md text-center">
+<h5 class="font-headline-md text-headline-md text-primary">الفلل والمجمعات السكنية</h5>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why AwjaTech -->
+<section class="py-section-padding bg-primary text-white">
+<div class="container mx-auto px-margin-desktop text-center">
+<h2 class="font-headline-lg text-headline-lg mb-12">لماذا تختار أوجا تيك لأنظمة المراقبة؟</h2>
+<div class="grid md:grid-cols-4 gap-stack-lg">
+<div class="space-y-4">
+<div class="text-secondary-fixed-dim text-4xl mb-4">
+<span class="material-symbols-outlined text-[48px]" data-icon="architecture">architecture</span>
+</div>
+<h4 class="font-headline-md text-headline-md">تصميم هندسي</h4>
+<p class="font-body-md text-outline-variant">دراسة ميدانية دقيقة لضمان تغطية كافة الزوايا العمياء.</p>
+</div>
+<div class="space-y-4">
+<div class="text-secondary-fixed-dim text-4xl mb-4">
+<span class="material-symbols-outlined text-[48px]" data-icon="engineering">engineering</span>
+</div>
+<h4 class="font-headline-md text-headline-md">تركيب احترافي</h4>
+<p class="font-body-md text-outline-variant">فريق من المهندسين والفنيين المختصين لضمان أعلى أداء.</p>
+</div>
+<div class="space-y-4">
+<div class="text-secondary-fixed-dim text-4xl mb-4">
+<span class="material-symbols-outlined text-[48px]" data-icon="support_agent">support_agent</span>
+</div>
+<h4 class="font-headline-md text-headline-md">دعم فني 24/7</h4>
+<p class="font-body-md text-outline-variant">نحن معك دائماً لضمان استمرارية عمل النظام دون انقطاع.</p>
+</div>
+<div class="space-y-4">
+<div class="text-secondary-fixed-dim text-4xl mb-4">
+<span class="material-symbols-outlined text-[48px]" data-icon="verified">verified</span>
+</div>
+<h4 class="font-headline-md text-headline-md">ماركات عالمية</h4>
+<p class="font-body-md text-outline-variant">نستخدم فقط أفضل العلامات التجارية المعتمدة عالمياً.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact CTA -->
+<section class="py-20 bg-surface">
+<div class="container mx-auto px-margin-desktop">
+<div class="bg-secondary-container rounded-2xl p-stack-lg md:p-16 flex flex-col md:flex-row-reverse items-center justify-between gap-stack-lg">
+<div class="text-right">
+<h3 class="font-display-md text-display-md text-on-secondary-container mb-4">هل تحتاج إلى استشارة فنية؟</h3>
+<p class="font-body-lg text-body-lg text-on-secondary-container/80">مهندسونا جاهزون لتقديم الحل الأمثل لمنشأتك.</p>
+</div>
+<button class="bg-primary text-on-primary px-12 py-5 rounded-lg font-headline-md text-headline-md font-bold shadow-lg hover:scale-105 transition-transform">
+                        تواصل معنا الآن
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary text-on-primary py-stack-lg px-margin-desktop flex flex-col md:flex-row-reverse justify-between items-center gap-gutter">
+<div class="flex items-center gap-4">
+<img alt="AwjaTech Logo" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpkgDKNN4yyO-iOlTJIv0CZ2Nn9-VC-wiBpoXkWAl57ZYUtEnkU84VBYYfFpoVE4tWhgYC9rxeL_JEHy7cPWEXmFrlBkiGw57szk4lH2oYvJwFDMDrAzNsXGBFMDGx4glECofaWkVNbkwKyKG4GXH6cYNghqJN20hgNUh8Z8J8rPaVml7s39lK8ycac3b11kiByG6UfT1VQ5Y0-Dob7dgNstcz4yVMcjiF-qorbwOtB51Bz1zAe4Q-qsobgPcy8YMXncKh0NVE2Bc"/>
+<span class="font-headline-md text-headline-md text-secondary-fixed">AwjaTech</span>
+</div>
+<div class="flex gap-stack-lg">
+<a class="font-body-md text-body-md text-outline-variant hover:text-secondary-fixed-dim transition-colors" href="#">سياسة الخصوصية</a>
+<a class="font-body-md text-body-md text-outline-variant hover:text-secondary-fixed-dim transition-colors" href="#">الشروط والأحكام</a>
+<a class="font-body-md text-body-md text-outline-variant hover:text-secondary-fixed-dim transition-colors" href="#">خريطة الموقع</a>
+</div>
+<div class="font-body-md text-body-md text-outline-variant">
+            © 2024 أوجا تيك للأنظمة الهندسية. جميع الحقوق محفوظة.
+        </div>
+</footer>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

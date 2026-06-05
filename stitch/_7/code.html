@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;family=IBM+Plex+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#f7fafc",
+                    "surface-variant": "#e0e3e5",
+                    "primary": "#001629",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#eef1f3",
+                    "surface-container": "#ebeef0",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#5ad8ff",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#73777e",
+                    "on-secondary-fixed": "#001f28",
+                    "secondary-fixed-dim": "#57d5fc",
+                    "on-secondary-container": "#005c72",
+                    "on-primary-fixed": "#001d34",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#005143",
+                    "on-background": "#181c1e",
+                    "on-primary-container": "#7293b6",
+                    "tertiary-fixed-dim": "#50dcbf",
+                    "tertiary": "#001813",
+                    "secondary-fixed": "#b6ebff",
+                    "outline-variant": "#c3c7ce",
+                    "inverse-primary": "#a8caef",
+                    "surface-dim": "#d7dadc",
+                    "background": "#f7fafc",
+                    "surface-container-low": "#f1f4f6",
+                    "on-primary-fixed-variant": "#274969",
+                    "primary-fixed-dim": "#a8caef",
+                    "primary-fixed": "#cfe5ff",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e5e9eb",
+                    "on-tertiary-fixed": "#00201a",
+                    "on-surface-variant": "#42474d",
+                    "on-surface": "#181c1e",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#004e60",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface": "#f7fafc",
+                    "tertiary-fixed": "#71f9db",
+                    "on-error-container": "#93000a",
+                    "secondary": "#00677f",
+                    "primary-container": "#002b49",
+                    "on-tertiary-container": "#00a28a",
+                    "surface-tint": "#406182",
+                    "tertiary-container": "#002f27",
+                    "inverse-surface": "#2d3133"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "unit": "8px",
+                    "section-padding": "80px",
+                    "margin-mobile": "16px",
+                    "container-max": "1280px",
+                    "margin-desktop": "48px",
+                    "stack-sm": "8px",
+                    "stack-lg": "32px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["IBM Plex Sans Arabic", "sans-serif"],
+                    "label-md": ["IBM Plex Sans Arabic", "sans-serif"],
+                    "body-lg": ["IBM Plex Sans Arabic", "sans-serif"],
+                    "label-sm": ["IBM Plex Sans Arabic", "sans-serif"],
+                    "display-md": ["IBM Plex Sans Arabic", "sans-serif"],
+                    "headline-lg": ["IBM Plex Sans Arabic", "sans-serif"],
+                    "display-lg": ["IBM Plex Sans Arabic", "sans-serif"],
+                    "headline-md": ["IBM Plex Sans Arabic", "sans-serif"],
+                    "body-md": ["IBM Plex Sans Arabic", "sans-serif"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display-md": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'IBM Plex Sans Arabic', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .tech-gradient { background: linear-gradient(135deg, #00A9CE 0%, #00B398 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); }
+    </style>
+</head>
+<body class="bg-surface-bright text-on-surface antialiased">
+<!-- Top Navigation -->
+<nav class="bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-50">
+<div class="flex flex-row-reverse justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
+<div class="font-headline-md text-headline-md font-bold text-primary">AwjaTech</div>
+<div class="hidden md:flex flex-row-reverse gap-gutter items-center">
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary-container transition-colors duration-200 cursor-pointer" href="#">الرئيسية</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary-container transition-colors duration-200 cursor-pointer" href="#">خدماتنا</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary-container transition-colors duration-200 cursor-pointer" href="#">مشاريعنا</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary-container transition-colors duration-200 cursor-pointer" href="#">من نحن</a>
+<a class="text-secondary border-b-2 border-secondary font-bold pb-1 font-body-md text-body-md cursor-pointer" href="#">اتصل بنا</a>
+</div>
+<button class="bg-primary-container text-on-primary px-stack-lg py-unit rounded-lg font-label-md text-label-md hover:opacity-90 transition-all">اطلب عرض سعر</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-section-padding pb-stack-lg bg-surface-container-low border-b border-outline-variant">
+<div class="absolute inset-0 opacity-5 pointer-events-none">
+<div class="absolute top-0 right-0 w-96 h-96 bg-secondary rounded-full blur-[120px]"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-tertiary-fixed-dim rounded-full blur-[100px]"></div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop relative">
+<div class="max-w-2xl">
+<span class="text-secondary font-label-sm text-label-sm uppercase tracking-widest border-r-2 border-secondary pr-4 mb-stack-md block">تواصل مباشر</span>
+<h1 class="font-display-lg text-display-lg text-primary mb-stack-md leading-tight">نحن هنا لمساعدتك.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">سواء كنت تبحث عن حلول هندسية متقدمة أو ترغب في بدء مشروع جديد، فريق خبراء أوجاتيك جاهز للإجابة على جميع استفساراتكم.</p>
+</div>
+</div>
+</section>
+<!-- Main Content Cluster -->
+<main class="max-w-container-max mx-auto px-margin-desktop py-section-padding">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Contact Info & Hours -->
+<div class="lg:col-span-5 space-y-gutter">
+<div class="bg-white border border-outline-variant p-stack-lg rounded-xl shadow-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-lg">معلومات التواصل</h3>
+<div class="space-y-stack-lg">
+<div class="flex items-start gap-stack-md">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">اتصل بنا</p>
+<p class="font-body-md text-body-md text-on-surface dir-ltr">+966 12 345 6789</p>
+</div>
+</div>
+<div class="flex items-start gap-stack-md">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">البريد الإلكتروني</p>
+<p class="font-body-md text-body-md text-on-surface">info@awjatech.com.sa</p>
+</div>
+</div>
+<div class="flex items-start gap-stack-md">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">العنوان</p>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">طريق الملك فهد، حي المروج،<br/>الرياض، المملكة العربية السعودية</p>
+</div>
+</div>
+</div>
+<div class="mt-stack-lg pt-stack-lg border-t border-outline-variant">
+<p class="font-label-sm text-label-sm text-outline mb-stack-md">تابعنا على منصات التواصل</p>
+<div class="flex gap-stack-md">
+<a class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Office Hours Card -->
+<div class="bg-primary text-on-primary p-stack-lg rounded-xl">
+<div class="flex items-center gap-stack-md mb-stack-lg">
+<span class="material-symbols-outlined text-secondary-fixed-dim">schedule</span>
+<h3 class="font-headline-md text-headline-md">ساعات العمل الرسمية</h3>
+</div>
+<div class="space-y-stack-md">
+<div class="flex justify-between border-b border-white/10 pb-2">
+<span class="font-body-md">الأحد - الخميس</span>
+<span class="font-body-md">08:00 ص - 05:00 م</span>
+</div>
+<div class="flex justify-between border-b border-white/10 pb-2">
+<span class="font-body-md">السبت</span>
+<span class="font-body-md">09:00 ص - 01:00 م</span>
+</div>
+<div class="flex justify-between text-white/50">
+<span class="font-body-md">الجمعة</span>
+<span class="font-body-md">مغلق</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Contact Form -->
+<div class="lg:col-span-7">
+<div class="bg-white border border-outline-variant p-stack-lg rounded-xl shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 w-2 h-full tech-gradient"></div>
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-lg">أرسل لنا رسالة</h3>
+<form class="space-y-stack-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">الاسم بالكامل</label>
+<input class="w-full bg-surface-bright border border-outline-variant px-4 py-3 rounded focus:border-secondary focus:ring-1 focus:ring-secondary/20 outline-none transition-all font-body-md" placeholder="مثال: محمد أحمد" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">اسم الشركة</label>
+<input class="w-full bg-surface-bright border border-outline-variant px-4 py-3 rounded focus:border-secondary focus:ring-1 focus:ring-secondary/20 outline-none transition-all font-body-md" placeholder="شركة ..." type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">رقم الجوال</label>
+<input class="w-full bg-surface-bright border border-outline-variant px-4 py-3 rounded focus:border-secondary focus:ring-1 focus:ring-secondary/20 outline-none transition-all font-body-md dir-ltr text-right" placeholder="05xxxxxxxx" type="tel"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">نوع الخدمة المطلوبة</label>
+<select class="w-full bg-surface-bright border border-outline-variant px-4 py-3 rounded focus:border-secondary focus:ring-1 focus:ring-secondary/20 outline-none transition-all font-body-md appearance-none">
+<option>الخدمات الهندسية</option>
+<option>أنظمة التيار المنخفض</option>
+<option>استشارات فنية</option>
+<option>أخرى</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">الرسالة</label>
+<textarea class="w-full bg-surface-bright border border-outline-variant px-4 py-3 rounded focus:border-secondary focus:ring-1 focus:ring-secondary/20 outline-none transition-all font-body-md resize-none" placeholder="كيف يمكننا مساعدتك؟" rows="5"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-4 rounded-lg hover:bg-primary-container transition-all flex items-center justify-center gap-stack-sm group" type="submit">
+                            إرسال الطلب
+                            <span class="material-symbols-outlined text-[20px] group-hover:translate-x-[-4px] transition-transform">send</span>
+</button>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Map Section -->
+<section class="w-full h-[450px] bg-surface-container relative">
+<div class="absolute inset-0 grayscale opacity-80" data-location="Riyadh, Saudi Arabia" style="">
+<img alt="Location Map" class="w-full h-full object-cover" data-alt="A sophisticated digital rendering of a modern city map emphasizing infrastructure and networking lines. The map uses a professional color palette of deep corporate blues and technical cyans with subtle glowing markers for key locations. The lighting is clean and high-tech, reflecting an engineering and reliability focused corporate aesthetic for a leading Saudi technology firm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOs4MkW-qE71m42kY7U7OucDpMY12kUq8Xd42ZZyl9-w8G9PEj-SKvN-iMVP5aTfH_3DI41StfH4mabY3Mrxe1c2IyYsu6OJQDNdAG3WURbrp2YOiWxBFZ3IYyTst4l5kjXkXY5qi8sUeUy-BxV7JsnZL1FQcAh9VL-UAtQezJuD3yB3BjyDMF9BuqGjM89CRCHSOgTo9uA2hHFs_PJC3fHvoglLi_gvjLcF5-DQj1HTl8AQEC17UM68UdJux66yDGTI4zdAJ3t3g"/>
+</div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="bg-white p-stack-md rounded shadow-xl border border-outline-variant flex items-center gap-stack-md pointer-events-auto">
+<div class="w-12 h-12 rounded bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-primary">مقر أوجاتيك الرئيسي</p>
+<p class="font-body-md text-body-md text-on-surface-variant">الرياض، المملكة العربية السعودية</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary text-on-primary">
+<div class="flex flex-col md:flex-row-reverse justify-between items-start w-full px-margin-desktop py-stack-lg max-w-container-max mx-auto gap-gutter">
+<div class="space-y-stack-md">
+<div class="font-headline-sm text-headline-sm text-on-primary">AwjaTech</div>
+<div class="flex flex-wrap gap-stack-md">
+<a class="text-surface-variant opacity-80 font-body-sm text-body-sm hover:text-white transition-opacity" href="#">الخدمات الهندسية</a>
+<a class="text-surface-variant opacity-80 font-body-sm text-body-sm hover:text-white transition-opacity" href="#">أنظمة التيار المنخفض</a>
+<a class="text-surface-variant opacity-80 font-body-sm text-body-sm hover:text-white transition-opacity" href="#">سياسة الخصوصية</a>
+<a class="text-surface-variant opacity-80 font-body-sm text-body-sm hover:text-white transition-opacity" href="#">الشروط والأحكام</a>
+</div>
+</div>
+<div class="mt-stack-lg md:mt-0">
+<p class="font-body-sm text-body-sm text-surface-variant opacity-80">© 2024 AwjaTech. جميع الحقوق محفوظة لشركة أوجا تيك للهندسة.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for form inputs
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('label')?.classList.add('text-secondary');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('label')?.classList.remove('text-secondary');
+            });
+        });
+
+        // Atmospheric effect: Subtle scroll reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('main > div > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

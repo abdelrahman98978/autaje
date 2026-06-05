@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تسجيل الدخول | AwjaTech أوجاتيك</title>
+  <meta name="description" content="تسجيل الدخول إلى حساب عملاء أوجاتيك لمتابعة المشاريع والخدمات الفنية وفتح تذاكر الدعم والصيانة." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- CSS Custom Files -->
+  <link rel="stylesheet" href="css/design-tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body class="antialiased overflow-x-hidden">
+
+  <div class="login-page">
+    
+    <!-- Right/Form Panel (RTL - on the right) -->
+    <div class="login-form-panel">
+      <div class="login-form-container">
+        
+        <!-- Logo and Home -->
+        <div class="flex justify-between items-center mb-8">
+          <a class="logo" href="index.html">
+            <img src="assets/images/logo.svg" alt="AwjaTech Logo" style="height: 36px;" />
+            <span class="logo-text" style="font-size: 24px;">AwjaTech</span>
+          </a>
+          <a href="index.html" class="flex items-center gap-1 body-md text-on-surface-variant" style="font-weight: 500;">
+            الرئيسية
+            <span class="material-symbols-outlined" style="font-size: 18px;">arrow_back</span>
+          </a>
+        </div>
+
+        <!-- Tabs -->
+        <div class="login-tabs">
+          <button class="login-tab-btn active" id="tab-signin">تسجيل الدخول</button>
+          <button class="login-tab-btn" id="tab-signup">حساب جديد</button>
+        </div>
+
+        <!-- 1. SIGN IN FORM -->
+        <form id="form-signin" class="space-y-4">
+          <div class="login-form-header">
+            <h2 class="headline-md">مرحباً بك مجدداً!</h2>
+            <p class="body-md text-on-surface-variant">قم بالدخول لإدارة خدماتك وتذاكر الصيانة.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signin-email">البريد الإلكتروني</label>
+            <input class="form-input" type="email" id="signin-email" placeholder="name@company.com" required />
+            <span class="form-error"></span>
+          </div>
+
+          <div class="form-group">
+            <div class="flex justify-between items-center mb-1">
+              <label class="form-label" for="signin-password" style="margin-bottom: 0;">كلمة المرور</label>
+              <a href="#" class="label-md text-secondary" id="link-forgot" style="font-weight: 600;">نسيت كلمة المرور؟</a>
+            </div>
+            <input class="form-input" type="password" id="signin-password" placeholder="••••••••" required />
+            <span class="form-error"></span>
+          </div>
+
+          <button class="btn btn-primary btn-full btn-lg" type="submit">تسجيل الدخول</button>
+
+          <div class="flex justify-center" style="margin-top: var(--space-4);">
+            <a href="#" class="label-md text-secondary" id="link-magic" style="font-weight: 600;">الدخول عبر الرابط السحري (بدون كلمة مرور)</a>
+          </div>
+        </form>
+
+        <!-- 2. SIGN UP FORM -->
+        <form id="form-signup" class="space-y-4 hidden">
+          <div class="login-form-header">
+            <h2 class="headline-md">أنشئ حسابك التقني</h2>
+            <p class="body-md text-on-surface-variant">احصل على وصول كامل للوحة تحكم أوجاتيك للعملاء.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signup-name">الاسم الكريم</label>
+            <input class="form-input" type="text" id="signup-name" placeholder="محمد أحمد" required />
+            <span class="form-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signup-email">البريد الإلكتروني للعمل</label>
+            <input class="form-input" type="email" id="signup-email" placeholder="name@company.com" required />
+            <span class="form-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signup-phone">رقم الجوال</label>
+            <input class="form-input" type="tel" id="signup-phone" placeholder="0500000000" required />
+            <span class="form-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signup-password">كلمة المرور</label>
+            <input class="form-input" type="password" id="signup-password" placeholder="••••••••" required />
+            <span class="form-error"></span>
+          </div>
+
+          <button class="btn btn-primary btn-full btn-lg" type="submit">إنشاء الحساب</button>
+        </form>
+
+        <!-- 3. MAGIC LINK FORM -->
+        <form id="form-magic" class="space-y-4 hidden">
+          <div class="login-form-header">
+            <h2 class="headline-md">الدخول بالرابط السحري</h2>
+            <p class="body-md text-on-surface-variant">أدخل بريدك وسنرسل لك رابطاً للدخول الفوري دون كلمة مرور.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="magic-email">البريد الإلكتروني</label>
+            <input class="form-input" type="email" id="magic-email" placeholder="name@company.com" required />
+            <span class="form-error"></span>
+          </div>
+
+          <button class="btn btn-primary btn-full btn-lg" type="submit">إرسال رابط الدخول</button>
+
+          <div class="flex justify-center" style="margin-top: var(--space-4);">
+            <a href="#" class="label-md text-secondary" id="link-back-signin-magic" style="font-weight: 600;">العودة لتسجيل الدخول العادي</a>
+          </div>
+        </form>
+
+        <!-- 4. FORGOT PASSWORD FORM -->
+        <form id="form-forgot" class="space-y-4 hidden">
+          <div class="login-form-header">
+            <h2 class="headline-md">استعادة كلمة المرور</h2>
+            <p class="body-md text-on-surface-variant">أدخل بريدك الإلكتروني وسنرسل لك رابطاً لإعادة تعيين كلمة المرور الخاصة بك.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="forgot-email">البريد الإلكتروني المسجل</label>
+            <input class="form-input" type="email" id="forgot-email" placeholder="name@company.com" required />
+            <span class="form-error"></span>
+          </div>
+
+          <button class="btn btn-primary btn-full btn-lg" type="submit">إرسال تعليمات الاستعادة</button>
+
+          <div class="flex justify-center" style="margin-top: var(--space-4);">
+            <a href="#" class="label-md text-secondary" id="link-back-signin" style="font-weight: 600;">العودة لتسجيل الدخول</a>
+          </div>
+        </form>
+
+        <!-- Social Sign In -->
+        <div class="login-social-container" id="social-block">
+          <div class="login-divider">أو سجل عبر</div>
+          <button class="btn btn-google" id="btn-google-auth">
+            <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.53 12-4.53z" fill="#EA4335"/>
+            </svg>
+            تسجيل الدخول باستخدام Google
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Left/Visual Panel (LTL - on the left) -->
+    <div class="login-visual-panel">
+      <div class="flex items-center gap-3">
+        <img src="assets/images/logo-white.svg" alt="AwjaTech White Logo" style="height: 48px;" />
+        <span class="logo-text" style="color: #ffffff; font-weight: 900;">AwjaTech</span>
+      </div>
+
+      <div class="login-visual-content">
+        <span class="badge badge-secondary" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: var(--brand-cyan);">بوابة العملاء الآمنة</span>
+        <h1 class="display-md text-white" style="margin-top: var(--space-4); line-height: 1.2;">الهندسة والتحكم الرقمي في منصة واحدة</h1>
+        <p class="body-lg" style="opacity: 0.85; margin-top: var(--space-3);">مرحباً بك في لوحة تحكم عملاء أوجاتيك. تابع تقدم مشاريعك الهندسية وتواصل مع فريق الدعم الفني بشكل مباشر.</p>
+        
+        <div class="login-benefits">
+          <div class="login-benefit-item">
+            <div class="login-benefit-icon">
+              <span class="material-symbols-outlined">dashboard</span>
+            </div>
+            <div>
+              <h4 class="headline-md" style="font-size: var(--font-body-md-size); margin-bottom: 2px;">لوحة تحكم موحدة</h4>
+              <p class="body-md" style="opacity: 0.75; font-size: 14px;">إدارة ومراجعة كافة خدمات التيار الخفيف والشبكات النشطة في منشأتك.</p>
+            </div>
+          </div>
+
+          <div class="login-benefit-item">
+            <div class="login-benefit-icon">
+              <span class="material-symbols-outlined">support_agent</span>
+            </div>
+            <div>
+              <h4 class="headline-md" style="font-size: var(--font-body-md-size); margin-bottom: 2px;">نظام تذاكر صيانة فوري</h4>
+              <p class="body-md" style="opacity: 0.75; font-size: 14px;">افتح تذاكر صيانة وتابع حالة الاستجابة الفنية والزيارات الميدانية.</p>
+            </div>
+          </div>
+
+          <div class="login-benefit-item">
+            <div class="login-benefit-icon">
+              <span class="material-symbols-outlined">description</span>
+            </div>
+            <div>
+              <h4 class="headline-md" style="font-size: var(--font-body-md-size); margin-bottom: 2px;">التقارير والمقايسات</h4>
+              <p class="body-md" style="opacity: 0.75; font-size: 14px;">الوصول المباشر لعروض الأسعار والتقارير الفنية الخاصة بمشاريعك.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center" style="opacity: 0.7; border-top: 1px solid rgba(255,255,255,0.1); padding-top: var(--space-4);">
+        <p class="label-sm">© 2026 أوجاتيك للهندسة. جميع الحقوق محفوظة.</p>
+        <div class="flex gap-4">
+          <a href="privacy.html" class="label-sm text-white">الخصوصية</a>
+          <a href="terms.html" class="label-sm text-white">الشروط</a>
+          <a href="admin.html" class="label-sm text-white" style="opacity:0.5;" title="دخول المشرفين">⚙</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Tab switching (Sign In / Sign Up)
+    const tabSignIn = document.getElementById('tab-signin');
+    const tabSignUp = document.getElementById('tab-signup');
+    const formSignIn = document.getElementById('form-signin');
+    const formSignUp = document.getElementById('form-signup');
+    const formMagic = document.getElementById('form-magic');
+    const formForgot = document.getElementById('form-forgot');
+    const socialBlock = document.getElementById('social-block');
+
+    function resetForms() {
+      formSignIn.classList.add('hidden');
+      formSignUp.classList.add('hidden');
+      formMagic.classList.add('hidden');
+      formForgot.classList.add('hidden');
+      socialBlock.classList.remove('hidden');
+      tabSignIn.classList.remove('active');
+      tabSignUp.classList.remove('active');
+    }
+
+    tabSignIn.addEventListener('click', () => {
+      resetForms();
+      formSignIn.classList.remove('hidden');
+      tabSignIn.classList.add('active');
+    });
+
+    tabSignUp.addEventListener('click', () => {
+      resetForms();
+      formSignUp.classList.remove('hidden');
+      tabSignUp.classList.add('active');
+    });
+
+    // Magic link navigation
+    document.getElementById('link-magic').addEventListener('click', (e) => {
+      e.preventDefault();
+      resetForms();
+      formMagic.classList.remove('hidden');
+      socialBlock.classList.add('hidden');
+    });
+
+    document.getElementById('link-back-signin-magic').addEventListener('click', (e) => {
+      e.preventDefault();
+      resetForms();
+      formSignIn.classList.remove('hidden');
+      tabSignIn.classList.add('active');
+    });
+
+    // Forgot password navigation
+    document.getElementById('link-forgot').addEventListener('click', (e) => {
+      e.preventDefault();
+      resetForms();
+      formForgot.classList.remove('hidden');
+      socialBlock.classList.add('hidden');
+    });
+
+    document.getElementById('link-back-signin').addEventListener('click', (e) => {
+      e.preventDefault();
+      resetForms();
+      formSignIn.classList.remove('hidden');
+      tabSignIn.classList.add('active');
+    });
+
+    // Form Submissions — admin check + redirect
+    formSignIn.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('signin-email').value;
+      // Admin login
+      if (email === 'admin@awjatech.com.sa') {
+        localStorage.setItem('awja_admin_email', email);
+        localStorage.setItem('awja_admin_name', 'مشرف النظام');
+        window.location.href = 'admin.html';
+        return;
+      }
+      localStorage.setItem('awja_user_email', email);
+      localStorage.setItem('awja_user_name', email.split('@')[0]);
+      window.location.href = 'dashboard.html';
+    });
+
+    formSignUp.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('signup-name').value;
+      const email = document.getElementById('signup-email').value;
+      localStorage.setItem('awja_user_email', email);
+      localStorage.setItem('awja_user_name', name);
+      window.location.href = 'dashboard.html';
+    });
+
+    formMagic.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('magic-email').value;
+      alert('تم إرسال الرابط السحري بنجاح إلى بريدك الإلكتروني!');
+      localStorage.setItem('awja_user_email', email);
+      localStorage.setItem('awja_user_name', email.split('@')[0]);
+      window.location.href = 'dashboard.html';
+    });
+
+    formForgot.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('تم إرسال تعليمات استعادة كلمة المرور إلى بريدك الإلكتروني!');
+      resetForms();
+      formSignIn.classList.remove('hidden');
+      tabSignIn.classList.add('active');
+    });
+
+    // Google auth simulation
+    document.getElementById('btn-google-auth').addEventListener('click', () => {
+      localStorage.setItem('awja_user_email', 'google_user@awjatech.com.sa');
+      localStorage.setItem('awja_user_name', 'عميل جوجل');
+      window.location.href = 'dashboard.html';
+    });
+  </script>
+</body>
+</html>

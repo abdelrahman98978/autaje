@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - الصفحة غير موجودة | AwjaTech أوجاتيك</title>
+  <meta name="description" content="عذراً، الصفحة التي تبحث عنها غير موجودة." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="css/design-tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <style>
+    .error-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      text-align: center;
+      padding: var(--space-8);
+    }
+    .error-code {
+      font-size: clamp(6rem, 15vw, 10rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #00A9CE, #00B398);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    .error-message {
+      margin-block: var(--space-4) var(--space-8);
+    }
+  </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="flex items-center gap-4">
+        <a class="logo" href="index.html">
+          <img src="assets/images/logo.svg" alt="AwjaTech Logo" />
+          <span class="logo-text">AwjaTech</span>
+        </a>
+      </div>
+      <div class="header-actions">
+        <a class="btn btn-primary" href="index.html">العودة للرئيسية</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="error-page">
+      <div class="error-code">404</div>
+      <h1 class="display-md">عذراً، الصفحة غير موجودة</h1>
+      <p class="body-lg text-muted error-message">الصفحة التي تبحث عنها قد تكون انتقلت أو تم حذفها.</p>
+      <div class="flex gap-4" style="flex-wrap: wrap; justify-content: center;">
+        <a class="btn btn-primary" href="index.html">العودة إلى الرئيسية</a>
+        <a class="btn btn-secondary" href="contact.html">اتصل بنا</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 AwjaTech. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

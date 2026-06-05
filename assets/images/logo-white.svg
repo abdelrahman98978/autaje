@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- White version of the Hexagonal Logo for dark themes -->
+  <polygon points="50,5 90,28 90,72 50,95 10,72 10,28" fill="none" stroke="#ffffff" stroke-width="8" stroke-linejoin="round" />
+  <polygon points="50,22 75,36 75,64 50,78 25,64 25,36" fill="#ffffff" opacity="0.85" />
+  <circle cx="50" cy="50" r="10" fill="#002B49" />
+</svg>

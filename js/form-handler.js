@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ─── Form Submission ───
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
       let isValid = true;
@@ -71,6 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => {
             emailInput.style.outline = '';
           }, 3000);
+        } else if (isValid && emailInput.name) {
+          formData[emailInput.name] = val;
         }
       }
 
@@ -87,33 +89,46 @@ document.addEventListener('DOMContentLoaded', () => {
         جاري الإرسال...
       `;
 
-      const action = form.getAttribute('action');
+      // Insert into Supabase
+      if (window.supabaseClient) {
+        try {
+          const { error } = await window.supabaseClient
+            .from('quotes')
+            .insert([{
+              name: formData.name || 'غير محدد',
+              company: formData.company || 'غير محدد',
+              phone: formData.phone || 'غير محدد',
+              service: formData.service || 'غير محدد',
+              message: formData.message || 'اشتراك في النشرة/رسالة غير محددة'
+            }]);
 
-      if (action && action.startsWith('https://formspree.io/')) {
-        // Real Formspree submission
-        fetch(action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: {
-            'Accept': 'application/json'
-          }
-        })
-        .then(response => {
-          if (response.ok) {
-            showSuccess(submitBtn, originalBtnText, form);
-          } else {
-            showError(submitBtn, originalBtnText);
-          }
-        })
-        .catch(error => {
-          console.error("Formspree Error:", error);
-          showError(submitBtn, originalBtnText);
-        });
+          if (error) throw error;
+
+          // Success
+          submitBtn.innerHTML = 'تم الإرسال بنجاح <span class="material-symbols-outlined" style="font-size: 20px; margin-right: 8px;">check_circle</span>';
+          submitBtn.style.backgroundColor = 'var(--color-success)';
+          form.reset();
+
+          setTimeout(() => {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.style.backgroundColor = '';
+            submitBtn.disabled = false;
+          }, 3000);
+
+        } catch (error) {
+          console.error('Error saving quote:', error);
+          submitBtn.innerHTML = 'حدث خطأ، حاول مجدداً <span class="material-symbols-outlined" style="font-size: 20px; margin-right: 8px;">error</span>';
+          submitBtn.style.backgroundColor = 'var(--color-error)';
+          setTimeout(() => {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.style.backgroundColor = '';
+            submitBtn.disabled = false;
+          }, 3000);
+        }
       } else {
-        // Mock API Call (1.5 seconds) for local development
-        setTimeout(() => {
-          showSuccess(submitBtn, originalBtnText, form);
-        }, 1500);
+        alert('يرجى إعداد Supabase أولاً.');
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
       }
     });
   });

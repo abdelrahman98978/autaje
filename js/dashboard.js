@@ -266,34 +266,61 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  let tickets = JSON.parse(localStorage.getItem('awja_tickets'));
-  if (!tickets || tickets.length === 0) {
-    tickets = [
-      {
-        id: 'TKT-7822',
-        subject: 'عقد الصيانة والزيارة الدورية',
-        service: 'CCTV',
-        desc: 'طلب موعد فحص دوري لكافة كاميرات المبنى الرئيسي.',
-        status: 'resolved',
-        messages: [
-          { sender: 'client', text: 'أهلاً بكم، نود حجز موعد زيارة دورية وقائية لنظام الكاميرات.' },
-          { sender: 'support', text: 'أهلاً بك عميلنا العزيز، تم تحديد موعد زيارة وقائية يوم الثلاثاء الماضي من قبل المهندس فهد وجرى فحص كافة الكاميرات والعدسات بنجاح.' }
-        ]
-      },
-      {
-        id: 'TKT-8832',
-        subject: 'صيانة مكبر الصوت Bosch 240W',
-        service: 'Sound System',
-        desc: 'يوجد تشويش خفيف في القناة الثانية لنظام النداء.',
-        status: 'pending',
-        messages: [
-          { sender: 'client', text: 'مرحباً، لدينا تشويش بسيط في نظام الصوت بالفرع الغربي.' },
-          { sender: 'support', text: 'نشكر تواصلك معنا، تم فتح تذكرة وتوجيه فريق الصيانة الميدانية للتواصل معك لزيارة الفرع وفحص المخارج والمكبر.' }
-        ]
+  let tickets = [];
+  
+  async function loadTickets() {
+    if (window.supabaseClient && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+      try {
+        const { data: userData } = await window.supabaseClient.auth.getUser();
+        if (userData?.user) {
+          const { data: supaTickets, error } = await window.supabaseClient
+            .from('tickets')
+            .select('*')
+            .eq('user_id', userData.user.id);
+          if (!error && supaTickets) {
+            tickets = supaTickets;
+          }
+        }
+      } catch (err) {
+        console.error('Supabase tickets error:', err);
       }
-    ];
-    localStorage.setItem('awja_tickets', JSON.stringify(tickets));
+    }
+    
+    // Fallback if Supabase is empty or not configured
+    if (tickets.length === 0) {
+      tickets = JSON.parse(localStorage.getItem('awja_tickets'));
+      if (!tickets || tickets.length === 0) {
+        tickets = [
+          {
+            id: 'TKT-7822',
+            subject: 'عقد الصيانة والزيارة الدورية',
+            service: 'CCTV',
+            desc: 'طلب موعد فحص دوري لكافة كاميرات المبنى الرئيسي.',
+            status: 'resolved',
+            messages: [
+              { sender: 'client', text: 'أهلاً بكم، نود حجز موعد زيارة دورية وقائية لنظام الكاميرات.' },
+              { sender: 'support', text: 'أهلاً بك عميلنا العزيز، تم تحديد موعد زيارة وقائية يوم الثلاثاء الماضي من قبل المهندس فهد وجرى فحص كافة الكاميرات والعدسات بنجاح.' }
+            ]
+          },
+          {
+            id: 'TKT-8832',
+            subject: 'صيانة مكبر الصوت Bosch 240W',
+            service: 'Sound System',
+            desc: 'يوجد تشويش خفيف في القناة الثانية لنظام النداء.',
+            status: 'pending',
+            messages: [
+              { sender: 'client', text: 'مرحباً، لدينا تشويش بسيط في نظام الصوت بالفرع الغربي.' },
+              { sender: 'support', text: 'نشكر تواصلك معنا، تم فتح تذكرة وتوجيه فريق الصيانة الميدانية للتواصل معك لزيارة الفرع وفحص المخارج والمكبر.' }
+            ]
+          }
+        ];
+        localStorage.setItem('awja_tickets', JSON.stringify(tickets));
+      }
+    }
+    renderTicketsList();
   }
+  
+  loadTickets();
 
   const ticketsListContainer = document.getElementById('tickets-list-container');
   const chatMessagesContainer = document.getElementById('chat-messages-container');
@@ -419,13 +446,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  formNewTicket.addEventListener('submit', (e) => {
+  formNewTicket.addEventListener('submit', async (e) => {
     e.preventDefault();
     const subject = document.getElementById('new-ticket-subject').value;
     const service = document.getElementById('new-ticket-service').value;
     const desc = document.getElementById('new-ticket-desc').value;
-    const ticketId = 'TKT-' + Math.floor(1000 + Math.random() * 9000);
+    const btnSubmit = formNewTicket.querySelector('button[type="submit"]');
+    const originalText = btnSubmit.innerHTML;
+    btnSubmit.innerHTML = 'جاري الفتح...';
+    btnSubmit.disabled = true;
 
+    if (window.supabaseClient && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+      try {
+        const { data: userData } = await window.supabaseClient.auth.getUser();
+        if (userData?.user) {
+          const { error } = await window.supabaseClient
+            .from('tickets')
+            .insert([{
+              user_id: userData.user.id,
+              subject: subject,
+              description: `النظام: ${service}\n\nالوصف:\n${desc}`,
+              status: 'مفتوحة'
+            }]);
+          if (!error) {
+            alert('تم فتح التذكرة بنجاح!');
+            formNewTicket.reset();
+            ticketModal.classList.remove('open');
+            loadTickets(); // reload from supabase
+            btnSubmit.innerHTML = originalText;
+            btnSubmit.disabled = false;
+            return;
+          } else {
+            console.error(error);
+          }
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    // Fallback Local Storage
+    const ticketId = 'TKT-' + Math.floor(1000 + Math.random() * 9000);
     const newTicket = {
       id: ticketId,
       subject: subject,
@@ -437,14 +498,15 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     };
 
-    tickets.push(newTicket);
+    tickets.unshift(newTicket);
     localStorage.setItem('awja_tickets', JSON.stringify(tickets));
 
     alert(`تم فتح التذكرة بنجاح برقم: ${ticketId}`);
     formNewTicket.reset();
     ticketModal.classList.remove('open');
-
     renderTicketsList();
+    btnSubmit.innerHTML = originalText;
+    btnSubmit.disabled = false;
   });
 
   const formSettings = document.getElementById('form-settings');

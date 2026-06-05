@@ -123,6 +123,63 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('awja_tickets', JSON.stringify(supportTickets));
   }
 
+  // ── Supabase: Fetch quotes and tickets for admin ──
+  async function loadAdminSupabaseData() {
+    if (!window.supabaseClient) return;
+    try {
+      // Fetch all quotes (admin RLS policy)
+      const { data: quotes, error: qErr } = await window.supabaseClient
+        .from('quotes')
+        .select('*')
+        .order('created_at', { ascending: false });
+      if (!qErr && quotes && quotes.length > 0) {
+        console.log(`📥 Loaded ${quotes.length} quotes from Supabase`);
+        // Show quotes in an activity or a dedicated section
+        const overviewActivity = document.getElementById('overview-activity');
+        if (overviewActivity) {
+          quotes.slice(0, 3).forEach(q => {
+            const item = document.createElement('div');
+            item.className = 'admin-activity-item';
+            item.innerHTML = `
+              <span class="material-symbols-outlined" style="color:var(--brand-cyan);">request_quote</span>
+              <div><strong>طلب عرض سعر: ${q.name} - ${q.service}</strong><br><small class="text-on-surface-variant">${q.company} | ${q.phone}</small></div>
+            `;
+            overviewActivity.prepend(item);
+          });
+        }
+      }
+
+      // Fetch all tickets from Supabase (admin RLS policy)
+      const { data: supaTickets, error: tErr } = await window.supabaseClient
+        .from('tickets')
+        .select('*')
+        .order('created_at', { ascending: false });
+      if (!tErr && supaTickets && supaTickets.length > 0) {
+        console.log(`📥 Loaded ${supaTickets.length} tickets from Supabase`);
+        // Merge Supabase tickets into the support list
+        supaTickets.forEach(t => {
+          if (!supportTickets.find(st => st.id === t.id)) {
+            supportTickets.unshift({
+              id: t.id.substring(0, 8).toUpperCase(),
+              subject: t.subject,
+              service: 'عام',
+              desc: t.description,
+              status: t.status === 'مغلقة' ? 'resolved' : 'pending',
+              priority: 'normal',
+              client: 'عميل Supabase',
+              engineer: null,
+              messages: [{ sender: 'client', text: t.description }]
+            });
+          }
+        });
+        renderSupportTickets();
+      }
+    } catch (err) {
+      console.error('Admin Supabase load error:', err);
+    }
+  }
+  loadAdminSupabaseData();
+
   // ─── RENDER FUNCTIONS ───
 
   // Status label helpers

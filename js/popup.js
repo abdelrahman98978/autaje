@@ -28,6 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
       text-decoration: none;
       transition: all var(--transition-smooth);
     }
+    .awja-whatsapp-fab svg {
+      width: 32px;
+      height: 32px;
+      margin: 0 auto;
+      display: block;
+    }
     .awja-whatsapp-fab:hover {
       transform: scale(1.08) rotate(-5deg);
       box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);

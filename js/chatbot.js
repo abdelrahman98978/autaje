@@ -25,6 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
       z-index: 999;
       transition: all var(--transition-smooth);
     }
+    .awja-chatbot-fab span {
+      margin: 0 auto;
+      display: block;
+      line-height: 1;
+    }
     .awja-chatbot-fab:hover {
       transform: scale(1.08) rotate(5deg);
       box-shadow: 0 12px 32px rgba(0, 169, 206, 0.4);

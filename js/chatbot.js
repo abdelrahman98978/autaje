@@ -12,18 +12,51 @@ document.addEventListener('DOMContentLoaded', () => {
       position: fixed;
       bottom: 24px;
       right: 24px;
-      width: 60px;
-      height: 60px;
+      left: auto !important;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       background: var(--brand-gradient);
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 24px rgba(0, 169, 206, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 169, 206, 0.35);
       cursor: pointer;
-      z-index: 999;
+      z-index: 99;
       transition: all var(--transition-smooth);
+    }
+    .awja-chatbot-fab::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: var(--brand-cyan);
+      opacity: 0.3;
+      z-index: -1;
+      animation: chatbot-pulse 2s infinite;
+    }
+    .awja-chatbot-fab::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 12px;
+      height: 12px;
+      background-color: #00FF66;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(0, 255, 102, 0.8);
+    }
+    @keyframes chatbot-pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.4;
+      }
+      100% {
+        transform: scale(1.3);
+        opacity: 0;
+      }
     }
     .awja-chatbot-fab span {
       margin: 0 auto;
@@ -32,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     .awja-chatbot-fab:hover {
       transform: scale(1.08) rotate(5deg);
-      box-shadow: 0 12px 32px rgba(0, 169, 206, 0.4);
+      box-shadow: 0 12px 32px rgba(0, 169, 206, 0.45);
     }
     .awja-chatbot-window {
       position: fixed;
@@ -199,13 +232,42 @@ document.addEventListener('DOMContentLoaded', () => {
       to { opacity: 1; }
     }
 
+    @media (max-width: 767px) {
+      .awja-chatbot-fab {
+        bottom: 16px;
+        right: 16px;
+        width: 48px;
+        height: 48px;
+      }
+      .awja-chatbot-fab span {
+        font-size: 24px !important;
+      }
+      .awja-chatbot-fab::after {
+        width: 10px;
+        height: 10px;
+        top: 1px;
+        right: 1px;
+      }
+    }
+
     @media (max-width: 480px) {
       .awja-chatbot-window {
         width: calc(100vw - 32px);
         height: 480px;
         right: 16px;
-        bottom: 84px;
+        bottom: 80px;
       }
+    }
+
+    /* Hide when mobile menu is open */
+    .mobile-nav.open ~ div .awja-chatbot-fab,
+    .mobile-nav.open ~ div .awja-chatbot-window,
+    body.overflow-hidden .awja-chatbot-fab,
+    body.overflow-hidden .awja-chatbot-window {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transform: scale(0.8) translateY(20px) !important;
     }
   `;
   document.head.appendChild(styleEl);

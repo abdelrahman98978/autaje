@@ -14,29 +14,72 @@ document.addEventListener('DOMContentLoaded', () => {
       position: fixed;
       bottom: 24px;
       left: 24px;
-      width: 60px;
-      height: 60px;
+      right: auto !important;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
-      background-color: #25D366;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
       cursor: pointer;
-      z-index: 999;
+      z-index: 99;
       text-decoration: none;
       transition: all var(--transition-smooth);
     }
     .awja-whatsapp-fab svg {
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       margin: 0 auto;
       display: block;
     }
+    .awja-whatsapp-fab::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: #25D366;
+      opacity: 0.3;
+      z-index: -1;
+      animation: whatsapp-pulse 2s infinite;
+    }
+    @keyframes whatsapp-pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.4;
+      }
+      100% {
+        transform: scale(1.3);
+        opacity: 0;
+      }
+    }
     .awja-whatsapp-fab:hover {
       transform: scale(1.08) rotate(-5deg);
-      box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
+      box-shadow: 0 12px 32px rgba(37, 211, 102, 0.45);
+    }
+
+    @media (max-width: 767px) {
+      .awja-whatsapp-fab {
+        bottom: 16px;
+        left: 16px;
+        width: 48px;
+        height: 48px;
+      }
+      .awja-whatsapp-fab svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    /* Hide when mobile menu is open */
+    .mobile-nav.open ~ .awja-whatsapp-fab,
+    body.overflow-hidden .awja-whatsapp-fab {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transform: scale(0.8) !important;
     }
 
     /* Newsletter Popup */

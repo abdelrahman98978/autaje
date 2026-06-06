@@ -81,11 +81,54 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggle && menu) {
       // Toggle on click for touch devices
       toggle.addEventListener('click', (e) => {
-        if (window.innerWidth < 768) {
+        if (window.innerWidth < 768 || toggle.id === 'langToggle') {
           e.preventDefault();
           menu.classList.toggle('open');
         }
       });
     }
   });
+
+  // ─── Language Switcher ───
+  const langOptions = document.querySelectorAll('.lang-option');
+  const langToggle = document.getElementById('langToggle');
+  
+  langOptions.forEach(option => {
+    option.addEventListener('click', (e) => {
+      e.preventDefault();
+      const lang = option.getAttribute('data-lang');
+      const dir = option.getAttribute('data-dir');
+      const text = option.textContent;
+      
+      // Update toggle text
+      if(langToggle) {
+        langToggle.innerHTML = `${text} <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle;">language</span>`;
+      }
+      
+      // Update HTML lang and dir attributes
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('dir', dir);
+      
+      // Update body direction
+      document.body.style.direction = dir;
+      
+      // Close dropdown
+      const menu = option.closest('.nav-dropdown-menu');
+      if(menu) menu.classList.remove('open');
+      
+      // Optional: Store preference in localStorage
+      localStorage.setItem('awja_lang', lang);
+      localStorage.setItem('awja_dir', dir);
+    });
+  });
+
+  // Load language preference
+  const savedLang = localStorage.getItem('awja_lang');
+  const savedDir = localStorage.getItem('awja_dir');
+  if (savedLang && savedDir) {
+    const option = Array.from(langOptions).find(opt => opt.getAttribute('data-lang') === savedLang);
+    if (option) {
+      option.click(); // Trigger the click to apply
+    }
+  }
 });

@@ -309,7 +309,7 @@
         else window.location.href = 'dashboard.html';
       } else {
         // Fallback local storage for preview
-        if (email === 'admin@awjatech.com.sa') {
+        if (email === 'admin@awjatech.sa') {
           localStorage.setItem('awja_admin_email', email);
           window.location.href = 'admin.html';
           return;
@@ -374,7 +374,7 @@
 
     // Google auth simulation
     document.getElementById('btn-google-auth').addEventListener('click', () => {
-      localStorage.setItem('awja_user_email', 'google_user@awjatech.com.sa');
+      localStorage.setItem('awja_user_email', 'google_user@awjatech.sa');
       localStorage.setItem('awja_user_name', 'عميل جوجل');
       window.location.href = 'dashboard.html';
     });

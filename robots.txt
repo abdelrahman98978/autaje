@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.awjatech.com.sa/sitemap.xml
+Sitemap: https://www.awjatech.sa/sitemap.xml

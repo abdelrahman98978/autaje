@@ -11,17 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if logging in as admin
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('admin') === 'true') {
-      localStorage.setItem('awja_admin_email', 'admin@awjatech.com.sa');
+      localStorage.setItem('awja_admin_email', 'admin@awjatech.sa');
       localStorage.setItem('awja_admin_name', 'مشرف النظام');
     } else {
       // Allow demo access without redirecting
-      localStorage.setItem('awja_admin_email', 'admin@awjatech.com.sa');
+      localStorage.setItem('awja_admin_email', 'admin@awjatech.sa');
       localStorage.setItem('awja_admin_name', 'مشرف النظام');
     }
   }
 
   const adminName = localStorage.getItem('awja_admin_name') || 'المشرف';
-  const adminEmailDisplay = localStorage.getItem('awja_admin_email') || 'admin@awjatech.com.sa';
+  const adminEmailDisplay = localStorage.getItem('awja_admin_email') || 'admin@awjatech.sa';
   document.getElementById('admin-name-display').textContent = adminName;
   document.getElementById('admin-email-display').textContent = adminEmailDisplay;
 

@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 1. WhatsApp Button
   const waBtn = document.createElement('a');
-  waBtn.href = "https://wa.me/966500000000";
+  waBtn.href = "https://wa.me/966579466881";
   waBtn.target = "_blank";
   waBtn.className = "awja-whatsapp-fab";
   waBtn.innerHTML = `

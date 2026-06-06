@@ -323,8 +323,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let conversationHistory = [];
 
-  // ⚠ API key moved to backend for security. Add your server proxy endpoint here.
-  const NVIDIA_API_KEY = "YOUR_NVIDIA_API_KEY_HERE"; // Set your NVIDIA API Key here
+  // API key is stored securely on Vercel server-side (/api/chat)
+  const CHAT_API_URL = "/api/chat";
   
   function formatMarkdown(text) {
     // Basic HTML escape to prevent XSS
@@ -403,13 +403,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (text.includes('تذكرة') || text.toLowerCase().includes('ticket') || text.includes('صيانة') || text.includes('عطل')) {
         initiateTicketWizard();
       } else {
-        queryNvidiaAI(text);
+        queryOpenRouterAI(text);
       }
     }
   }
 
-  // ─── NVIDIA NIM LLM API Connection ───
-  async function queryNvidiaAI(prompt) {
+  // ─── OpenRouter LLM API Connection ───
+  async function queryOpenRouterAI(prompt) {
     addTypingIndicator();
 
     // Prepare message payload containing system prompt + history + current prompt
@@ -424,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
   3. التحكم في الوصول (Access Control): البصمة الحيوية (بصمات الأصابع، العين)، التعرف على الوجه، البطاقات الذكية (RFID/NFC)، بوابات الدخول للسيارات والأفراد (Turnstiles).
   4. أنظمة الصوت (Sound Systems): أنظمة الصوت للمساجد، قاعات المؤتمرات، أنظمة النداء الصوتي ومخاطبة الجمهور (Public Address)، أنظمة الإخلاء الصوتي في حالات الطوارئ (EVAC) المعتمدة.
 - أوقات العمل: من الأحد إلى الخميس، من 8:00 صباحاً حتى 5:00 مساءً. السبت من 9:00 صباحاً حتى 1:00 ظهراً. الجمعة عطلة رسمية.
-- للتواصل: البريد الإلكتروني: info@awjatech.com.sa، الهاتف: +966500000000، المقر الرئيسي: الرياض، المملكة العربية السعودية.
+- للتواصل: البريد الإلكتروني: sales@awjatech.sa، الهاتف: +966579466881، المقر الرئيسي: الرياض، المملكة العربية السعودية.
 تعليمات الرد:
 - أجب باختصار وبأسلوب مهني وودود باللغة العربية الفصحى.
 - إذا أراد العميل فتح تذكرة دعم أو صيانة، أخبره أنه يمكنه كتابة 'أريد فتح تذكرة' لكي نقوم بأخذ بياناته مباشرة وربطها بحسابه.`
@@ -437,28 +437,13 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     try {
-      // Try backend proxy first, then direct API if key available
-      const API_URL = NVIDIA_API_KEY
-        ? "https://integrate.api.nvidia.com/v1/chat/completions"
-        : "/api/chat"; // Backend proxy endpoint
-
-      const headers = {
-        "Content-Type": "application/json"
-      };
-      if (NVIDIA_API_KEY) {
-        headers["Authorization"] = `Bearer ${NVIDIA_API_KEY}`;
-      }
-
-      const response = await fetch(API_URL, {
+      const response = await fetch(CHAT_API_URL, {
         method: "POST",
-        headers,
-        body: JSON.stringify(NVIDIA_API_KEY ? {
-          model: "meta/llama-3.1-70b-instruct",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           messages: messagesPayload,
-          temperature: 0.2,
-          top_p: 0.7,
-          max_tokens: 500
-        } : { messages: messagesPayload })
+          model: "google/gemini-2.0-flash-lite-preview-02-05:free"
+        })
       });
 
       const data = await response.json();
@@ -487,9 +472,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (text.includes('ساعات') || text.includes('أوقات') || text.includes('وقت')) {
       addMessage("أوقات عمل شركة أوجاتيك هي من الأحد إلى الخميس من 8:00 ص حتى 5:00 م، والسبت من 9:00 ص حتى 1:00 م. الجمعة عطلة رسمية.", 'bot');
     } else if (text.includes('رقم') || text.includes('اتصل') || text.includes('تواصل')) {
-      addMessage("يمكنك التواصل معنا عبر الهاتف أو الواتساب على الرقم: 966500000000+ أو عبر البريد الإلكتروني: info@awjatech.com.sa.", 'bot');
+      addMessage("يمكنك التواصل معنا عبر الهاتف أو الواتساب على الرقم: 966579466881+ أو عبر البريد الإلكتروني: sales@awjatech.sa.", 'bot');
     } else {
-      addMessage("أهلاً بك! لم أتمكن من الاتصال بالخادم الرئيسي حالياً، ولكن يمكنك التواصل مع الدعم الفني مباشرة عبر الهاتف +966500000000 أو فتح تذكرة صيانة بالضغط على الخيارات أسفل المحادثة.", 'bot');
+      addMessage("أهلاً بك! لم أتمكن من الاتصال بالخادم الرئيسي حالياً، ولكن يمكنك التواصل مع الدعم الفني مباشرة عبر الهاتف +966579466881 أو فتح تذكرة صيانة بالضغط على الخيارات أسفل المحادثة.", 'bot');
     }
   }
 

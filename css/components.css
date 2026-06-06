@@ -189,6 +189,16 @@
   z-index: var(--z-dropdown);
 }
 
+[dir="ltr"] .nav-dropdown-menu {
+  right: auto;
+  left: 0;
+}
+
+[dir="ltr"] .nav-dropdown-menu.lang-switcher-menu {
+  left: auto;
+  right: 0;
+}
+
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown-menu.open {
   opacity: 1;

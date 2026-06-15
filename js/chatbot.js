@@ -609,6 +609,12 @@ Personalidad: Profesional, precisa, amable.`
         })
       });
 
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: 'Unknown server error' }));
+        console.error("Chat API Error Response:", errorData);
+        throw new Error(errorData.message || errorData.error || `HTTP ${response.status}`);
+      }
+
       const data = await response.json();
       removeTypingIndicator();
       const botReply = data.choices?.[0]?.message?.content || data.reply;

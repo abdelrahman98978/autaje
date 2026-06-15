@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>أنظمة كاميرات المراقبة الأمنية | AwjaTech أوجاتيك</title>
+  <title data-i18n="service_cctv">أنظمة كاميرات المراقبة الأمنية | AwjaTech أوجاتيك</title>
   <meta name="description" content="أوجاتيك - أنظمة كاميرات المراقبة: كاميرات IP، Analog HD، PTZ، حرارية مع مراقبة عن بُعد وتحليلات ذكية وسعة تخزين ضخمة." />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
 
@@ -38,59 +38,71 @@
       </div>
       
       <nav class="main-nav">
-        <a class="nav-link" href="../index.html">الرئيسية</a>
-        <a class="nav-link" href="../about.html">من نحن</a>
+        <a class="nav-link" href="../index.html" data-i18n="nav_home">الرئيسية</a>
+        <a class="nav-link" href="../about.html" data-i18n="nav_about">من نحن</a>
         <div class="nav-dropdown">
-          <a class="nav-link active" href="#">
+          <a class="nav-link active" href="#" data-i18n="nav_services">
             خدماتنا
             <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle;">expand_more</span>
           </a>
           <div class="nav-dropdown-menu">
-            <a class="nav-dropdown-item active" href="cctv.html">
+            <a class="nav-dropdown-item active" href="cctv.html" data-i18n="service_cctv">
               <span class="material-symbols-outlined">videocam</span>
               كاميرات المراقبة
             </a>
-            <a class="nav-dropdown-item" href="networking.html">
+            <a class="nav-dropdown-item" href="networking.html" data-i18n="service_networking">
               <span class="material-symbols-outlined">hub</span>
               حلول الشبكات
             </a>
-            <a class="nav-dropdown-item" href="access-control.html">
+            <a class="nav-dropdown-item" href="access-control.html" data-i18n="service_access_control">
               <span class="material-symbols-outlined">fingerprint</span>
               التحكم بالوصول
             </a>
-            <a class="nav-dropdown-item" href="sound-systems.html">
+            <a class="nav-dropdown-item" href="sound-systems.html" data-i18n="service_sound">
               <span class="material-symbols-outlined">campaign</span>
               أنظمة الصوت
             </a>
-            <a class="nav-dropdown-item" href="voip.html">
+            <a class="nav-dropdown-item" href="voip.html" data-i18n="service_voip">
               <span class="material-symbols-outlined">contact_phone</span>
               الهاتف المركزي (IP PBX)
             </a>
-            <a class="nav-dropdown-item" href="smart-home.html">
+            <a class="nav-dropdown-item" href="smart-home.html" data-i18n="service_smart_home">
               <span class="material-symbols-outlined">home_iot_device</span>
               المنزل الذكي
             </a>
-            <a class="nav-dropdown-item" href="fire-alarm.html">
+            <a class="nav-dropdown-item" href="fire-alarm.html" data-i18n="service_fire_alarm">
               <span class="material-symbols-outlined">fire_extinguisher</span>
               إنذار الحرائق
             </a>
-            <a class="nav-dropdown-item" href="bms.html">
+            <a class="nav-dropdown-item" href="bms.html" data-i18n="service_bms">
               <span class="material-symbols-outlined">apartment</span>
               إدارة المباني (BMS)
             </a>
           </div>
         </div>
-        <a class="nav-link" href="../index.html#projects">مشاريعنا</a>
-        <a class="nav-link" href="../contact.html">اتصل بنا</a>
+        <a class="nav-link" href="../index.html#projects" data-i18n="nav_projects">مشاريعنا</a>
+        <a class="nav-link" href="../contact.html" data-i18n="nav_contact">اتصل بنا</a>
       </nav>
 
       <div class="header-actions">
+        <div class="lang-switcher nav-dropdown">
+          <a class="nav-link" href="#" id="langToggle">
+            العربية
+            <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle;">language</span>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a class="nav-dropdown-item lang-option" href="#" data-lang="ar" data-dir="rtl">العربية</a>
+            <a class="nav-dropdown-item lang-option" href="#" data-lang="en" data-dir="ltr">English</a>
+            <a class="nav-dropdown-item lang-option" href="#" data-lang="fr" data-dir="ltr">Français</a>
+            <a class="nav-dropdown-item lang-option" href="#" data-lang="es" data-dir="ltr">Español</a>
+          </div>
+        </div>
         <div class="header-icons hide-mobile">
           <a href="tel:+966579466881"><span class="material-symbols-outlined">call</span></a>
           <a href="mailto:sales@awjatech.sa"><span class="material-symbols-outlined">mail</span></a>
         </div>
-        <a href="../login.html" class="btn btn-ghost hide-mobile">دخول العميل</a>
-        <a class="btn btn-primary" href="../contact.html">اطلب عرض سعر</a>
+        <a href="../login.html" class="btn btn-ghost hide-mobile" data-i18n="nav_login">دخول العميل</a>
+        <a class="btn btn-primary" href="../contact.html" data-i18n="btn_request_quote">اطلب عرض سعر</a>
       </div>
     </div>
   </header>
@@ -98,50 +110,50 @@
   <!-- Mobile Navigation Sidebar -->
   <div class="mobile-nav">
     <div class="mobile-nav-inner">
-      <a class="mobile-nav-link" href="../index.html">الرئيسية</a>
-      <a class="mobile-nav-link" href="../about.html">من نحن</a>
+      <a class="mobile-nav-link" href="../index.html" data-i18n="nav_home">الرئيسية</a>
+      <a class="mobile-nav-link" href="../about.html" data-i18n="nav_about">من نحن</a>
       
-      <div class="mobile-nav-link" style="font-weight: 700; border-bottom: none; padding-bottom: 0;">خدماتنا</div>
+      <div class="mobile-nav-link" style="font-weight: 700; border-bottom: none; padding-bottom: 0;" data-i18n="nav_services">خدماتنا</div>
       <div class="mobile-nav-sub">
-        <a href="cctv.html">
+        <a href="cctv.html" data-i18n="service_cctv">
           <span class="material-symbols-outlined">videocam</span>
           كاميرات المراقبة
         </a>
-        <a href="networking.html">
+        <a href="networking.html" data-i18n="service_networking">
           <span class="material-symbols-outlined">hub</span>
           حلول الشبكات
         </a>
-        <a href="access-control.html">
+        <a href="access-control.html" data-i18n="service_access_control">
           <span class="material-symbols-outlined">fingerprint</span>
           التحكم بالوصول
         </a>
-        <a href="sound-systems.html">
+        <a href="sound-systems.html" data-i18n="service_sound">
           <span class="material-symbols-outlined">campaign</span>
           أنظمة الصوت
         </a>
-        <a href="voip.html">
+        <a href="voip.html" data-i18n="service_voip">
           <span class="material-symbols-outlined">contact_phone</span>
           الهاتف المركزي (IP PBX)
         </a>
-        <a href="smart-home.html">
+        <a href="smart-home.html" data-i18n="service_smart_home">
           <span class="material-symbols-outlined">home_iot_device</span>
           المنزل الذكي
         </a>
-        <a href="fire-alarm.html">
+        <a href="fire-alarm.html" data-i18n="service_fire_alarm">
           <span class="material-symbols-outlined">fire_extinguisher</span>
           إنذار الحرائق
         </a>
-        <a href="bms.html">
+        <a href="bms.html" data-i18n="service_bms">
           <span class="material-symbols-outlined">apartment</span>
           إدارة المباني (BMS)
         </a>
       </div>
 
-      <a class="mobile-nav-link" href="../index.html#projects">مشاريعنا</a>
-      <a class="mobile-nav-link" href="../contact.html">اتصل بنا</a>
-      <a class="mobile-nav-link" href="../login.html">دخول العميل</a>
+      <a class="mobile-nav-link" href="../index.html#projects" data-i18n="nav_projects">مشاريعنا</a>
+      <a class="mobile-nav-link" href="../contact.html" data-i18n="nav_contact">اتصل بنا</a>
+      <a class="mobile-nav-link" href="../login.html" data-i18n="nav_login">دخول العميل</a>
       <div style="margin-top: var(--space-8);">
-        <a class="btn btn-primary btn-full" href="../contact.html">اطلب عرض سعر</a>
+        <a class="btn btn-primary btn-full" href="../contact.html" data-i18n="btn_request_quote">اطلب عرض سعر</a>
       </div>
     </div>
   </div>
@@ -153,17 +165,17 @@
       <img class="hero-bg-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvURzbfDZK1EWxRnXIRmxpbfKhgx57h1t5RT9WLdvL3BBqf4hbdakqjvW6Op_xvDKckYuDChgj_SJhoowW8fll7dRhU130tJ9lFwIMGjNbuh34WmtN_kG5MlRujjrlH1vDgln2_MPXwes8h6K57EwRpqvbowrftfsf7nS4qKpPgYfqL6wW5HAmdcghTPOv-JM7kz-m_1keZff-oAn3ztJgbwFxAJ6U4Kh08jCRMkl_QiPM2VpWApKN9tp2vORj2cYbFn7yjQ_X5X0" alt="Security Command Center" />
       <div class="container relative z-10 w-full" style="height: 100%;">
         <div class="hero-content animate-on-scroll" style="max-width: 640px;">
-          <div class="badge badge-primary">
+          <div class="badge badge-primary" data-i18n="service_hero_badge">
             <span class="material-symbols-outlined" style="font-size: 16px; font-variation-settings: 'FILL' 1;">videocam</span>
             حلول هندسية متطورة
           </div>
-          <h1 class="display-lg text-primary-container">أنظمة كاميرات المراقبة الأمنية</h1>
-          <p class="body-lg text-on-surface-variant max-w-xl">
+          <h1 class="display-lg text-primary-container" data-i18n="service_cctv_title">أنظمة كاميرات المراقبة الأمنية</h1>
+          <p class="body-lg text-on-surface-variant max-w-xl" data-i18n="service_cctv_hero_desc">
             حلول مراقبة ذكية متكاملة تمنحك رؤية واضحة وتحكماً كاملاً على مدار الساعة، مصممة بأعلى المعايير الهندسية لضمان أمان منشأتك.
           </p>
           <div class="flex flex-wrap gap-4" style="margin-top: var(--space-6);">
-            <a class="btn btn-secondary btn-lg" href="../contact.html">طلب عرض سعر</a>
-            <a class="btn btn-ghost btn-lg" href="#overview">استكشف خدماتنا</a>
+            <a class="btn btn-secondary btn-lg" href="../contact.html" data-i18n="btn_request_quote_service">طلب عرض سعر</a>
+            <a class="btn btn-ghost btn-lg" href="#overview" data-i18n="btn_explore_services">استكشف خدماتنا</a>
           </div>
         </div>
       </div>
@@ -172,7 +184,7 @@
     <!-- ─── Technical Overview ─── -->
     <section class="section" id="overview">
       <div class="section-header">
-        <h2 class="headline-lg">نظرة تقنية شاملة</h2>
+        <h2 class="headline-lg" data-i18n="tech_overview_title">نظرة تقنية شاملة</h2>
         <div class="section-divider"></div>
       </div>
       <div class="container grid-auto-4">
@@ -180,25 +192,25 @@
         <div class="service-card animate-on-scroll">
           <span class="material-symbols-outlined">videocam</span>
           <h3 class="headline-md">IP Cameras</h3>
-          <p>كاميرات شبكية فائقة الدقة توفر جودة صورة 4K وسهولة في الإدارة عبر الشبكة.</p>
+          <p data-i18n="cctv_ip_desc">كاميرات شبكية فائقة الدقة توفر جودة صورة 4K وسهولة في الإدارة عبر الشبكة.</p>
         </div>
         <!-- Analog HD -->
         <div class="service-card animate-on-scroll">
           <span class="material-symbols-outlined">settings_input_hdmi</span>
           <h3 class="headline-md">Analog HD</h3>
-          <p>حلول اقتصادية بجودة عالية تصل إلى 5 ميجا بكسل، مثالية لترقية الأنظمة القديمة.</p>
+          <p data-i18n="cctv_analog_desc">حلول اقتصادية بجودة عالية تصل إلى 5 ميجا بكسل، مثالية لترقية الأنظمة القديمة.</p>
         </div>
         <!-- PTZ -->
         <div class="service-card animate-on-scroll">
           <span class="material-symbols-outlined">360</span>
           <h3 class="headline-md">PTZ Cameras</h3>
-          <p>كاميرات متحركة تمنح تغطية كاملة بزاوية 360 درجة مع زووم بصري قوي.</p>
+          <p data-i18n="cctv_ptz_desc">كاميرات متحركة تمنح تغطية كاملة بزاوية 360 درجة مع زووم بصري قوي.</p>
         </div>
         <!-- Thermal -->
         <div class="service-card animate-on-scroll">
           <span class="material-symbols-outlined">thermostat</span>
           <h3 class="headline-md">Thermal</h3>
-          <p>كاميرات حرارية للمناطق الحساسة، تعمل بكفاءة في الظلام التام والظروف الجوية الصعبة.</p>
+          <p data-i18n="cctv_thermal_desc">كاميرات حرارية للمناطق الحساسة، تعمل بكفاءة في الظلام التام والظروف الجوية الصعبة.</p>
         </div>
       </div>
     </section>
@@ -211,19 +223,19 @@
           <img style="position: relative; z-index: 1; width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl);" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7I_yWBb9wJb0t8NxtObnsXOICLlP8owyEt7Lm9vnman5ROPbGmU77mik-t833l3fsPRov9km3NYkBsXgDVUtF3JhJwJTfzTN5ZPXhNZPCNexUo2kHpJGnErYtH7gEZ3DRx4JVw2seEEgCvmf1mX0VGeMFwt79KX03BCs14Wi2QTWXKrnlCoXkEIPX7CDDgZuYAMxqfEcqNpyFLcCdRPJ4l3vo6KpC0B87x7-U5mEK1mNTjM9AsjPKRqdC9DyNBD3TO30A_HgYMm4" alt="4K Security Camera" />
           <div class="glass-effect" style="position: absolute; bottom: 24px; right: 24px; padding: var(--space-4); border-radius: var(--radius-lg); z-index: 2; display: flex; align-items: center; gap: var(--space-3);">
             <div style="width: 12px; height: 12px; background: var(--on-tertiary-container); border-radius: 50%; animation: pulse 2s infinite;"></div>
-            <span class="label-md">نظام نشط ومؤمن</span>
+            <span class="label-md" data-i18n="system_active_status">نظام نشط ومؤمن</span>
           </div>
         </div>
         <div class="space-y-8 animate-on-scroll" style="flex: 1;">
-          <h2 class="headline-lg">مميزاتنا الجوهرية</h2>
+          <h2 class="headline-lg" data-i18n="core_features_title">مميزاتنا الجوهرية</h2>
           <div class="space-y-6">
             <div class="flex gap-4" style="align-items: flex-start;">
               <div style="background: var(--primary); padding: var(--space-2); border-radius: var(--radius-default);">
                 <span class="material-symbols-outlined" style="color: #ffffff;">smartphone</span>
               </div>
               <div>
-                <h4 class="headline-md">المراقبة عن بعد</h4>
-                <p class="body-md text-on-surface-variant">تابع منشأتك من أي مكان في العالم عبر تطبيقات الجوال والكمبيوتر المتطورة.</p>
+                <h4 class="headline-md" data-i18n="feature_remote_monitoring">المراقبة عن بعد</h4>
+                <p class="body-md text-on-surface-variant" data-i18n="feature_remote_monitoring_desc">تابع منشأتك من أي مكان في العالم عبر تطبيقات الجوال والكمبيوتر المتطورة.</p>
               </div>
             </div>
             <div class="flex gap-4" style="align-items: flex-start;">
@@ -231,8 +243,8 @@
                 <span class="material-symbols-outlined" style="color: #ffffff;">psychology</span>
               </div>
               <div>
-                <h4 class="headline-md">التحليلات الذكية</h4>
-                <p class="body-md text-on-surface-variant">كشف الحركة، التعرف على الوجوه، وتنبيهات فورية عند حدوث أي خرق أمني.</p>
+                <h4 class="headline-md" data-i18n="feature_smart_analytics">التحليلات الذكية</h4>
+                <p class="body-md text-on-surface-variant" data-i18n="feature_smart_analytics_desc">كشف الحركة، التعرف على الوجوه، وتنبيهات فورية عند حدوز أي خرق أمني.</p>
               </div>
             </div>
             <div class="flex gap-4" style="align-items: flex-start;">
@@ -240,8 +252,8 @@
                 <span class="material-symbols-outlined" style="color: #ffffff;">storage</span>
               </div>
               <div>
-                <h4 class="headline-md">سعة تخزين ضخمة</h4>
-                <p class="body-md text-on-surface-variant">أنظمة NVR/DVR ذات موثوقية عالية تضمن حفظ التسجيلات لفترات طويلة وبأعلى جودة.</p>
+                <h4 class="headline-md" data-i18n="feature_huge_storage">سعة تخزين ضخمة</h4>
+                <p class="body-md text-on-surface-variant" data-i18n="feature_huge_storage_desc">أنظمة NVR/DVR ذات موثوقية عالية تضمن حفظ التسجيلات لفترات طويلة وبأعلى جودة.</p>
               </div>
             </div>
             <div class="flex gap-4" style="align-items: flex-start;">
@@ -249,8 +261,8 @@
                 <span class="material-symbols-outlined" style="color: #ffffff;">notification_important</span>
               </div>
               <div>
-                <h4 class="headline-md">التكامل مع أنظمة الإنذار</h4>
-                <p class="body-md text-on-surface-variant">ربط ذكي مع حساسات السرقة والحرائق لتقديم استجابة أمنية متكاملة.</p>
+                <h4 class="headline-md" data-i18n="feature_alarm_integration">التكامل مع أنظمة الإنذار</h4>
+                <p class="body-md text-on-surface-variant" data-i18n="feature_alarm_integration_desc">ربط ذكي مع حساسات السرقة والحرائق لتقديم استجابة أمنية متكاملة.</p>
               </div>
             </div>
           </div>
@@ -262,33 +274,33 @@
     <section class="section" style="background: var(--surface-container-low);">
       <div class="container">
         <div class="section-header">
-          <h2 class="headline-lg">القطاعات المستفيدة</h2>
+          <h2 class="headline-lg" data-i18n="beneficiary_sectors">القطاعات المستفيدة</h2>
           <div class="section-divider"></div>
-          <p class="body-md text-on-surface-variant" style="margin-top: var(--space-2);">حلول مخصصة تناسب كافة المتطلبات</p>
+          <p class="body-md text-on-surface-variant" style="margin-top: var(--space-2);" data-i18n="sectors_subtitle_service">حلول مخصصة تناسب كافة المتطلبات</p>
         </div>
         <div class="grid-auto-4">
           <div class="project-card animate-on-scroll">
             <div class="project-card-image">
               <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmEfIKQpwrhi9P6G2SW7K5025rsHP3PNepJeUIR73TDsHkequdVZelTTh2TUTvuFHHBM20aQfjrQJ3ObzGYdBJ-Ecr_lgLxlpxCatbekKN-oySvPISjMdRpwccBrgaxilBkujViCI_ikO7Wc7z5HpIEQfCp2hANzlbtjAmSoDYhvbow5BczznTxXCEYYufL2B8Brwsjuas-wp5wkWZClWutaFzvCs4FtT1LmV33NVcHyBXCUx4BzVCKXoWX8Yn68UUr45oc-7jt2o" alt="Corporate Office" />
-              <div class="project-card-badge">المكاتب والشركات</div>
+              <div class="project-card-badge" data-i18n="sector_offices">المكاتب والشركات</div>
             </div>
           </div>
           <div class="project-card animate-on-scroll">
             <div class="project-card-image">
               <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHdI2BS-dm3t8OjxSuc7wxoxh-CJMylKN54GO75udFkXzz_t4MAvzAK_cVGM2sTM_O9Cno2-GdOIzXJoQG0VKrZEtjahwr4tw6V2GrRRfZajheTUWuBKEs4S6WvxLPHGenTn01WBu_kWNmXcauY7HXwrWtE2FI0b1aZznYd3fuHnjeNA63f_TSUuUWSG9OWBrTx6uDd_waK82T9HQZsuZEFzs2Vlk-eTUWKHaHLfG1OCol54CJE7I1DHnnYe0sfFCxEqcXjEcNzPs" alt="Warehouses" />
-              <div class="project-card-badge">المستودعات والمخازن</div>
+              <div class="project-card-badge" data-i18n="sector_warehouses">المستودعات والمخازن</div>
             </div>
           </div>
           <div class="project-card animate-on-scroll">
             <div class="project-card-image">
               <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY2Y5xDb16g4xiUkYe6rxavhKOMVGrs4EBAJ3Ajucbu4_iscDIujcEPab60l7h-kz7ij9g5izaLtTZ4cVgnTbFFXn0AxlbIav6imyVqA7Q0BX0kUoIgNw-F4hkC10AI1VfExIi92mBCwuvx2gQiX5JpPN38zxrLX_B_KeOuXd--KLS90jNQ1JUorfIOFmI7QVz93yNDgqDbDrIy8ZDRaiu88Ggi7N8h6gQc7oqUwbxT9ZjubQOhXtRJwj857c0T-pAN6-6rG7Jqw4" alt="Schools" />
-              <div class="project-card-badge">المدارس والجامعات</div>
+              <div class="project-card-badge" data-i18n="sector_education">المدارس والجامعات</div>
             </div>
           </div>
           <div class="project-card animate-on-scroll">
             <div class="project-card-image">
               <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOvkMBw0onUqEsMKWNFr7JILOXST_iRlVckbEYJt6KRR3ODCjHrTq2LrabKEXJ0nw2nSLt9Ch-rCgonyDRzgZFftS4dssiqnok28a4n3wfGXg7UuzuO_nJcTJ0wvZD5VWhYUGEAEW4XpvexE3CfWL42IXP0fg_l_AswS9xY22n5Ir4l9ddVppkeVzrCzQoTnovG49-76U0Q6Dw14oX-IO07oY7eGE2-W9me8QlSHvpzfJS8-L1WFkzWW9yLMTFJhQqi0ShIwk7xyY" alt="Residential Villas" />
-              <div class="project-card-badge">الفلل والمجمعات السكنية</div>
+              <div class="project-card-badge" data-i18n="sector_villas">الفلل والمجمعات السكنية</div>
             </div>
           </div>
         </div>
@@ -303,7 +315,7 @@
       </div>
       <div class="container relative z-10">
         <div class="section-header">
-          <h2 class="headline-lg text-white" style="color: #ffffff;">لماذا تختار أوجاتيك لأنظمة المراقبة؟</h2>
+          <h2 class="headline-lg text-white" style="color: #ffffff;" data-i18n="why_awjatech_service_title">لماذا تختار أوجاتيك لأنظمة المراقبة؟</h2>
           <div class="section-divider"></div>
         </div>
         <div class="grid-auto-4">
@@ -311,29 +323,29 @@
             <div class="why-us-icon">
               <span class="material-symbols-outlined">architecture</span>
             </div>
-            <h3 class="headline-md text-white">تصميم هندسي</h3>
-            <p>دراسة ميدانية دقيقة لضمان تغطية كافة الزوايا العمياء.</p>
+            <h3 class="headline-md text-white" data-i18n="why_us_design">تصميم هندسي</h3>
+            <p data-i18n="why_us_cctv_design_desc">دراسة ميدانية دقيقة لضمان تغطية كافة الزوايا العمياء.</p>
           </div>
           <div class="why-us-item animate-on-scroll" style="text-align: center;">
             <div class="why-us-icon">
               <span class="material-symbols-outlined">engineering</span>
             </div>
-            <h3 class="headline-md text-white">تركيب احترافي</h3>
-            <p>فريق من المهندسين والفنيين المختصين لضمان أعلى أداء.</p>
+            <h3 class="headline-md text-white" data-i18n="why_us_execution">تركيب احترافي</h3>
+            <p data-i18n="why_us_cctv_exec_desc">فريق من المهندسين والفنيين المختصين لضمان أعلى أداء.</p>
           </div>
           <div class="why-us-item animate-on-scroll" style="text-align: center;">
             <div class="why-us-icon">
               <span class="material-symbols-outlined">support_agent</span>
             </div>
-            <h3 class="headline-md text-white">دعم فني 24/7</h3>
-            <p>نحن معك دائماً لضمان استمرارية عمل النظام دون انقطاع.</p>
+            <h3 class="headline-md text-white" data-i18n="why_us_support">دعم فني 24/7</h3>
+            <p data-i18n="why_us_support_desc_service">نحن معك دائماً لضمان استمرارية عمل النظام دون انقطاع.</p>
           </div>
           <div class="why-us-item animate-on-scroll" style="text-align: center;">
             <div class="why-us-icon">
               <span class="material-symbols-outlined">verified</span>
             </div>
-            <h3 class="headline-md text-white">ماركات عالمية</h3>
-            <p>نستخدم فقط أفضل العلامات التجارية المعتمدة عالمياً.</p>
+            <h3 class="headline-md text-white" data-i18n="why_us_brands">ماركات عالمية</h3>
+            <p data-i18n="why_us_brands_desc">نستخدم فقط أفضل العلامات التجارية المعتمدة عالمياً.</p>
           </div>
         </div>
       </div>
@@ -344,10 +356,10 @@
       <div class="container">
         <div class="cta-banner animate-on-scroll" style="background: var(--secondary-container); color: var(--on-secondary-container); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-8);">
           <div>
-            <h2 class="display-md" style="color: var(--on-secondary-container); margin-bottom: var(--space-2);">هل تحتاج إلى استشارة فنية؟</h2>
-            <p class="body-lg" style="opacity: 0.85;">مهندسونا جاهزون لتقديم الحل الأمثل لمنشأتك.</p>
+            <h2 class="display-md" style="color: var(--on-secondary-container); margin-bottom: var(--space-2);" data-i18n="cta_consultation_title">هل تحتاج إلى استشارة فنية؟</h2>
+            <p class="body-lg" style="opacity: 0.85;" data-i18n="cta_consultation_desc">مهندسونا جاهزون لتقديم الحل الأمثل لمنشأتك.</p>
           </div>
-          <a class="btn btn-primary btn-lg" href="../contact.html">تواصل معنا الآن</a>
+          <a class="btn btn-primary btn-lg" href="../contact.html" data-i18n="btn_contact_now">تواصل معنا الآن</a>
         </div>
       </div>
     </section>
@@ -361,7 +373,7 @@
           <img src="../assets/images/logo-white.svg" alt="AwjaTech Logo White" style="height: 40px; width: auto;" />
           <span class="logo-text" style="color: #ffffff; font-weight: 900;">AwjaTech</span>
         </div>
-        <p>
+        <p data-i18n="footer_description">
           نحن في أوجاتيك نضع التميز الهندسي نصب أعيننا، موفرين لعملائنا راحة البال من خلال أنظمة تقنية يعتمد عليها وفق أحدث المعايير العالمية.
         </p>
         <div class="footer-social">
@@ -375,43 +387,44 @@
       </div>
       
       <div class="footer-col">
-        <h4>روابط سريعة</h4>
+        <h4 data-i18n="footer_quick_links">روابط سريعة</h4>
         <ul>
-          <li><a href="../about.html">عن الشركة</a></li>
-          <li><a href="../index.html#services">الخدمات التقنية</a></li>
-          <li><a href="../index.html#projects">المشاريع المنفذة</a></li>
-          <li><a href="../contact.html">تواصل معنا</a></li>
+          <li><a href="../about.html" data-i18n="footer_about">عن الشركة</a></li>
+          <li><a href="../index.html#services" data-i18n="footer_tech_services">الخدمات التقنية</a></li>
+          <li><a href="../index.html#projects" data-i18n="footer_projects">المشاريع المنفذة</a></li>
+          <li><a href="../contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>الدعم</h4>
+        <h4 data-i18n="footer_support">الدعم</h4>
         <ul>
-          <li><a href="../privacy.html">سياسة الخصوصية</a></li>
-          <li><a href="../terms.html">الشروط والأحكام</a></li>
-          <li><a href="../faqs.html">الأسئلة الشائعة</a></li>
-          <li><a href="../contact.html">الدعم الفني</a></li>
+          <li><a href="../privacy.html" data-i18n="footer_privacy">سياسة الخصوصية</a></li>
+          <li><a href="../terms.html" data-i18n="footer_terms">الشروط والأحكام</a></li>
+          <li><a href="../faqs.html" data-i18n="footer_faqs">الأسئلة الشائعة</a></li>
+          <li><a href="../contact.html" data-i18n="footer_tech_support">الدعم الفني</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>النشرة الإخبارية</h4>
-        <p style="margin-bottom: var(--space-4);">اشترك ليصلك جديد تقنيات الأنظمة الأمنية والذكية.</p>
+        <h4 data-i18n="footer_newsletter">النشرة الإخبارية</h4>
+        <p style="margin-bottom: var(--space-4);" data-i18n="footer_newsletter_desc">اشترك ليصلك جديد تقنيات الأنظمة الأمنية والذكية.</p>
         <form class="footer-newsletter">
-          <input type="email" placeholder="بريدك الإلكتروني" required />
-          <button type="submit" style="border:none; cursor:pointer;">اشترك</button>
+          <input type="email" placeholder="بريدك الإلكتروني" required data-i18n="footer_email_placeholder" />
+          <button type="submit" style="border:none; cursor:pointer;" data-i18n="footer_subscribe">اشترك</button>
         </form>
       </div>
     </div>
     
     <div class="footer-bottom">
       <div class="container">
-        <p>© 2026 AwjaTech Engineering Excellence. جميع الحقوق محفوظة لشركة أوجاتيك للهندسة.</p>
+        <p data-i18n="footer_rights">© 2026 AwjaTech Engineering Excellence. جميع الحقوق محفوظة لشركة أوجاتيك للهندسة.</p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
+  <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
   <script src="../js/intersection-observer.js"></script>
   <script src="../js/form-handler.js"></script>

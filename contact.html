@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>اتصل بنا | AwjaTech أوجاتيك</title>
+  <title data-i18n="nav_contact">اتصل بنا | AwjaTech أوجاتيك</title>
   <meta name="description" content="تواصل مع شركة أوجاتيك للهندسة (AwjaTech) في الرياض. اطلب استشارة مجانية أو عرض سعر لخدمات التيار الخفيف وأنظمة الأمن والشبكات." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
@@ -38,59 +38,71 @@
       </div>
       
       <nav class="main-nav">
-        <a class="nav-link" href="index.html">الرئيسية</a>
-        <a class="nav-link" href="about.html">من نحن</a>
+        <a class="nav-link" href="index.html" data-i18n="nav_home">الرئيسية</a>
+        <a class="nav-link" href="about.html" data-i18n="nav_about">من نحن</a>
         <div class="nav-dropdown">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="#" data-i18n="nav_services">
             خدماتنا
             <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle;">expand_more</span>
           </a>
           <div class="nav-dropdown-menu">
-            <a class="nav-dropdown-item" href="services/cctv.html">
+            <a class="nav-dropdown-item" href="services/cctv.html" data-i18n="service_cctv">
               <span class="material-symbols-outlined">videocam</span>
               كاميرات المراقبة
             </a>
-            <a class="nav-dropdown-item" href="services/networking.html">
+            <a class="nav-dropdown-item" href="services/networking.html" data-i18n="service_networking">
               <span class="material-symbols-outlined">hub</span>
               حلول الشبكات
             </a>
-            <a class="nav-dropdown-item" href="services/access-control.html">
+            <a class="nav-dropdown-item" href="services/access-control.html" data-i18n="service_access_control">
               <span class="material-symbols-outlined">fingerprint</span>
               التحكم بالوصول
             </a>
-            <a class="nav-dropdown-item" href="services/sound-systems.html">
+            <a class="nav-dropdown-item" href="services/sound-systems.html" data-i18n="service_sound">
               <span class="material-symbols-outlined">campaign</span>
               أنظمة الصوت
             </a>
-            <a class="nav-dropdown-item" href="services/voip.html">
+            <a class="nav-dropdown-item" href="services/voip.html" data-i18n="service_voip">
               <span class="material-symbols-outlined">contact_phone</span>
               الهاتف المركزي (IP PBX)
             </a>
-            <a class="nav-dropdown-item" href="services/smart-home.html">
+            <a class="nav-dropdown-item" href="services/smart-home.html" data-i18n="service_smart_home">
               <span class="material-symbols-outlined">home_iot_device</span>
               المنزل الذكي
             </a>
-            <a class="nav-dropdown-item" href="services/fire-alarm.html">
+            <a class="nav-dropdown-item" href="services/fire-alarm.html" data-i18n="service_fire_alarm">
               <span class="material-symbols-outlined">fire_extinguisher</span>
               إنذار الحرائق
             </a>
-            <a class="nav-dropdown-item" href="services/bms.html">
+            <a class="nav-dropdown-item" href="services/bms.html" data-i18n="service_bms">
               <span class="material-symbols-outlined">apartment</span>
               إدارة المباني (BMS)
             </a>
           </div>
         </div>
-        <a class="nav-link" href="index.html#projects">مشاريعنا</a>
-        <a class="nav-link" href="contact.html">اتصل بنا</a>
+        <a class="nav-link" href="index.html#projects" data-i18n="nav_projects">مشاريعنا</a>
+        <a class="nav-link" href="contact.html" data-i18n="nav_contact">اتصل بنا</a>
       </nav>
 
       <div class="header-actions">
+        <div class="lang-switcher nav-dropdown">
+          <a class="nav-link" href="#" id="langToggle">
+            العربية
+            <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle;">language</span>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a class="nav-dropdown-item lang-option" href="#" data-lang="ar" data-dir="rtl">العربية</a>
+            <a class="nav-dropdown-item lang-option" href="#" data-lang="en" data-dir="ltr">English</a>
+            <a class="nav-dropdown-item lang-option" href="#" data-lang="fr" data-dir="ltr">Français</a>
+            <a class="nav-dropdown-item lang-option" href="#" data-lang="es" data-dir="ltr">Español</a>
+          </div>
+        </div>
         <div class="header-icons hide-mobile">
           <a href="tel:+966579466881"><span class="material-symbols-outlined">call</span></a>
           <a href="mailto:sales@awjatech.sa"><span class="material-symbols-outlined">mail</span></a>
         </div>
-        <a href="login.html" class="btn btn-ghost hide-mobile">دخول العميل</a>
-        <a class="btn btn-primary" href="contact.html">اطلب عرض سعر</a>
+        <a href="login.html" class="btn btn-ghost hide-mobile" data-i18n="nav_login">دخول العميل</a>
+        <a class="btn btn-primary" href="contact.html" data-i18n="btn_request_quote">اطلب عرض سعر</a>
       </div>
     </div>
   </header>
@@ -98,50 +110,50 @@
   <!-- Mobile Navigation Sidebar -->
   <div class="mobile-nav">
     <div class="mobile-nav-inner">
-      <a class="mobile-nav-link" href="index.html">الرئيسية</a>
-      <a class="mobile-nav-link" href="about.html">من نحن</a>
+      <a class="mobile-nav-link" href="index.html" data-i18n="nav_home">الرئيسية</a>
+      <a class="mobile-nav-link" href="about.html" data-i18n="nav_about">من نحن</a>
       
-      <div class="mobile-nav-link" style="font-weight: 700; border-bottom: none; padding-bottom: 0;">خدماتنا</div>
+      <div class="mobile-nav-link" style="font-weight: 700; border-bottom: none; padding-bottom: 0;" data-i18n="nav_services">خدماتنا</div>
       <div class="mobile-nav-sub">
-        <a href="services/cctv.html">
+        <a href="services/cctv.html" data-i18n="service_cctv">
           <span class="material-symbols-outlined">videocam</span>
           كاميرات المراقبة
         </a>
-        <a href="services/networking.html">
+        <a href="services/networking.html" data-i18n="service_networking">
           <span class="material-symbols-outlined">hub</span>
           حلول الشبكات
         </a>
-        <a href="services/access-control.html">
+        <a href="services/access-control.html" data-i18n="service_access_control">
           <span class="material-symbols-outlined">fingerprint</span>
           التحكم بالوصول
         </a>
-        <a href="services/sound-systems.html">
+        <a href="services/sound-systems.html" data-i18n="service_sound">
           <span class="material-symbols-outlined">campaign</span>
           أنظمة الصوت
         </a>
-        <a href="services/voip.html">
+        <a href="services/voip.html" data-i18n="service_voip">
           <span class="material-symbols-outlined">contact_phone</span>
           الهاتف المركزي (IP PBX)
         </a>
-        <a href="services/smart-home.html">
+        <a href="services/smart-home.html" data-i18n="service_smart_home">
           <span class="material-symbols-outlined">home_iot_device</span>
           المنزل الذكي
         </a>
-        <a href="services/fire-alarm.html">
+        <a href="services/fire-alarm.html" data-i18n="service_fire_alarm">
           <span class="material-symbols-outlined">fire_extinguisher</span>
           إنذار الحرائق
         </a>
-        <a href="services/bms.html">
+        <a href="services/bms.html" data-i18n="service_bms">
           <span class="material-symbols-outlined">apartment</span>
           إدارة المباني (BMS)
         </a>
       </div>
 
-      <a class="mobile-nav-link" href="index.html#projects">مشاريعنا</a>
-      <a class="mobile-nav-link" href="contact.html">اتصل بنا</a>
-      <a class="mobile-nav-link" href="login.html">دخول العميل</a>
+      <a class="mobile-nav-link" href="index.html#projects" data-i18n="nav_projects">مشاريعنا</a>
+      <a class="mobile-nav-link" href="contact.html" data-i18n="nav_contact">اتصل بنا</a>
+      <a class="mobile-nav-link" href="login.html" data-i18n="nav_login">دخول العميل</a>
       <div style="margin-top: var(--space-8);">
-        <a class="btn btn-primary btn-full" href="contact.html">اطلب عرض سعر</a>
+        <a class="btn btn-primary btn-full" href="contact.html" data-i18n="btn_request_quote">اطلب عرض سعر</a>
       </div>
     </div>
   </div>
@@ -150,9 +162,9 @@
     <!-- ─── Hero Section ─── -->
     <section class="contact-hero">
       <div class="container animate-on-scroll">
-        <div class="badge badge-accent mb-4" style="margin-inline: auto;">تواصل مباشر</div>
-        <h1 class="display-lg text-white" style="color: #ffffff; margin-bottom: var(--space-4);">نحن هنا لمساعدتك</h1>
-        <p class="body-lg text-inverse-on-surface" style="max-width: 600px; margin-inline: auto;">
+        <div class="badge badge-accent mb-4" style="margin-inline: auto;" data-i18n="contact_hero_badge">تواصل مباشر</div>
+        <h1 class="display-lg text-white" style="color: #ffffff; margin-bottom: var(--space-4);" data-i18n="contact_hero_title">نحن هنا لمساعدتك</h1>
+        <p class="body-lg text-inverse-on-surface" style="max-width: 600px; margin-inline: auto;" data-i18n="contact_hero_desc">
           سواء كنت تبحث عن حلول هندسية متقدمة أو ترغب في بدء مشروع جديد، فريق خبراء أوجاتيك جاهز للإجابة على جميع استفساراتكم.
         </p>
       </div>
@@ -164,7 +176,7 @@
         <!-- Contact details & Hours column -->
         <div class="contact-info-card space-y-6">
           <div class="contact-details animate-on-scroll">
-            <h3 class="headline-md text-primary" style="margin-bottom: var(--space-6);">معلومات التواصل</h3>
+            <h3 class="headline-md text-primary" style="margin-bottom: var(--space-6);" data-i18n="contact_info_title">معلومات التواصل</h3>
             
             <div class="flex flex-col gap-6">
               <div class="contact-info-item">
@@ -172,7 +184,7 @@
                   <span class="material-symbols-outlined">call</span>
                 </div>
                 <div>
-                  <p class="body-sm" style="color: var(--color-outline); margin: 0 0 var(--space-1) 0;">اتصل بنا</p>
+                  <p class="body-sm" style="color: var(--color-outline); margin: 0 0 var(--space-1) 0;" data-i18n="contact_call_direct">اتصل بنا</p>
                   <p class="body-md font-bold text-primary dir-ltr" style="margin: 0;">+966 57 946 6881</p>
                 </div>
               </div>
@@ -182,7 +194,7 @@
                   <span class="material-symbols-outlined">mail</span>
                 </div>
                 <div>
-                  <p class="body-sm" style="color: var(--color-outline); margin: 0 0 var(--space-1) 0;">البريد الإلكتروني</p>
+                  <p class="body-sm" style="color: var(--color-outline); margin: 0 0 var(--space-1) 0;" data-i18n="contact_email_us">البريد الإلكتروني</p>
                   <p class="body-md font-bold text-primary" style="margin: 0;">sales@awjatech.sa</p>
                 </div>
               </div>
@@ -192,14 +204,14 @@
                   <span class="material-symbols-outlined">location_on</span>
                 </div>
                 <div>
-                  <p class="body-sm" style="color: var(--color-outline); margin: 0 0 var(--space-1) 0;">العنوان</p>
-                  <p class="body-md font-bold text-primary leading-relaxed" style="margin: 0;">طريق الملك فهد، حي المروج، الرياض، المملكة العربية السعودية</p>
+                  <p class="body-sm" style="color: var(--color-outline); margin: 0 0 var(--space-1) 0;" data-i18n="contact_address_label">العنوان</p>
+                  <p class="body-md font-bold text-primary leading-relaxed" style="margin: 0;" data-i18n="contact_address_value">طريق الملك فهد، حي المروج، الرياض، المملكة العربية السعودية</p>
                 </div>
               </div>
             </div>
 
             <div style="margin-top: var(--space-8); border-top: 1px solid var(--color-outline-variant); padding-top: var(--space-6);">
-              <p class="body-sm" style="color: var(--color-outline); margin-bottom: var(--space-4);">تابعنا على منصات التواصل</p>
+              <p class="body-sm" style="color: var(--color-outline); margin-bottom: var(--space-4);" data-i18n="contact_social_label">تابعنا على منصات التواصل</p>
               <div class="contact-social">
                 <a href="#"><span class="material-symbols-outlined">public</span></a>
                 <a href="https://wa.me/966579466881" target="_blank" rel="noopener" aria-label="WhatsApp">
@@ -214,21 +226,21 @@
           <div class="work-hours-card animate-on-scroll">
             <div class="flex items-center gap-3" style="margin-bottom: var(--space-6);">
               <span class="material-symbols-outlined" style="color: var(--color-secondary-fixed-dim);">schedule</span>
-              <h3 class="headline-md text-white" style="color: #ffffff; margin: 0;">ساعات العمل الرسمية</h3>
+              <h3 class="headline-md text-white" style="color: #ffffff; margin: 0;" data-i18n="work_hours_title">ساعات العمل الرسمية</h3>
             </div>
             <table class="work-hours-table">
               <tbody>
                 <tr>
-                  <td class="body-md">الأحد - الخميس</td>
-                  <td class="body-md text-left" style="text-align: left;">08:00 ص - 05:00 م</td>
+                  <td class="body-md" data-i18n="work_days_main">الأحد - الخميس</td>
+                  <td class="body-md text-left" style="text-align: left;" data-i18n="work_hours_main">08:00 ص - 05:00 م</td>
                 </tr>
                 <tr>
-                  <td class="body-md">السبت</td>
-                  <td class="body-md text-left" style="text-align: left;">09:00 ص - 01:00 م</td>
+                  <td class="body-md" data-i18n="work_days_sat">السبت</td>
+                  <td class="body-md text-left" style="text-align: left;" data-i18n="work_hours_sat">09:00 ص - 01:00 م</td>
                 </tr>
                 <tr style="border-bottom: none;">
-                  <td class="body-md" style="opacity: 0.5;">الجمعة</td>
-                  <td class="body-md text-left" style="text-align: left; opacity: 0.5;">مغلق</td>
+                  <td class="body-md" style="opacity: 0.5;" data-i18n="work_days_fri">الجمعة</td>
+                  <td class="body-md text-left" style="text-align: left; opacity: 0.5;" data-i18n="work_hours_fri">مغلق</td>
                 </tr>
               </tbody>
             </table>
@@ -237,45 +249,45 @@
 
         <!-- Contact Form column -->
         <div class="contact-form-card animate-on-scroll">
-          <h3 class="headline-md text-primary" style="margin-bottom: var(--space-6);">أرسل لنا رسالة</h3>
+          <h3 class="headline-md text-primary" style="margin-bottom: var(--space-6);" data-i18n="contact_form_title">أرسل لنا رسالة</h3>
           <form class="space-y-6" action="https://formspree.io/f/xoqykebj" method="POST">
             <div class="grid-2">
               <div class="form-group">
-                <label class="form-label">الاسم بالكامل</label>
-                <input type="text" class="form-input" required placeholder="مثال: محمد أحمد" name="name" />
-                <span class="form-error">هذا الحقل مطلوب</span>
+                <label class="form-label" data-i18n="form_full_name">الاسم بالكامل</label>
+                <input type="text" class="form-input" required placeholder="مثال: محمد أحمد" name="name" data-i18n="form_name_placeholder" />
+                <span class="form-error" data-i18n="form_error_required">هذا الحقل مطلوب</span>
               </div>
               <div class="form-group">
-                <label class="form-label">اسم الشركة</label>
-                <input type="text" class="form-input" required placeholder="شركة ..." name="company" />
-                <span class="form-error">هذا الحقل مطلوب</span>
+                <label class="form-label" data-i18n="form_company_name">اسم الشركة</label>
+                <input type="text" class="form-input" required placeholder="شركة ..." name="company" data-i18n="form_company_placeholder" />
+                <span class="form-error" data-i18n="form_error_required">هذا الحقل مطلوب</span>
               </div>
             </div>
             
             <div class="grid-2">
               <div class="form-group">
-                <label class="form-label">رقم الجوال</label>
-                <input type="tel" class="form-input" required placeholder="مثال: 0500000000" name="phone" />
-                <span class="form-error">الرجاء إدخال رقم جوال صحيح</span>
+                <label class="form-label" data-i18n="form_phone">رقم الجوال</label>
+                <input type="tel" class="form-input" required placeholder="مثال: 0500000000" name="phone" data-i18n="form_phone_placeholder" />
+                <span class="form-error" data-i18n="form_error_phone">الرجاء إدخال رقم جوال صحيح</span>
               </div>
               <div class="form-group">
-                <label class="form-label">نوع الخدمة المطلوبة</label>
+                <label class="form-label" data-i18n="form_service_type">نوع الخدمة المطلوبة</label>
                 <select class="form-select" name="service">
-                  <option>الخدمات الهندسية</option>
-                  <option>أنظمة التيار المنخفض</option>
-                  <option>استشارات فنية</option>
-                  <option>أخرى</option>
+                  <option data-i18n="service_generic">الخدمات الهندسية</option>
+                  <option data-i18n="service_low_current">أنظمة التيار المنخفض</option>
+                  <option data-i18n="service_consulting">استشارات فنية</option>
+                  <option data-i18n="other">أخرى</option>
                 </select>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label">الرسالة</label>
-              <textarea class="form-textarea" required placeholder="كيف يمكننا مساعدتك؟" name="message" rows="5"></textarea>
-              <span class="form-error">هذا الحقل مطلوب</span>
+              <label class="form-label" data-i18n="form_message">الرسالة</label>
+              <textarea class="form-textarea" required placeholder="كيف يمكننا مساعدتك؟" name="message" rows="5" data-i18n="form_message_placeholder_contact"></textarea>
+              <span class="form-error" data-i18n="form_error_required">هذا الحقل مطلوب</span>
             </div>
 
-            <button class="btn btn-secondary btn-full btn-lg" type="submit" style="border: none;">
+            <button class="btn btn-secondary btn-full btn-lg" type="submit" style="border: none;" data-i18n="form_send">
               إرسال الطلب
               <span class="material-symbols-outlined" style="font-size: 20px; margin-right: 8px;">send</span>
             </button>
@@ -293,8 +305,8 @@
         <div class="map-card" style="pointer-events: auto;">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
           <div style="text-align: right;">
-            <h4 class="headline-md text-primary" style="margin: 0 0 var(--space-1) 0;">مقر أوجاتيك الرئيسي</h4>
-            <p class="body-sm text-on-surface-variant" style="margin: 0;">الرياض، المملكة العربية السعودية</p>
+            <h4 class="headline-md text-primary" style="margin: 0 0 var(--space-1) 0;" data-i18n="contact_map_title">مقر أوجاتيك الرئيسي</h4>
+            <p class="body-sm text-on-surface-variant" style="margin: 0;" data-i18n="contact_map_city">الرياض، المملكة العربية السعودية</p>
           </div>
         </div>
       </div>
@@ -309,7 +321,7 @@
           <img src="assets/images/logo-white.svg" alt="AwjaTech Logo White" style="height: 40px; width: auto;" />
           <span class="logo-text" style="color: #ffffff; font-weight: 900;">AwjaTech</span>
         </div>
-        <p>
+        <p data-i18n="footer_description">
           نحن في أوجاتيك نضع التميز الهندسي نصب أعيننا، موفرين لعملائنا راحة البال من خلال أنظمة تقنية يعتمد عليها وفق أحدث المعايير العالمية.
         </p>
         <div class="footer-social">
@@ -319,43 +331,44 @@
       </div>
       
       <div class="footer-col">
-        <h4>روابط سريعة</h4>
+        <h4 data-i18n="footer_quick_links">روابط سريعة</h4>
         <ul>
-          <li><a href="about.html">عن الشركة</a></li>
-          <li><a href="index.html#services">الخدمات التقنية</a></li>
-          <li><a href="index.html#projects">المشاريع المنفذة</a></li>
-          <li><a href="contact.html">تواصل معنا</a></li>
+          <li><a href="about.html" data-i18n="footer_about">عن الشركة</a></li>
+          <li><a href="index.html#services" data-i18n="footer_tech_services">الخدمات التقنية</a></li>
+          <li><a href="index.html#projects" data-i18n="footer_projects">المشاريع المنفذة</a></li>
+          <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>الدعم</h4>
+        <h4 data-i18n="footer_support">الدعم</h4>
         <ul>
-          <li><a href="privacy.html">سياسة الخصوصية</a></li>
-          <li><a href="terms.html">الشروط والأحكام</a></li>
-          <li><a href="faqs.html">الأسئلة الشائعة</a></li>
-          <li><a href="contact.html">الدعم الفني</a></li>
+          <li><a href="privacy.html" data-i18n="footer_privacy">سياسة الخصوصية</a></li>
+          <li><a href="terms.html" data-i18n="footer_terms">الشروط والأحكام</a></li>
+          <li><a href="faqs.html" data-i18n="footer_faqs">الأسئلة الشائعة</a></li>
+          <li><a href="contact.html" data-i18n="footer_tech_support">الدعم الفني</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>النشرة الإخبارية</h4>
-        <p style="margin-bottom: var(--space-4);">اشترك ليصلك جديد تقنيات الأنظمة الأمنية والذكية.</p>
+        <h4 data-i18n="footer_newsletter">النشرة الإخبارية</h4>
+        <p style="margin-bottom: var(--space-4);" data-i18n="footer_newsletter_desc">اشترك ليصلك جديد تقنيات الأنظمة الأمنية والذكية.</p>
         <form class="footer-newsletter">
-          <input type="email" placeholder="بريدك الإلكتروني" required />
-          <button type="submit" style="border:none; cursor:pointer;">اشترك</button>
+          <input type="email" placeholder="بريدك الإلكتروني" required data-i18n="footer_email_placeholder" />
+          <button type="submit" style="border:none; cursor:pointer;" data-i18n="footer_subscribe">اشترك</button>
         </form>
       </div>
     </div>
     
     <div class="footer-bottom">
       <div class="container">
-        <p>© 2026 AwjaTech Engineering Excellence. جميع الحقوق محفوظة لشركة أوجاتيك للهندسة.</p>
+        <p data-i18n="footer_rights">© 2026 AwjaTech Engineering Excellence. جميع الحقوق محفوظة لشركة أوجاتيك للهندسة.</p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
   <script src="js/intersection-observer.js"></script>
   <script src="js/form-handler.js"></script>

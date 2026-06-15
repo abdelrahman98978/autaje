@@ -17,11 +17,16 @@ export default async function handler(req, res) {
 
   const apiKey = process.env.NVIDIA_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({ error: 'NVIDIA API key not configured on server' });
+    console.error('NVIDIA_API_KEY is missing from environment variables');
+    return res.status(500).json({ error: 'API configuration error on server' });
   }
 
   try {
-    const { messages, model } = req.body;
+    const { messages, model } = req.body || {};
+
+    if (!messages || !Array.isArray(messages)) {
+      return res.status(400).json({ error: 'Invalid or missing messages in request body' });
+    }
 
     const response = await fetch('https://integrate.api.nvidia.com/v1/chat/completions', {
       method: 'POST',
@@ -41,12 +46,21 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      return res.status(response.status).json({ error: errorText });
+      console.error(`NVIDIA API Error (${response.status}):`, errorText);
+      return res.status(response.status).json({ 
+        error: 'NVIDIA API reported an error',
+        status: response.status,
+        details: errorText 
+      });
     }
 
     const data = await response.json();
     return res.status(200).json(data);
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    console.error('Serverless Function Error:', error);
+    return res.status(500).json({ 
+      error: 'Internal Server Error',
+      message: error.message 
+    });
   }
 }

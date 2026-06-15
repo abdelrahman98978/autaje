@@ -463,7 +463,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let conversationHistory = [];
 
   // API key is stored securely on Vercel server-side (/api/chat)
+  // For local development, you can use "vercel dev" or the direct URL if needed.
   const CHAT_API_URL = "/api/chat";
+  
+  // NOTE: If you are running locally on a simple static server (like 127.0.0.1:5500),
+  // the /api/chat endpoint will not work because it requires a Node.js environment.
+  // Use 'vercel dev' to test the full functionality locally.
   
   function formatMarkdown(text) {
     // Basic HTML escape to prevent XSS

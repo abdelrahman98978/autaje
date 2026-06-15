@@ -112,6 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // Update body direction
       document.body.style.direction = dir;
       
+      // Apply translations
+      if (window.applyTranslations) {
+        window.applyTranslations(lang);
+      }
+      
       // Close dropdown
       const menu = option.closest('.nav-dropdown-menu');
       if(menu) menu.classList.remove('open');

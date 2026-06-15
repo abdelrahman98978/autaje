@@ -184,4 +184,5 @@
 
   /* ─── Header ─── */
   --header-height: 80px;
+  --header-height-mobile: 64px;
 }

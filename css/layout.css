@@ -209,6 +209,12 @@
     gap: var(--space-4);
   }
 
+  /* Force all columns to be full-width on mobile by default */
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, 
+  .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    grid-column: span 4;
+  }
+
   .split {
     grid-template-columns: 1fr;
     gap: var(--space-8);
@@ -221,7 +227,7 @@
   }
 
   .grid-auto-6 {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   /* Show/hide by breakpoint */

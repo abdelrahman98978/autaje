@@ -8,10 +8,10 @@ const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
 // Initialize Supabase Client (CDN exposes window.supabase as the module)
 if (typeof window.supabase !== 'undefined' && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
   window.supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-  console.log('✅ Supabase client initialized successfully.');
+  console.log('✅ Supabase client initialized.');
 } else {
   window.supabaseClient = null;
   if (SUPABASE_URL === 'YOUR_SUPABASE_URL') {
-    console.warn('⚠️ Supabase: يرجى إضافة بيانات المشروع في js/supabase-client.js');
+    console.info('ℹ️ Supabase: Integration pending. Add your credentials in js/supabase-client.js to enable database features.');
   }
 }

@@ -124,6 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── Supabase: Fetch quotes and tickets for admin ──
+  const statusBadge = document.getElementById('supabase-status-badge');
+  if (!window.supabaseClient || SUPABASE_URL === 'YOUR_SUPABASE_URL') {
+    if (statusBadge) statusBadge.style.display = 'inline-block';
+  }
+
   async function loadAdminSupabaseData() {
     if (!window.supabaseClient) return;
     try {

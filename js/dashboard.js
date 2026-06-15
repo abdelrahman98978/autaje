@@ -266,6 +266,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ─── Supabase Status ───
+  const statusBadge = document.getElementById('supabase-status-badge');
+  if (!window.supabaseClient || SUPABASE_URL === 'YOUR_SUPABASE_URL') {
+    if (statusBadge) statusBadge.style.display = 'inline-block';
+  }
+
   let tickets = [];
   
   async function loadTickets() {

@@ -126,9 +126,23 @@ document.addEventListener('DOMContentLoaded', () => {
           }, 3000);
         }
       } else {
-        alert('يرجى إعداد Supabase أولاً.');
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.disabled = false;
+        // Simulation Mode
+        console.info('Form submitted in Simulation Mode (No Supabase)');
+        const currentLang = document.documentElement.lang || 'ar';
+        const simMsg = currentLang === 'ar' 
+          ? 'شكراً لك! تم استلام طلبك بنجاح (وضع المحاكاة). سيقوم فريقنا بمراجعة طلبك والتواصل معك قريباً.'
+          : 'Thank you! Your request was received successfully (Simulation Mode). Our team will review your request and contact you soon.';
+        
+        alert(simMsg);
+        submitBtn.innerHTML = 'تم الإرسال بنجاح <span class="material-symbols-outlined" style="font-size: 20px; margin-right: 8px;">check_circle</span>';
+        submitBtn.style.backgroundColor = 'var(--color-success)';
+        form.reset();
+
+        setTimeout(() => {
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.style.backgroundColor = '';
+          submitBtn.disabled = false;
+        }, 3000);
       }
     });
   });

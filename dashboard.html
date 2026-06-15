@@ -278,12 +278,14 @@
       
       <!-- Top Header -->
       <header class="dashboard-header">
-        <div class="flex items-center gap-3">
-          <button class="hamburger-btn" id="btn-hamburger">
+        <div class="flex items-center gap-4">
+          <button class="btn-hamburger" id="btn-hamburger">
             <span class="material-symbols-outlined">menu</span>
           </button>
-          <h2 class="headline-md" id="dashboard-title">لوحة التحكم</h2>
+          <h2 class="headline-md" id="dashboard-title">نظرة عامة</h2>
+          <span id="supabase-status-badge" class="status-badge warning" style="font-size: 10px; padding: 2px 8px; margin-right: 8px; display: none;">Simulation Mode</span>
         </div>
+
         <div class="flex items-center gap-4">
           <span class="material-symbols-outlined" style="cursor: pointer; color: var(--color-on-surface-variant);" title="التنبيهات">notifications</span>
           <button class="btn btn-primary" id="btn-open-ticket-modal">

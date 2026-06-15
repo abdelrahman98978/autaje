@@ -283,6 +283,73 @@ document.addEventListener('DOMContentLoaded', () => {
   document.head.appendChild(styleEl);
 
   // ─── DOM Elements Injection ───
+  const currentLang = document.documentElement.lang || localStorage.getItem('awja_lang') || 'ar';
+  
+  const chatbotStrings = {
+    'ar': {
+      'greeting': 'مرحباً بك! أنا مساعد أوجاتيك الذكي لخدمات التيار الخفيف والأنظمة الأمنية والشبكات. كيف يمكنني مساعدتك اليوم؟',
+      'title': 'مهندس أوجاتيك الذكي',
+      'status': 'نشط الآن (بقوة الذكاء الاصطناعي)',
+      'placeholder': 'اكتب استفسارك هنا...',
+      'clear_confirm': 'هل تريد مسح المحادثة وإعادة تعيينها؟',
+      'fallback_work_hours': 'أوقات عمل شركة أوجاتيك هي من الأحد إلى الخميس من 8:00 ص حتى 5:00 م، والسبت من 9:00 ص حتى 1:00 م. الجمعة عطلة رسمية.',
+      'fallback_contact': 'يمكنك التواصل معنا عبر الهاتف أو الواتساب على الرقم: 966579466881+ أو عبر البريد الإلكتروني: sales@awjatech.sa.',
+      'fallback_error': 'أهلاً بك! لم أتمكن من الاتصال بالخادم الرئيسي حالياً، ولكن يمكنك التواصل مع الدعم الفني مباشرة عبر الهاتف +966579466881 أو فتح تذكرة صيانة بالضغط على الخيارات أسفل المحادثة.',
+      'ticket_init': 'حسناً، سأساعدك في فتح تذكرة صيانة فنية للمنشأة. ما هو اسمك الكريم؟',
+      'ticket_phone': 'تشرفت بك. يرجى تزويدي برقم الجوال للتواصل:',
+      'ticket_email': 'شكراً لك. يرجى تزويدي بالبريد الإلكتروني للعمل لتسجيل التذكرة في حسابك:',
+      'ticket_desc': 'رائع. يرجى كتابة تفاصيل المشكلة أو عطل النظام الذي تواجهه بالتفصيل:',
+      'ticket_success': 'تم فتح التذكرة بنجاح برقم مرجعي: {id}. تم ربط التذكرة ببريدك الإلكتروني، ويمكنك متابعتها ومراسلة المهندسين عبر تسجيل الدخول في بوابة العميل الخاصة بك.'
+    },
+    'en': {
+      'greeting': 'Welcome! I am the AwjaTech AI assistant for Low Current services, security systems, and networking. How can I help you today?',
+      'title': 'AwjaTech AI Engineer',
+      'status': 'Online (Powered by AI)',
+      'placeholder': 'Type your query here...',
+      'clear_confirm': 'Do you want to clear the conversation history?',
+      'fallback_work_hours': 'AwjaTech working hours are Sunday to Thursday from 8:00 AM to 5:00 PM, and Saturday from 9:00 AM to 1:00 PM. Friday is a holiday.',
+      'fallback_contact': 'You can contact us via phone or WhatsApp at: +966579466881 or via email: sales@awjatech.sa.',
+      'fallback_error': 'Welcome! I am currently unable to connect to the main server, but you can contact technical support directly via phone +966579466881 or open a maintenance ticket using the options below.',
+      'ticket_init': 'Sure, I will help you open a technical maintenance ticket. May I have your full name?',
+      'ticket_phone': 'Nice to meet you. Please provide your mobile number:',
+      'ticket_email': 'Thank you. Please provide your business email to register the ticket:',
+      'ticket_desc': 'Great. Please describe the problem or system failure you are experiencing in detail:',
+      'ticket_success': 'Ticket opened successfully with reference: {id}. The ticket is linked to your email; you can track it and message engineers by logging into your client portal.'
+    },
+    'fr': {
+      'greeting': 'Bienvenue ! Je suis l\'assistant IA d\'AwjaTech pour les services de courant faible, les systèmes de sécurité et les réseaux. Comment puis-je vous aider aujourd\'hui ?',
+      'title': 'Ingénieur IA AwjaTech',
+      'status': 'En ligne (Propulsé par l\'IA)',
+      'placeholder': 'Écrivez votre question ici...',
+      'clear_confirm': 'Voulez-vous effacer l\'historique de la conversation ?',
+      'fallback_work_hours': 'Les heures de travail d\'AwjaTech sont du dimanche au jeudi de 8h00 à 17h00 et le samedi de 9h00 à 13h00. Le vendredi est un jour férié.',
+      'fallback_contact': 'Vous pouvez nous contacter par téléphone ou WhatsApp au : +966579466881 ou par email : sales@awjatech.sa.',
+      'fallback_error': 'Bienvenue ! Je ne parviens pas à me connecter au serveur principal pour le moment, mais vous pouvez contacter le support technique directement par téléphone au +966579466881.',
+      'ticket_init': 'Bien sûr, je vais vous aider à ouvrir un ticket de maintenance. Quel est votre nom complet ?',
+      'ticket_phone': 'Enchanté. Veuillez fournir votre numéro de téléphone mobile :',
+      'ticket_email': 'Merci. Veuillez fournir votre email professionnel pour enregistrer le ticket :',
+      'ticket_desc': 'Excellent. Veuillez décrire en détail le problème ou la panne du système que vous rencontrez :',
+      'ticket_success': 'Ticket ouvert avec succès avec la référence : {id}. Le ticket est lié à votre email.'
+    },
+    'es': {
+      'greeting': '¡Bienvenido! Soy el asistente de IA de AwjaTech para servicios de baja tensión, sistemas de seguridad y redes. ¿Cómo puedo ayudarte hoy?',
+      'title': 'Ingeniero de IA de AwjaTech',
+      'status': 'En línea (Impulsado por IA)',
+      'placeholder': 'Escribe tu consulta aquí...',
+      'clear_confirm': '¿Quieres borrar el historial de la conversación?',
+      'fallback_work_hours': 'El horario laboral de AwjaTech es de domingo a jueves de 8:00 AM a 5:00 PM, y sábados de 9:00 AM a 1:00 PM. El viernes es festivo.',
+      'fallback_contact': 'Puede contactarnos por teléfono o WhatsApp al: +966579466881 o por correo electrónico: sales@awjatech.sa.',
+      'fallback_error': '¡Bienvenido! Actualmente no puedo conectarme al servidor principal, pero puede contactar con el soporte técnico directamente por teléfono al +966579466881.',
+      'ticket_init': 'Claro, te ayudaré a abrir un ticket de mantenimiento técnico. ¿Cuál es su nombre completo?',
+      'ticket_phone': 'Mucho gusto. Por favor, proporcione su número de móvil:',
+      'ticket_email': 'Gracias. Proporcione su correo electrónico comercial para registrar el ticket:',
+      'ticket_desc': 'Genial. Describa en detalle el problema o fallo del sistema que está experimentando:',
+      'ticket_success': 'Ticket abierto con éxito con referencia: {id}. El ticket está vinculado a su correo electrónico.'
+    }
+  };
+
+  const s = chatbotStrings[currentLang] || chatbotStrings['ar'];
+
   const chatbotContainer = document.createElement('div');
   chatbotContainer.innerHTML = `
     <div class="awja-chatbot-fab" id="chatbot-fab">
@@ -294,8 +361,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="chatbot-header-info">
           <div class="chatbot-avatar">أ</div>
           <div>
-            <h4 style="font-size: 14px; font-weight:700; margin:0;">مهندس أوجاتيك الذكي</h4>
-            <span style="font-size: 11px; opacity:0.8;">نشط الآن (بقوة الذكاء الاصطناعي)</span>
+            <h4 style="font-size: 14px; font-weight:700; margin:0;">${s.title}</h4>
+            <span style="font-size: 11px; opacity:0.8;">${s.status}</span>
           </div>
         </div>
         <div style="display:flex; align-items:center; gap:8px;">
@@ -306,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       <div class="chatbot-body" id="chatbot-chat-body">
         <div class="bot-msg">
-          مرحباً بك! أنا مساعد أوجاتيك الذكي لخدمات التيار الخفيف والأنظمة الأمنية والشبكات. كيف يمكنني مساعدتك اليوم؟
+          ${s.greeting}
         </div>
       </div>
       
@@ -320,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
       
       <div class="chatbot-footer">
-        <input type="text" class="chatbot-input" id="chatbot-text-input" placeholder="اكتب استفسارك هنا..." />
+        <input type="text" class="chatbot-input" id="chatbot-text-input" placeholder="${s.placeholder}" />
         <button class="chatbot-send-btn" id="chatbot-send-btn">
           <span class="material-symbols-outlined" style="font-size: 20px;">send</span>
         </button>
@@ -350,10 +417,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const clearBtn = document.getElementById('chatbot-clear');
   if (clearBtn) {
     clearBtn.addEventListener('click', () => {
-      if (confirm('هل تريد مسح المحادثة وإعادة تعيينها؟')) {
+      if (confirm(s.clear_confirm)) {
         chatBody.innerHTML = `
           <div class="bot-msg">
-            مرحباً بك! أنا مساعد أوجاتيك الذكي لخدمات التيار الخفيف والأنظمة الأمنية والشبكات. كيف يمكنني مساعدتك اليوم؟
+            ${s.greeting}
           </div>
         `;
         conversationHistory = [];
@@ -472,7 +539,8 @@ document.addEventListener('DOMContentLoaded', () => {
       handleTicketWizard(text);
     } else {
       // Check if user wants to open a ticket
-      if (text.includes('تذكرة') || text.toLowerCase().includes('ticket') || text.includes('صيانة') || text.includes('عطل')) {
+      const ticketKeywords = ['تذكرة', 'ticket', 'صيانة', 'عطل', 'maintenance', 'panne', 'mantenimiento'];
+      if (ticketKeywords.some(k => text.toLowerCase().includes(k))) {
         initiateTicketWizard();
       } else {
         queryOpenRouterAI(text);
@@ -484,11 +552,8 @@ document.addEventListener('DOMContentLoaded', () => {
   async function queryOpenRouterAI(prompt) {
     addTypingIndicator();
 
-    // Prepare message payload containing system prompt + history + current prompt
-    const messagesPayload = [
-      {
-        role: "system",
-        content: `أنت "المهندس الذكي"، مستشار تقني وهندسي لشركة أوجاتيك للهندسة (AwjaTech).
+    const systemPrompts = {
+      'ar': `أنت "المهندس الذكي"، مستشار تقني وهندسي لشركة أوجاتيك للهندسة (AwjaTech).
 أوجاتيك هي شركة سعودية رائدة متخصصة في تصميم وتنفيذ حلول التيار الخفيف (Low Current) والأنظمة الأمنية والبنية التحتية الذكية.
 
 شخصيتك:
@@ -496,22 +561,36 @@ document.addEventListener('DOMContentLoaded', () => {
 - تتحدث بصيغة الجمع "نحن في أوجاتيك" لتعزيز هوية الشركة.
 - تركز على الحلول التقنية المبتكرة والمعايير العالمية.
 
-تخصصاتنا التي يجب أن تبرزها:
-1. الأنظمة الأمنية (CCTV): نستخدم أحدث كاميرات الذكاء الاصطناعي (AI Analytics) وأنظمة VMS المتقدمة.
-2. الشبكات والاتصالات: متخصصون في Fiber Optics، وشبكات الـ Enterprise، والـ Cybersecurity.
-3. التحكم بالدخول والبيومترية: حلول متكاملة للبوابات الذكية وأنظمة الحضور والانصراف.
-4. الأنظمة الذكية (Smart Home/BMS): ندمج أنظمة الإضاءة والتكييف والتحكم في منصة واحدة.
-5. أنظمة الصوت والنداء: حلول احترافية للمساحات الكبيرة وأنظمة الإخلاء الطارئ.
+تخصصاتنا: CCTV، الشبكات، التحكم بالدخول، الأنظمة الذكية، أنظمة الصوت.
+الموقع: الرياض. الهاتف: 966579466881+`,
+      'en': `You are the "AI Engineer", a technical and engineering consultant for AwjaTech Engineering.
+AwjaTech is a leading Saudi company specializing in Low Current solutions, security systems, and smart infrastructure.
 
-معلومات التواصل:
-- الموقع: الرياض، المملكة العربية السعودية.
-- الهاتف/واتساب: +966579466881
-- البريد: sales@awjatech.sa
+Your Personality:
+- Highly professional, engineering-precise, and friendly.
+- Use "We at AwjaTech" to reinforce company identity.
+- Focus on innovative technical solutions and global standards.
 
-تعليمات هامة:
-- إذا سألك العميل عن أسعار دقيقة، أخبره أن التكلفة تعتمد على الدراسة الهندسية للموقع، واقترح عليه "اطلب عرض سعر" أو فتح "تذكرة صيانة".
-- اجعل ردودك منسقة باستخدام النقاط (Bullets) عند الحاجة لتسهيل القراءة.
-- إذا طلب العميل فتح تذكرة، شجعه على كتابة "فتح تذكرة" للبدء في الإجراء الآلي.`
+Specialties: CCTV, Networking, Access Control, Smart Systems, Audio Systems.
+Location: Riyadh. Phone: +966579466881`,
+      'fr': `Vous êtes l'"Ingénieur IA", consultant technique pour AwjaTech Engineering.
+AwjaTech est une entreprise saoudienne leader spécialisée dans les solutions à courant faible, les systèmes de sécurité et les infrastructures intelligentes.
+
+Personnalité : Professionnelle, précise, amicale.
+Spécialités : CCTV, Réseaux, Contrôle d'accès, Domotique.`,
+      'es': `Eres el "Ingeniero de IA", consultor técnico de AwjaTech Engineering.
+AwjaTech es una empresa saudí líder especializada en soluciones de baja tensión, sistemas de seguridad e infraestructura inteligente.
+
+Personalidad: Profesional, precisa, amable.`
+    };
+
+    const sysMsg = systemPrompts[document.documentElement.lang] || systemPrompts['ar'];
+
+    // Prepare message payload containing system prompt + history + current prompt
+    const messagesPayload = [
+      {
+        role: "system",
+        content: sysMsg
       },
       ...conversationHistory,
       {
@@ -553,12 +632,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function fallbackResponse(prompt) {
     const text = prompt.toLowerCase();
-    if (text.includes('ساعات') || text.includes('أوقات') || text.includes('وقت')) {
-      addMessage("أوقات عمل شركة أوجاتيك هي من الأحد إلى الخميس من 8:00 ص حتى 5:00 م، والسبت من 9:00 ص حتى 1:00 م. الجمعة عطلة رسمية.", 'bot');
-    } else if (text.includes('رقم') || text.includes('اتصل') || text.includes('تواصل')) {
-      addMessage("يمكنك التواصل معنا عبر الهاتف أو الواتساب على الرقم: 966579466881+ أو عبر البريد الإلكتروني: sales@awjatech.sa.", 'bot');
+    if (text.includes('ساعات') || text.includes('أوقات') || text.includes('hours') || text.includes('horaires')) {
+      addMessage(s.fallback_work_hours, 'bot');
+    } else if (text.includes('رقم') || text.includes('اتصل') || text.includes('contact') || text.includes('phone')) {
+      addMessage(s.fallback_contact, 'bot');
     } else {
-      addMessage("أهلاً بك! لم أتمكن من الاتصال بالخادم الرئيسي حالياً، ولكن يمكنك التواصل مع الدعم الفني مباشرة عبر الهاتف +966579466881 أو فتح تذكرة صيانة بالضغط على الخيارات أسفل المحادثة.", 'bot');
+      addMessage(s.fallback_error, 'bot');
     }
   }
 
@@ -567,23 +646,22 @@ document.addEventListener('DOMContentLoaded', () => {
     chatbotState.mode = 'ticket';
     chatbotState.step = 'name';
     chatbotState.ticketData = {};
-    addMessage("حسناً، سأساعدك في فتح تذكرة صيانة فنية للمنشأة. ما هو اسمك الكريم؟", 'bot');
+    addMessage(s.ticket_init, 'bot');
   }
 
   function handleTicketWizard(text) {
     if (chatbotState.step === 'name') {
       chatbotState.ticketData.name = text;
       chatbotState.step = 'phone';
-      addMessage("تشرفت بك. يرجى تزويدي برقم الجوال للتواصل:", 'bot');
+      addMessage(s.ticket_phone, 'bot');
     } else if (chatbotState.step === 'phone') {
-      // Basic verification
       chatbotState.ticketData.phone = text;
       chatbotState.step = 'email';
-      addMessage("شكراً لك. يرجى تزويدي بالبريد الإلكتروني للعمل لتسجيل التذكرة في حسابك:", 'bot');
+      addMessage(s.ticket_email, 'bot');
     } else if (chatbotState.step === 'email') {
       chatbotState.ticketData.email = text;
       chatbotState.step = 'desc';
-      addMessage("رائع. يرجى كتابة تفاصيل المشكلة أو عطل النظام الذي تواجهه بالتفصيل:", 'bot');
+      addMessage(s.ticket_desc, 'bot');
     } else if (chatbotState.step === 'desc') {
       chatbotState.ticketData.desc = text;
       
@@ -594,13 +672,13 @@ document.addEventListener('DOMContentLoaded', () => {
       let tickets = JSON.parse(localStorage.getItem('awja_tickets')) || [];
       const newTicket = {
         id: ticketId,
-        subject: `تذكرة صيانة عبر الذكاء الاصطناعي - ${chatbotState.ticketData.name}`,
-        service: 'CCTV', // Default tag
+        subject: `Ticket via AI - ${chatbotState.ticketData.name}`,
+        service: 'Support',
         desc: chatbotState.ticketData.desc,
         status: 'pending',
         messages: [
-          { sender: 'client', text: `تفاصيل المشكلة: ${chatbotState.ticketData.desc}` },
-          { sender: 'support', text: 'تم استلام تذكرة الصيانة بنجاح عبر المساعد الذكي، وجاري المراجعة والاتصال بك.' }
+          { sender: 'client', text: chatbotState.ticketData.desc },
+          { sender: 'support', text: 'Received via AI Assistant. We will contact you soon.' }
         ]
       };
       
@@ -611,8 +689,8 @@ document.addEventListener('DOMContentLoaded', () => {
       chatbotState.mode = 'chat';
       chatbotState.step = null;
       
-      addMessage(`تم فتح التذكرة بنجاح برقم مرجعي: ${ticketId}. 
-تم ربط التذكرة ببريدك الإلكتروني، ويمكنك متابعتها ومراسلة المهندسين عبر تسجيل الدخول في بوابة العميل الخاصة بك.`, 'bot');
+      addMessage(s.ticket_success.replace('{id}', ticketId), 'bot');
     }
   }
+
 });

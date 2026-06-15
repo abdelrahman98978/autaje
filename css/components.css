@@ -1071,7 +1071,7 @@
 
 @media (max-width: 767px) {
   .site-header {
-    height: var(--header-height-mobile);
+    height: 56px;
   }
 
   /* Show hamburger on mobile */
@@ -1093,11 +1093,58 @@
   }
 
   .logo img {
-    height: 32px;
+    height: 28px;
   }
 
   .logo-text {
-    font-size: 18px;
+    font-size: 16px;
+  }
+
+  .site-header .btn-primary {
+    padding: var(--space-2) var(--space-4);
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+
+  /* Footer Newsletter Shrink */
+  .footer-newsletter {
+    max-width: 320px;
+    margin-inline: 0;
+  }
+
+  .footer-newsletter input {
+    padding: var(--space-2) var(--space-3);
+    font-size: 13px;
+  }
+
+  .footer-newsletter button {
+    padding: var(--space-2) var(--space-4);
+    font-size: 13px;
+  }
+
+  /* Mobile sidebar refinement */
+  .mobile-nav-inner {
+    width: 260px;
+    max-width: 80vw;
+    padding-top: 70px;
+    padding-inline: var(--space-4);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+  }
+
+  .mobile-nav-link {
+    font-size: 15px;
+    padding: var(--space-3) 0;
+    border-bottom-color: var(--color-surface-container);
+  }
+
+  .mobile-nav-sub {
+    padding-right: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .mobile-nav-sub a {
+    padding: var(--space-2) 0;
+    font-size: 13px;
   }
 
   /* Hero */

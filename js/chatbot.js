@@ -504,7 +504,7 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: messagesPayload,
-          model: "google/gemini-2.0-flash-lite-preview-02-05:free"
+          model: "meta/llama-3.1-405b-instruct"
         })
       });
 

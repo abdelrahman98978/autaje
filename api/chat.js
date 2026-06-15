@@ -15,27 +15,27 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const apiKey = process.env.OPENROUTER_API_KEY;
+  const apiKey = process.env.NVIDIA_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({ error: 'API key not configured on server' });
+    return res.status(500).json({ error: 'NVIDIA API key not configured on server' });
   }
 
   try {
     const { messages, model } = req.body;
 
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    const response = await fetch('https://integrate.api.nvidia.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://www.awjatech.sa',
-        'X-Title': 'AwjaTech Chatbot'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: model || 'google/gemini-2.0-flash-lite-preview-02-05:free',
+        model: model || 'meta/llama-3.1-405b-instruct',
         messages: messages,
         max_tokens: 1024,
-        temperature: 0.7
+        temperature: 0.7,
+        top_p: 1,
+        stream: false
       })
     });
 

@@ -30,7 +30,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: model || 'meta/llama-3.1-405b-instruct',
+        model: model || 'nvidia/llama-3.1-nemotron-70b-instruct',
         messages: messages,
         max_tokens: 1024,
         temperature: 0.7,

@@ -126,11 +126,12 @@ document.addEventListener('DOMContentLoaded', () => {
       gap: var(--space-3);
     }
     .bot-msg, .user-msg {
-      max-width: 80%;
+      max-width: 85%;
       padding: var(--space-3) var(--space-4);
       border-radius: var(--radius-lg);
-      font-size: 14px;
-      line-height: 1.4;
+      font-size: var(--font-label-md-size);
+      line-height: 1.6;
+      position: relative;
     }
     .bot-msg {
       background: #ffffff;
@@ -138,17 +139,19 @@ document.addEventListener('DOMContentLoaded', () => {
       border: 1px solid var(--color-border-light);
       align-self: flex-start;
       border-bottom-right-radius: 2px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
     .user-msg {
       background: var(--brand-corporate-blue);
       color: #ffffff;
       align-self: flex-end;
       border-bottom-left-radius: 2px;
+      box-shadow: 0 4px 12px rgba(0, 43, 73, 0.15);
     }
     .chatbot-quick-options {
       display: flex;
       gap: var(--space-2);
-      padding: 0 var(--space-4) var(--space-3);
+      padding: var(--space-2) var(--space-4) var(--space-4);
       overflow-x: auto;
       white-space: nowrap;
       scrollbar-width: none;
@@ -159,22 +162,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     .quick-btn {
       flex-shrink: 0;
-      padding: 6px 12px;
+      padding: 8px 16px;
       background: #ffffff;
       border: 1px solid var(--color-border-light);
       border-radius: var(--radius-full);
-      font-size: 12px;
+      font-size: var(--font-label-sm-size);
+      font-weight: 600;
       cursor: pointer;
-      color: var(--color-on-surface-variant);
+      color: var(--color-primary);
       transition: all var(--transition-fast);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     }
     .quick-btn:hover {
-      background: var(--color-surface-container-low);
-      border-color: var(--color-secondary);
-      color: var(--color-secondary);
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .chatbot-footer {
-      padding: var(--space-3);
+      padding: var(--space-4);
       border-top: 1px solid var(--color-border-light);
       display: flex;
       gap: var(--space-2);
@@ -184,13 +191,16 @@ document.addEventListener('DOMContentLoaded', () => {
       flex: 1;
       border: 1px solid var(--color-border-light);
       border-radius: var(--radius-full);
-      padding: var(--space-2) var(--space-4);
-      font-size: 14px;
+      padding: var(--space-2) var(--space-5);
+      font-size: var(--font-body-md-size);
       outline: none;
-      transition: border-color var(--transition-fast);
+      transition: all var(--transition-fast);
+      background: var(--color-surface-container-low);
     }
     .chatbot-input:focus {
       border-color: var(--brand-cyan);
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(0, 169, 206, 0.1);
     }
     .chatbot-send-btn {
       width: 36px;
@@ -478,18 +488,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const messagesPayload = [
       {
         role: "system",
-        content: `أنت المساعد الذكي لشركة أوجاتيك للهندسة (AwjaTech)، وهي شركة سعودية رائدة متخصصة في أنظمة التيار الخفيف والبنية التحتية الذكية والأنظمة الأمنية.
-معلومات أساسية عن أوجاتيك:
-- الخدمات:
-  1. كاميرات المراقبة الأمنية (CCTV): كاميرات IP بدقة 4K، وأنظمة تناظرية Analog HD، وكاميرات PTZ متحركة، وكاميرات حرارية، مع المراقبة عن بعد.
-  2. حلول الشبكات (Networking): تصميم البنية التحتية، شبكات الألياف الضوئية (Fiber)، نقاط الاتصال اللاسلكي (Wi-Fi)، الخوادم (Servers)، الجدران النارية (Firewalls).
-  3. التحكم في الوصول (Access Control): البصمة الحيوية (بصمات الأصابع، العين)، التعرف على الوجه، البطاقات الذكية (RFID/NFC)، بوابات الدخول للسيارات والأفراد (Turnstiles).
-  4. أنظمة الصوت (Sound Systems): أنظمة الصوت للمساجد، قاعات المؤتمرات، أنظمة النداء الصوتي ومخاطبة الجمهور (Public Address)، أنظمة الإخلاء الصوتي في حالات الطوارئ (EVAC) المعتمدة.
-- أوقات العمل: من الأحد إلى الخميس، من 8:00 صباحاً حتى 5:00 مساءً. السبت من 9:00 صباحاً حتى 1:00 ظهراً. الجمعة عطلة رسمية.
-- للتواصل: البريد الإلكتروني: sales@awjatech.sa، الهاتف: +966579466881، المقر الرئيسي: الرياض، المملكة العربية السعودية.
-تعليمات الرد:
-- أجب باختصار وبأسلوب مهني وودود باللغة العربية الفصحى.
-- إذا أراد العميل فتح تذكرة دعم أو صيانة، أخبره أنه يمكنه كتابة 'أريد فتح تذكرة' لكي نقوم بأخذ بياناته مباشرة وربطها بحسابه.`
+        content: `أنت "المهندس الذكي"، مستشار تقني وهندسي لشركة أوجاتيك للهندسة (AwjaTech).
+أوجاتيك هي شركة سعودية رائدة متخصصة في تصميم وتنفيذ حلول التيار الخفيف (Low Current) والأنظمة الأمنية والبنية التحتية الذكية.
+
+شخصيتك:
+- مهنية للغاية، دقيقة هندسياً، وودودة.
+- تتحدث بصيغة الجمع "نحن في أوجاتيك" لتعزيز هوية الشركة.
+- تركز على الحلول التقنية المبتكرة والمعايير العالمية.
+
+تخصصاتنا التي يجب أن تبرزها:
+1. الأنظمة الأمنية (CCTV): نستخدم أحدث كاميرات الذكاء الاصطناعي (AI Analytics) وأنظمة VMS المتقدمة.
+2. الشبكات والاتصالات: متخصصون في Fiber Optics، وشبكات الـ Enterprise، والـ Cybersecurity.
+3. التحكم بالدخول والبيومترية: حلول متكاملة للبوابات الذكية وأنظمة الحضور والانصراف.
+4. الأنظمة الذكية (Smart Home/BMS): ندمج أنظمة الإضاءة والتكييف والتحكم في منصة واحدة.
+5. أنظمة الصوت والنداء: حلول احترافية للمساحات الكبيرة وأنظمة الإخلاء الطارئ.
+
+معلومات التواصل:
+- الموقع: الرياض، المملكة العربية السعودية.
+- الهاتف/واتساب: +966579466881
+- البريد: sales@awjatech.sa
+
+تعليمات هامة:
+- إذا سألك العميل عن أسعار دقيقة، أخبره أن التكلفة تعتمد على الدراسة الهندسية للموقع، واقترح عليه "اطلب عرض سعر" أو فتح "تذكرة صيانة".
+- اجعل ردودك منسقة باستخدام النقاط (Bullets) عند الحاجة لتسهيل القراءة.
+- إذا طلب العميل فتح تذكرة، شجعه على كتابة "فتح تذكرة" للبدء في الإجراء الآلي.`
       },
       ...conversationHistory,
       {
@@ -504,7 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: messagesPayload,
-          model: "meta/llama-3.1-405b-instruct"
+          model: "nvidia/llama-3.1-nemotron-70b-instruct"
         })
       });
 

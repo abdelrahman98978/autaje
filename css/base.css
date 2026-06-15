@@ -249,17 +249,22 @@ h4 { font-size: var(--font-body-lg-size); font-weight: 600; line-height: var(--f
 /* ─── Responsive Typography ─── */
 @media (max-width: 767px) {
   .display-lg {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: var(--font-display-md-size);
+    line-height: 1.2;
   }
 
   .display-md {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: var(--font-headline-lg-size);
+    line-height: 1.3;
   }
 
   .headline-lg {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: var(--font-headline-lg-mobile-size);
+    line-height: var(--font-headline-lg-mobile-line-height);
+  }
+
+  .headline-md {
+    font-size: 1.25rem;
+    line-height: 1.4;
   }
 }
